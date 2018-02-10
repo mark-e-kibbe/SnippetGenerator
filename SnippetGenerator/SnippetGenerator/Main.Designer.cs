@@ -47,6 +47,9 @@
             this.lblLiteralsToolTip = new System.Windows.Forms.Label();
             this.lblLiteralID = new System.Windows.Forms.Label();
             this.txtCodeToSnippet = new System.Windows.Forms.TextBox();
+            this.lstboxLiterals = new System.Windows.Forms.ListBox();
+            this.btnAddLiteral = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.pnlMetaData.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -144,6 +147,9 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnAddLiteral);
+            this.panel1.Controls.Add(this.lstboxLiterals);
             this.panel1.Controls.Add(this.lblLiterals);
             this.panel1.Controls.Add(this.txtLiteralID);
             this.panel1.Controls.Add(this.txtToolTip);
@@ -151,9 +157,9 @@
             this.panel1.Controls.Add(this.lblDefault);
             this.panel1.Controls.Add(this.lblLiteralsToolTip);
             this.panel1.Controls.Add(this.lblLiteralID);
-            this.panel1.Location = new System.Drawing.Point(285, 12);
+            this.panel1.Location = new System.Drawing.Point(199, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(181, 136);
+            this.panel1.Size = new System.Drawing.Size(267, 179);
             this.panel1.TabIndex = 9;
             // 
             // lblLiterals
@@ -217,11 +223,37 @@
             // 
             // txtCodeToSnippet
             // 
-            this.txtCodeToSnippet.Location = new System.Drawing.Point(12, 154);
+            this.txtCodeToSnippet.Location = new System.Drawing.Point(12, 197);
             this.txtCodeToSnippet.Multiline = true;
             this.txtCodeToSnippet.Name = "txtCodeToSnippet";
             this.txtCodeToSnippet.Size = new System.Drawing.Size(454, 114);
             this.txtCodeToSnippet.TabIndex = 10;
+            // 
+            // lstboxLiterals
+            // 
+            this.lstboxLiterals.FormattingEnabled = true;
+            this.lstboxLiterals.Location = new System.Drawing.Point(176, 10);
+            this.lstboxLiterals.Name = "lstboxLiterals";
+            this.lstboxLiterals.Size = new System.Drawing.Size(88, 160);
+            this.lstboxLiterals.TabIndex = 9;
+            // 
+            // btnAddLiteral
+            // 
+            this.btnAddLiteral.Location = new System.Drawing.Point(6, 114);
+            this.btnAddLiteral.Name = "btnAddLiteral";
+            this.btnAddLiteral.Size = new System.Drawing.Size(75, 23);
+            this.btnAddLiteral.TabIndex = 10;
+            this.btnAddLiteral.Text = "Add Literal";
+            this.btnAddLiteral.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(87, 114);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Remove";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
@@ -263,6 +295,9 @@
         private System.Windows.Forms.Label lblLiteralsToolTip;
         private System.Windows.Forms.Label lblLiteralID;
         private System.Windows.Forms.TextBox txtCodeToSnippet;
+        private System.Windows.Forms.ListBox lstboxLiterals;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAddLiteral;
     }
 }
 
