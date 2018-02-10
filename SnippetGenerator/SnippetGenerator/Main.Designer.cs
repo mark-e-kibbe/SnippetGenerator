@@ -113,7 +113,6 @@
             this.lblMetadataAuthor.Size = new System.Drawing.Size(38, 13);
             this.lblMetadataAuthor.TabIndex = 3;
             this.lblMetadataAuthor.Text = "Author";
-            this.lblMetadataAuthor.Click += new System.EventHandler(this.label4_Click);
             // 
             // lblMetadataDescription
             // 
@@ -123,7 +122,6 @@
             this.lblMetadataDescription.Size = new System.Drawing.Size(60, 13);
             this.lblMetadataDescription.TabIndex = 2;
             this.lblMetadataDescription.Text = "Description";
-            this.lblMetadataDescription.Click += new System.EventHandler(this.label3_Click);
             // 
             // lblMetadataShortcut
             // 
@@ -133,7 +131,6 @@
             this.lblMetadataShortcut.Size = new System.Drawing.Size(47, 13);
             this.lblMetadataShortcut.TabIndex = 1;
             this.lblMetadataShortcut.Text = "Shortcut";
-            this.lblMetadataShortcut.Click += new System.EventHandler(this.label2_Click);
             // 
             // lblMetadataTitle
             // 
