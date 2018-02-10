@@ -46,6 +46,7 @@
             this.lblDefault = new System.Windows.Forms.Label();
             this.lblLiteralsToolTip = new System.Windows.Forms.Label();
             this.lblLiteralID = new System.Windows.Forms.Label();
+            this.txtCodeToSnippet = new System.Windows.Forms.TextBox();
             this.pnlMetaData.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -214,11 +215,20 @@
             this.lblLiteralID.TabIndex = 0;
             this.lblLiteralID.Text = "ID";
             // 
+            // txtCodeToSnippet
+            // 
+            this.txtCodeToSnippet.Location = new System.Drawing.Point(12, 154);
+            this.txtCodeToSnippet.Multiline = true;
+            this.txtCodeToSnippet.Name = "txtCodeToSnippet";
+            this.txtCodeToSnippet.Size = new System.Drawing.Size(454, 114);
+            this.txtCodeToSnippet.TabIndex = 10;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(478, 395);
+            this.Controls.Add(this.txtCodeToSnippet);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlMetaData);
             this.Name = "Main";
@@ -228,6 +238,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -251,6 +262,7 @@
         private System.Windows.Forms.Label lblDefault;
         private System.Windows.Forms.Label lblLiteralsToolTip;
         private System.Windows.Forms.Label lblLiteralID;
+        private System.Windows.Forms.TextBox txtCodeToSnippet;
     }
 }
 
