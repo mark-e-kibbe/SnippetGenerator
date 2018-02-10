@@ -29,100 +29,33 @@
         private void InitializeComponent()
         {
             this.pnlMetaData = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtMetadataTitle = new System.Windows.Forms.TextBox();
+            this.txtMetadataAuthor = new System.Windows.Forms.TextBox();
+            this.txtMetadataShortcut = new System.Windows.Forms.TextBox();
+            this.txtMetadataDescription = new System.Windows.Forms.TextBox();
+            this.lblMetadataAuthor = new System.Windows.Forms.Label();
+            this.lblMetadataDescription = new System.Windows.Forms.Label();
+            this.lblMetadataShortcut = new System.Windows.Forms.Label();
+            this.lblMetadataTitle = new System.Windows.Forms.Label();
             this.pnlMetaData.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMetaData
             // 
             this.pnlMetaData.Controls.Add(this.label5);
-            this.pnlMetaData.Controls.Add(this.textBox4);
-            this.pnlMetaData.Controls.Add(this.textBox3);
-            this.pnlMetaData.Controls.Add(this.textBox2);
-            this.pnlMetaData.Controls.Add(this.textBox1);
-            this.pnlMetaData.Controls.Add(this.label4);
-            this.pnlMetaData.Controls.Add(this.label3);
-            this.pnlMetaData.Controls.Add(this.label2);
-            this.pnlMetaData.Controls.Add(this.label1);
+            this.pnlMetaData.Controls.Add(this.txtMetadataTitle);
+            this.pnlMetaData.Controls.Add(this.txtMetadataAuthor);
+            this.pnlMetaData.Controls.Add(this.txtMetadataShortcut);
+            this.pnlMetaData.Controls.Add(this.txtMetadataDescription);
+            this.pnlMetaData.Controls.Add(this.lblMetadataAuthor);
+            this.pnlMetaData.Controls.Add(this.lblMetadataDescription);
+            this.pnlMetaData.Controls.Add(this.lblMetadataShortcut);
+            this.pnlMetaData.Controls.Add(this.lblMetadataTitle);
             this.pnlMetaData.Location = new System.Drawing.Point(12, 12);
             this.pnlMetaData.Name = "pnlMetaData";
             this.pnlMetaData.Size = new System.Drawing.Size(181, 136);
             this.pnlMetaData.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Title";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 62);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Shortcut";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 88);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Description";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 114);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Author";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(70, 85);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 4;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(70, 59);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 5;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(70, 111);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 6;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(70, 33);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 7;
             // 
             // label5
             // 
@@ -134,6 +67,73 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Metadata";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtMetadataTitle
+            // 
+            this.txtMetadataTitle.Location = new System.Drawing.Point(70, 33);
+            this.txtMetadataTitle.Name = "txtMetadataTitle";
+            this.txtMetadataTitle.Size = new System.Drawing.Size(100, 20);
+            this.txtMetadataTitle.TabIndex = 7;
+            // 
+            // txtMetadataAuthor
+            // 
+            this.txtMetadataAuthor.Location = new System.Drawing.Point(70, 111);
+            this.txtMetadataAuthor.Name = "txtMetadataAuthor";
+            this.txtMetadataAuthor.Size = new System.Drawing.Size(100, 20);
+            this.txtMetadataAuthor.TabIndex = 6;
+            // 
+            // txtMetadataShortcut
+            // 
+            this.txtMetadataShortcut.Location = new System.Drawing.Point(70, 59);
+            this.txtMetadataShortcut.Name = "txtMetadataShortcut";
+            this.txtMetadataShortcut.Size = new System.Drawing.Size(100, 20);
+            this.txtMetadataShortcut.TabIndex = 5;
+            // 
+            // txtMetadataDescription
+            // 
+            this.txtMetadataDescription.Location = new System.Drawing.Point(70, 85);
+            this.txtMetadataDescription.Name = "txtMetadataDescription";
+            this.txtMetadataDescription.Size = new System.Drawing.Size(100, 20);
+            this.txtMetadataDescription.TabIndex = 4;
+            // 
+            // lblMetadataAuthor
+            // 
+            this.lblMetadataAuthor.AutoSize = true;
+            this.lblMetadataAuthor.Location = new System.Drawing.Point(3, 114);
+            this.lblMetadataAuthor.Name = "lblMetadataAuthor";
+            this.lblMetadataAuthor.Size = new System.Drawing.Size(38, 13);
+            this.lblMetadataAuthor.TabIndex = 3;
+            this.lblMetadataAuthor.Text = "Author";
+            this.lblMetadataAuthor.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // lblMetadataDescription
+            // 
+            this.lblMetadataDescription.AutoSize = true;
+            this.lblMetadataDescription.Location = new System.Drawing.Point(3, 88);
+            this.lblMetadataDescription.Name = "lblMetadataDescription";
+            this.lblMetadataDescription.Size = new System.Drawing.Size(60, 13);
+            this.lblMetadataDescription.TabIndex = 2;
+            this.lblMetadataDescription.Text = "Description";
+            this.lblMetadataDescription.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // lblMetadataShortcut
+            // 
+            this.lblMetadataShortcut.AutoSize = true;
+            this.lblMetadataShortcut.Location = new System.Drawing.Point(3, 62);
+            this.lblMetadataShortcut.Name = "lblMetadataShortcut";
+            this.lblMetadataShortcut.Size = new System.Drawing.Size(47, 13);
+            this.lblMetadataShortcut.TabIndex = 1;
+            this.lblMetadataShortcut.Text = "Shortcut";
+            this.lblMetadataShortcut.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // lblMetadataTitle
+            // 
+            this.lblMetadataTitle.AutoSize = true;
+            this.lblMetadataTitle.Location = new System.Drawing.Point(3, 36);
+            this.lblMetadataTitle.Name = "lblMetadataTitle";
+            this.lblMetadataTitle.Size = new System.Drawing.Size(27, 13);
+            this.lblMetadataTitle.TabIndex = 0;
+            this.lblMetadataTitle.Text = "Title";
             // 
             // Main
             // 
@@ -153,14 +153,14 @@
 
         private System.Windows.Forms.Panel pnlMetaData;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtMetadataTitle;
+        private System.Windows.Forms.TextBox txtMetadataAuthor;
+        private System.Windows.Forms.TextBox txtMetadataShortcut;
+        private System.Windows.Forms.TextBox txtMetadataDescription;
+        private System.Windows.Forms.Label lblMetadataAuthor;
+        private System.Windows.Forms.Label lblMetadataDescription;
+        private System.Windows.Forms.Label lblMetadataShortcut;
+        private System.Windows.Forms.Label lblMetadataTitle;
     }
 }
 
