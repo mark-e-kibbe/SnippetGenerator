@@ -23,7 +23,7 @@ namespace SnippetGenerator
             }
             else
             {
-                Application.Run(new Main());
+                Application.Run(new MainForm());
             }
 
         }
