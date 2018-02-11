@@ -16,7 +16,16 @@ namespace SnippetGenerator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main());
+
+            if(Properties.Settings.Default.IsFirstRun == true)
+            {
+
+            }
+            else
+            {
+                Application.Run(new Main());
+            }
+
         }
     }
 }
