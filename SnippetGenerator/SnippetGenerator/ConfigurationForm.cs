@@ -24,6 +24,9 @@ namespace SnippetGenerator
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            config.Author = txtDefaultAuthor.Text;
+            config.SSMSOutputFilePath = txtDefaultSSMSPath.Text;
+            config.VStudioOutputFilePath = txtDefaultVisualStudioPath.Text;
             config.UpdateConfiguration();
             this.Close();
         }
