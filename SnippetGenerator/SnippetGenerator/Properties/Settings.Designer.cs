@@ -34,5 +34,41 @@ namespace SnippetGenerator.Properties {
                 this["IsFirstRun"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string VisualStudioSnippetFilePath {
+            get {
+                return ((string)(this["VisualStudioSnippetFilePath"]));
+            }
+            set {
+                this["VisualStudioSnippetFilePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SSMSSnippetFilePath {
+            get {
+                return ((string)(this["SSMSSnippetFilePath"]));
+            }
+            set {
+                this["SSMSSnippetFilePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Author {
+            get {
+                return ((string)(this["Author"]));
+            }
+            set {
+                this["Author"] = value;
+            }
+        }
     }
 }
