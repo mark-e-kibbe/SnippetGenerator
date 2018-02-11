@@ -28,6 +28,7 @@ namespace SnippetGenerator.Models
             Default.SSMSSnippetFilePath = SSMSOutputFilePath;
             Default.Author = Author;
             Default.IsFirstRun = false;
+            Default.Save();
         }
     }
 }
