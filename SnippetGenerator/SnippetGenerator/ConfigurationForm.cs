@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SnippetGenerator
 {
-    public partial class Configuration : Form
+    public partial class ConfigurationForm : Form
     {
-        public Configuration()
+        public ConfigurationForm()
         {
             InitializeComponent();
 

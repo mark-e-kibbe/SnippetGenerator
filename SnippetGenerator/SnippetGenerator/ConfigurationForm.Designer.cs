@@ -1,6 +1,6 @@
 ﻿namespace SnippetGenerator
 {
-    partial class Configuration
+    partial class ConfigurationForm
     {
         /// <summary>
         /// Required designer variable.
