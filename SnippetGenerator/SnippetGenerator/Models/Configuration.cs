@@ -7,17 +7,19 @@ using static SnippetGenerator.Properties.Settings;
 
 namespace SnippetGenerator.Models
 {
-    public class ConfigurationClass
+    public class Configuration
     {
-        string VStudioOutputFilePath = string.Empty;
-        string SSMSOutputFilePath = string.Empty;
-        string Author = string.Empty;
+        public string VStudioOutputFilePath { get; set; }
+        public string SSMSOutputFilePath { get; set; }
+        public string Author { get; set; }
+        public bool IsFirstTimeRun { get; set; }
 
-        public ConfigurationClass()
+        public Configuration()
         {
             VStudioOutputFilePath = Default.VisualStudioSnippetFilePath;
             SSMSOutputFilePath = Default.SSMSSnippetFilePath;
             Author = Default.Author;
+            IsFirstTimeRun = Default.IsFirstRun;
         }
 
         public void UpdateConfiguration()
@@ -25,6 +27,7 @@ namespace SnippetGenerator.Models
             Default.VisualStudioSnippetFilePath =VStudioOutputFilePath;
             Default.SSMSSnippetFilePath = SSMSOutputFilePath;
             Default.Author = Author;
+            Default.IsFirstRun = false;
         }
     }
 }

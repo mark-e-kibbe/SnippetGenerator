@@ -104,6 +104,7 @@
             this.btnSave.TabIndex = 7;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -114,7 +115,7 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // Configuration
+            // ConfigurationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -128,7 +129,7 @@
             this.Controls.Add(this.lblSSMSPath);
             this.Controls.Add(this.lblVisualStudioPath);
             this.Controls.Add(this.lblDefaultAuthor);
-            this.Name = "Configuration";
+            this.Name = "ConfigurationForm";
             this.Text = "Configuration";
             this.ResumeLayout(false);
             this.PerformLayout();

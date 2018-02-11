@@ -20,6 +20,7 @@ namespace SnippetGenerator
             if(Properties.Settings.Default.IsFirstRun == true)
             {
                 Application.Run(new ConfigurationForm());
+                Application.Run(new MainForm());
             }
             else
             {
