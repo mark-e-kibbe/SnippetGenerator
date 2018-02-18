@@ -15,6 +15,9 @@ namespace SnippetGenerator.BLLs
             //start basic no literals
             StringBuilder _stringBuilder = new StringBuilder();
             _stringBuilder.AppendLine(@"<CodeSnippets xmlns=""http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet"">");
+            _stringBuilder.AppendLine(LocDefinitionXML());
+            _stringBuilder.AppendLine(@"<CodeSnippet Format =""1.0.0"">");
+            _stringBuilder.AppendLine(HeaderXML(snippet._Metadata));
         }
 
         private void Save(string snippetToSave, string path)
@@ -31,7 +34,7 @@ namespace SnippetGenerator.BLLs
             }
         }
 
-        private string LocDefinition()
+        private string LocDefinitionXML()
         {
             string LocDef = string.Empty;
             StringBuilder sb = new StringBuilder();
@@ -46,6 +49,18 @@ namespace SnippetGenerator.BLLs
             sb.AppendLine(@"</_locDefinition>");
 
             return LocDef;
+        }
+
+        private string HeaderXML(Metadata metadata)
+        {
+            string HeaderXML = string.Empty;
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine(@"<Header>");
+
+            sb.AppendLine(@"</Header>");
+
+            return HeaderXML;
         }
     }
 }
