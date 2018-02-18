@@ -75,7 +75,8 @@ namespace SnippetGenerator
                 }
                 
             }
-            return string.Empty;
+            //TODO Hardcoded strings I feel should not be used, change if possible
+            return "None";
         }
     }
 }
