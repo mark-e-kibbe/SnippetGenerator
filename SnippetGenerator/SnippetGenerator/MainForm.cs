@@ -41,6 +41,7 @@ namespace SnippetGenerator
                 case PlatformEnums.VS:
                     radVS.Checked = true;
                     lblOutput.Text = $"{radVS.Text} {lblOutput.Text}";
+                    txtOutputDirectory.Text = config.VStudioOutputFilePath;
                     break;
                 default:
                     break;

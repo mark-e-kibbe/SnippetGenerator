@@ -340,9 +340,9 @@
             // 
             this.grpBoxPlatform.Controls.Add(this.radVS);
             this.grpBoxPlatform.Controls.Add(this.radSSMS);
-            this.grpBoxPlatform.Location = new System.Drawing.Point(33, 12);
+            this.grpBoxPlatform.Location = new System.Drawing.Point(33, 7);
             this.grpBoxPlatform.Name = "grpBoxPlatform";
-            this.grpBoxPlatform.Size = new System.Drawing.Size(109, 37);
+            this.grpBoxPlatform.Size = new System.Drawing.Size(109, 42);
             this.grpBoxPlatform.TabIndex = 16;
             this.grpBoxPlatform.TabStop = false;
             this.grpBoxPlatform.Text = "Platform";
@@ -350,7 +350,7 @@
             // radVS
             // 
             this.radVS.AutoSize = true;
-            this.radVS.Location = new System.Drawing.Point(67, 14);
+            this.radVS.Location = new System.Drawing.Point(64, 15);
             this.radVS.Name = "radVS";
             this.radVS.Size = new System.Drawing.Size(39, 17);
             this.radVS.TabIndex = 13;
@@ -361,7 +361,7 @@
             // radSSMS
             // 
             this.radSSMS.AutoSize = true;
-            this.radSSMS.Location = new System.Drawing.Point(6, 14);
+            this.radSSMS.Location = new System.Drawing.Point(3, 15);
             this.radSSMS.Name = "radSSMS";
             this.radSSMS.Size = new System.Drawing.Size(55, 17);
             this.radSSMS.TabIndex = 12;
