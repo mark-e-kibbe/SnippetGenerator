@@ -4,30 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static SnippetGenerator.Properties.Settings;
+using static SnippetGenerator.Snippet_Enumerations.SnippetEnums;
 
 namespace SnippetGenerator.Models
 {
     public class Configuration
     {
-        public enum PlatformEnums
-        {
-            None,
-            SSMS,
-            VS
-        }
-        public  enum SnippetTypeEnums
-        {
-            Expansion,
-            None,
-            SurroundsWith
-        }
-
         public string VStudioOutputFilePath { get; set; }
         public string SSMSOutputFilePath { get; set; }
         public string Author { get; set; }
         public bool IsFirstTimeRun { get; set; }
         public PlatformEnums Platform { get; set; }
         public  SnippetTypeEnums SnippetType { get; set; }
+
         public Configuration()
         {
             VStudioOutputFilePath = Default.VisualStudioSnippetFilePath;

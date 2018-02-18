@@ -8,6 +8,7 @@ namespace SnippetGenerator.Models
 {
     public class Snippet
     {
-
+        Metadata _Metadata = new Metadata();
+        List<Literal> _Literals = new List<Literal>();
     }
 }

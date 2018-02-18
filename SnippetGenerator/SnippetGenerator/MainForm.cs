@@ -1,4 +1,5 @@
 ﻿using SnippetGenerator.Models;
+using static SnippetGenerator.Snippet_Enumerations.SnippetEnums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,12 +33,12 @@ namespace SnippetGenerator
             
             switch (config.Platform)
             {
-                case Configuration.PlatformEnums.SSMS:
+                case PlatformEnums.SSMS:
                     radSSMS.Checked = true;
                     lblOutput.Text = $"{radSSMS.Text} {lblOutput.Text}";
                     txtOutputDirectory.Text = config.SSMSOutputFilePath;
                     break;
-                case Configuration.PlatformEnums.VS:
+                case PlatformEnums.VS:
                     radVS.Checked = true;
                     lblOutput.Text = $"{radVS.Text} {lblOutput.Text}";
                     break;
@@ -47,10 +48,10 @@ namespace SnippetGenerator
 
             switch (config.SnippetType)
             {
-                case Configuration.SnippetTypeEnums.Expansion:
+                case SnippetTypeEnums.Expansion:
                     radExpansion.Checked = true;
                     break;
-                case Configuration.SnippetTypeEnums.SurroundsWith:
+                case SnippetTypeEnums.SurroundsWith:
                     radSurroundsWith.Checked = true;
                     break;
                 default:
