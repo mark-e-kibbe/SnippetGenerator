@@ -21,7 +21,14 @@ namespace SnippetGenerator.BLLs
             _stringBuilder.AppendLine(@"<Snippet>");
             _stringBuilder.AppendLine(@"<Declarations>");
 
-
+            //for each loop to get do each literal in the list
+            if (snippet._Literals != null && snippet._Literals.Count > 0)
+            {
+                foreach (Literal literal in snippet._Literals)
+                {
+                    _stringBuilder.AppendLine(literal.GetLiteralXMLStr());
+                } 
+            }
 
             _stringBuilder.AppendLine(@"</Declarations>");
             _stringBuilder.AppendLine(@"</CodeSnippet>");
@@ -76,6 +83,8 @@ namespace SnippetGenerator.BLLs
         {
             string LiteralXML = string.Empty;
             StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine(literal.GetLiteralXMLStr());
 
             LiteralXML = sb.ToString();
             return LiteralXML;
