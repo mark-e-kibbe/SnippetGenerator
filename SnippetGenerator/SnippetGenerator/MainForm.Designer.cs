@@ -53,9 +53,9 @@
             this.btnGenerateAndSave = new System.Windows.Forms.Button();
             this.lblOutput = new System.Windows.Forms.Label();
             this.pnlSnippetType = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.radSurroundsWith = new System.Windows.Forms.RadioButton();
             this.radExpansion = new System.Windows.Forms.RadioButton();
+            this.radSurroundsWith = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtOutputDirectory = new System.Windows.Forms.TextBox();
             this.grpBoxPlatform = new System.Windows.Forms.GroupBox();
             this.radVS = new System.Windows.Forms.RadioButton();
@@ -280,7 +280,7 @@
             // lblOutput
             // 
             this.lblOutput.AutoSize = true;
-            this.lblOutput.Location = new System.Drawing.Point(15, 314);
+            this.lblOutput.Location = new System.Drawing.Point(15, 317);
             this.lblOutput.Name = "lblOutput";
             this.lblOutput.Size = new System.Drawing.Size(90, 13);
             this.lblOutput.TabIndex = 13;
@@ -296,16 +296,16 @@
             this.pnlSnippetType.Size = new System.Drawing.Size(293, 37);
             this.pnlSnippetType.TabIndex = 14;
             // 
-            // label1
+            // radExpansion
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label1.Location = new System.Drawing.Point(3, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 20);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Snippet Type";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radExpansion.AutoSize = true;
+            this.radExpansion.Location = new System.Drawing.Point(214, 10);
+            this.radExpansion.Name = "radExpansion";
+            this.radExpansion.Size = new System.Drawing.Size(74, 17);
+            this.radExpansion.TabIndex = 11;
+            this.radExpansion.TabStop = true;
+            this.radExpansion.Text = "Expansion";
+            this.radExpansion.UseVisualStyleBackColor = true;
             // 
             // radSurroundsWith
             // 
@@ -318,22 +318,22 @@
             this.radSurroundsWith.Text = "SurroundsWith";
             this.radSurroundsWith.UseVisualStyleBackColor = true;
             // 
-            // radExpansion
+            // label1
             // 
-            this.radExpansion.AutoSize = true;
-            this.radExpansion.Location = new System.Drawing.Point(214, 10);
-            this.radExpansion.Name = "radExpansion";
-            this.radExpansion.Size = new System.Drawing.Size(74, 17);
-            this.radExpansion.TabIndex = 11;
-            this.radExpansion.TabStop = true;
-            this.radExpansion.Text = "Expansion";
-            this.radExpansion.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.label1.Location = new System.Drawing.Point(3, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(106, 20);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Snippet Type";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtOutputDirectory
             // 
-            this.txtOutputDirectory.Location = new System.Drawing.Point(111, 314);
+            this.txtOutputDirectory.Location = new System.Drawing.Point(144, 314);
             this.txtOutputDirectory.Name = "txtOutputDirectory";
-            this.txtOutputDirectory.Size = new System.Drawing.Size(355, 20);
+            this.txtOutputDirectory.Size = new System.Drawing.Size(322, 20);
             this.txtOutputDirectory.TabIndex = 15;
             // 
             // grpBoxPlatform

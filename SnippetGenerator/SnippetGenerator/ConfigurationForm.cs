@@ -17,12 +17,16 @@ namespace SnippetGenerator
         public ConfigurationForm()
         {
             InitializeComponent();
+            InitializeDefaults();
+        }
+        private void InitializeDefaults()
+        {
             txtDefaultAuthor.Text = config.Author;
             txtDefaultSSMSPath.Text = config.SSMSOutputFilePath;
             txtDefaultVisualStudioPath.Text = config.VStudioOutputFilePath;
 
             //find the default rad buttons and prepopulate
-            switch(config.Platform)
+            switch (config.Platform)
             {
                 case Configuration.PlatformEnums.None:
                     radConfigPlatformNone.Checked = true;
@@ -36,7 +40,7 @@ namespace SnippetGenerator
             }
 
             switch (config.SnippetType)
-            { 
+            {
                 case Configuration.SnippetTypeEnums.Expansion:
                     radConfigTypeExpansion.Checked = true;
                     break;
@@ -48,35 +52,15 @@ namespace SnippetGenerator
                     break;
             }
         }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             config.Author = txtDefaultAuthor.Text;
             config.SSMSOutputFilePath = txtDefaultSSMSPath.Text;
             config.VStudioOutputFilePath = txtDefaultVisualStudioPath.Text;
-            config.Platform = (Configuration.PlatformEnums)Enum.Parse(typeof(Configuration.PlatformEnums), ValueOfChecked(pnlConfigPlatform));
-            config.SnippetType = (Configuration.SnippetTypeEnums)Enum.Parse(typeof(Configuration.SnippetTypeEnums), ValueOfChecked(pnlConfigSnippetType));
+            config.Platform = (Configuration.PlatformEnums)Enum.Parse(typeof(Configuration.PlatformEnums), Utilities.ValueOfChecked(pnlConfigPlatform));
+            config.SnippetType = (Configuration.SnippetTypeEnums)Enum.Parse(typeof(Configuration.SnippetTypeEnums), Utilities.ValueOfChecked(pnlConfigSnippetType));
             config.UpdateConfiguration();
             this.Close();
-        }
-
-        private string ValueOfChecked(Panel container)
-        {
-            foreach (Control control in container.Controls)
-            {
-                RadioButton rb = (RadioButton)control;
-                if(rb.Checked == true)
-                {
-                    return rb.Text;
-                }
-                else
-                {
-                    continue;
-                }
-                
-            }
-            //TODO Hardcoded strings I feel should not be used, change if possible
-            return "None";
         }
     }
 }
