@@ -40,7 +40,9 @@ namespace SnippetGenerator.BLLs
             _stringBuilder.AppendLine(@"</CodeSnippet>");
             _stringBuilder.AppendLine(@"</CodeSnippets>");
 
-            CompletedXMLStr = _stringBuilder.ToString();
+            CompletedXMLStr = FormatXMLStr(_stringBuilder.ToString());
+
+
             return CompletedXMLStr;
         }
 
@@ -116,7 +118,7 @@ namespace SnippetGenerator.BLLs
             return CodeXML;
         }
 
-        private string FormatXML(string xmlStr)
+        private string FormatXMLStr(string xmlStr)
         {
             string FormattedXML = string.Empty;
 
