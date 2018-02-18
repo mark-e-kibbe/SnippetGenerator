@@ -31,6 +31,9 @@ namespace SnippetGenerator.BLLs
             }
 
             _stringBuilder.AppendLine(@"</Declarations>");
+
+            _stringBuilder.AppendLine(CodeXML(snippet.CodeToSnippet));
+
             _stringBuilder.AppendLine(@"</CodeSnippet>");
             _stringBuilder.AppendLine(@"</CodeSnippets>");
         }
@@ -88,6 +91,23 @@ namespace SnippetGenerator.BLLs
 
             LiteralXML = sb.ToString();
             return LiteralXML;
+        }
+
+        private string CodeXML(string code)
+        {
+            string CodeXML = string.Empty;
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine(@"<Code Language=""SQL"">");
+            sb.AppendLine(@"< ![CDATA[");
+
+            sb.AppendLine(code);
+
+            sb.AppendLine(@"]] >");
+            sb.AppendLine(@" </Code>");
+
+            CodeXML = sb.ToString();
+            return CodeXML;
         }
     }
 }
