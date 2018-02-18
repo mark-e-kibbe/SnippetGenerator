@@ -15,9 +15,6 @@ namespace SnippetGenerator
         public MainForm()
         {
             InitializeComponent();
-
-            lblSSMSOutputDirectory.Text += new Models.Configuration().SSMSOutputFilePath;
-            lblVSOutputDirectory.Text += new Models.Configuration().VStudioOutputFilePath;
         }
 
         private void btnGenerateAndSave_Click(object sender, EventArgs e)

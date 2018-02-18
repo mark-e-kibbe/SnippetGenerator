@@ -50,11 +50,20 @@
             this.lblLiteralsToolTip = new System.Windows.Forms.Label();
             this.lblLiteralID = new System.Windows.Forms.Label();
             this.txtCodeToSnippet = new System.Windows.Forms.TextBox();
-            this.lblSSMSOutputDirectory = new System.Windows.Forms.Label();
             this.btnGenerateAndSave = new System.Windows.Forms.Button();
-            this.lblVSOutputDirectory = new System.Windows.Forms.Label();
+            this.lblOutput = new System.Windows.Forms.Label();
+            this.pnlSnippetType = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.radSurroundsWith = new System.Windows.Forms.RadioButton();
+            this.radExpansion = new System.Windows.Forms.RadioButton();
+            this.txtOutputDirectory = new System.Windows.Forms.TextBox();
+            this.grpBoxPlatform = new System.Windows.Forms.GroupBox();
+            this.radVS = new System.Windows.Forms.RadioButton();
+            this.radSSMS = new System.Windows.Forms.RadioButton();
             this.pnlMetaData.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.pnlSnippetType.SuspendLayout();
+            this.grpBoxPlatform.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMetaData
@@ -68,7 +77,7 @@
             this.pnlMetaData.Controls.Add(this.lblMetadataDescription);
             this.pnlMetaData.Controls.Add(this.lblMetadataShortcut);
             this.pnlMetaData.Controls.Add(this.lblMetadataTitle);
-            this.pnlMetaData.Location = new System.Drawing.Point(12, 12);
+            this.pnlMetaData.Location = new System.Drawing.Point(12, 55);
             this.pnlMetaData.Name = "pnlMetaData";
             this.pnlMetaData.Size = new System.Drawing.Size(181, 136);
             this.pnlMetaData.TabIndex = 0;
@@ -160,14 +169,14 @@
             this.panel1.Controls.Add(this.lblDefault);
             this.panel1.Controls.Add(this.lblLiteralsToolTip);
             this.panel1.Controls.Add(this.lblLiteralID);
-            this.panel1.Location = new System.Drawing.Point(199, 12);
+            this.panel1.Location = new System.Drawing.Point(199, 55);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(267, 179);
+            this.panel1.Size = new System.Drawing.Size(267, 136);
             this.panel1.TabIndex = 9;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(87, 114);
+            this.button1.Location = new System.Drawing.Point(95, 108);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 11;
@@ -176,7 +185,7 @@
             // 
             // btnAddLiteral
             // 
-            this.btnAddLiteral.Location = new System.Drawing.Point(6, 114);
+            this.btnAddLiteral.Location = new System.Drawing.Point(6, 108);
             this.btnAddLiteral.Name = "btnAddLiteral";
             this.btnAddLiteral.Size = new System.Drawing.Size(75, 23);
             this.btnAddLiteral.TabIndex = 10;
@@ -188,7 +197,7 @@
             this.lstboxLiterals.FormattingEnabled = true;
             this.lstboxLiterals.Location = new System.Drawing.Point(176, 10);
             this.lstboxLiterals.Name = "lstboxLiterals";
-            this.lstboxLiterals.Size = new System.Drawing.Size(88, 160);
+            this.lstboxLiterals.Size = new System.Drawing.Size(88, 121);
             this.lstboxLiterals.TabIndex = 9;
             // 
             // lblLiterals
@@ -258,15 +267,6 @@
             this.txtCodeToSnippet.Size = new System.Drawing.Size(454, 114);
             this.txtCodeToSnippet.TabIndex = 10;
             // 
-            // lblSSMSOutputDirectory
-            // 
-            this.lblSSMSOutputDirectory.AutoSize = true;
-            this.lblSSMSOutputDirectory.Location = new System.Drawing.Point(12, 314);
-            this.lblSSMSOutputDirectory.Name = "lblSSMSOutputDirectory";
-            this.lblSSMSOutputDirectory.Size = new System.Drawing.Size(123, 13);
-            this.lblSSMSOutputDirectory.TabIndex = 11;
-            this.lblSSMSOutputDirectory.Text = "SSMS Output Directory: ";
-            // 
             // btnGenerateAndSave
             // 
             this.btnGenerateAndSave.Location = new System.Drawing.Point(180, 360);
@@ -277,23 +277,108 @@
             this.btnGenerateAndSave.UseVisualStyleBackColor = true;
             this.btnGenerateAndSave.Click += new System.EventHandler(this.btnGenerateAndSave_Click);
             // 
-            // lblVSOutputDirectory
+            // lblOutput
             // 
-            this.lblVSOutputDirectory.AutoSize = true;
-            this.lblVSOutputDirectory.Location = new System.Drawing.Point(28, 327);
-            this.lblVSOutputDirectory.Name = "lblVSOutputDirectory";
-            this.lblVSOutputDirectory.Size = new System.Drawing.Size(107, 13);
-            this.lblVSOutputDirectory.TabIndex = 13;
-            this.lblVSOutputDirectory.Text = "VS Output Directory: ";
+            this.lblOutput.AutoSize = true;
+            this.lblOutput.Location = new System.Drawing.Point(15, 314);
+            this.lblOutput.Name = "lblOutput";
+            this.lblOutput.Size = new System.Drawing.Size(90, 13);
+            this.lblOutput.TabIndex = 13;
+            this.lblOutput.Text = "Output Directory :";
+            // 
+            // pnlSnippetType
+            // 
+            this.pnlSnippetType.Controls.Add(this.radExpansion);
+            this.pnlSnippetType.Controls.Add(this.radSurroundsWith);
+            this.pnlSnippetType.Controls.Add(this.label1);
+            this.pnlSnippetType.Location = new System.Drawing.Point(173, 12);
+            this.pnlSnippetType.Name = "pnlSnippetType";
+            this.pnlSnippetType.Size = new System.Drawing.Size(293, 37);
+            this.pnlSnippetType.TabIndex = 14;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.label1.Location = new System.Drawing.Point(3, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(106, 20);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Snippet Type";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // radSurroundsWith
+            // 
+            this.radSurroundsWith.AutoSize = true;
+            this.radSurroundsWith.Location = new System.Drawing.Point(113, 10);
+            this.radSurroundsWith.Name = "radSurroundsWith";
+            this.radSurroundsWith.Size = new System.Drawing.Size(95, 17);
+            this.radSurroundsWith.TabIndex = 10;
+            this.radSurroundsWith.TabStop = true;
+            this.radSurroundsWith.Text = "SurroundsWith";
+            this.radSurroundsWith.UseVisualStyleBackColor = true;
+            // 
+            // radExpansion
+            // 
+            this.radExpansion.AutoSize = true;
+            this.radExpansion.Location = new System.Drawing.Point(214, 10);
+            this.radExpansion.Name = "radExpansion";
+            this.radExpansion.Size = new System.Drawing.Size(74, 17);
+            this.radExpansion.TabIndex = 11;
+            this.radExpansion.TabStop = true;
+            this.radExpansion.Text = "Expansion";
+            this.radExpansion.UseVisualStyleBackColor = true;
+            // 
+            // txtOutputDirectory
+            // 
+            this.txtOutputDirectory.Location = new System.Drawing.Point(111, 314);
+            this.txtOutputDirectory.Name = "txtOutputDirectory";
+            this.txtOutputDirectory.Size = new System.Drawing.Size(355, 20);
+            this.txtOutputDirectory.TabIndex = 15;
+            // 
+            // grpBoxPlatform
+            // 
+            this.grpBoxPlatform.Controls.Add(this.radVS);
+            this.grpBoxPlatform.Controls.Add(this.radSSMS);
+            this.grpBoxPlatform.Location = new System.Drawing.Point(33, 12);
+            this.grpBoxPlatform.Name = "grpBoxPlatform";
+            this.grpBoxPlatform.Size = new System.Drawing.Size(109, 37);
+            this.grpBoxPlatform.TabIndex = 16;
+            this.grpBoxPlatform.TabStop = false;
+            this.grpBoxPlatform.Text = "Platform";
+            // 
+            // radVS
+            // 
+            this.radVS.AutoSize = true;
+            this.radVS.Location = new System.Drawing.Point(67, 14);
+            this.radVS.Name = "radVS";
+            this.radVS.Size = new System.Drawing.Size(39, 17);
+            this.radVS.TabIndex = 13;
+            this.radVS.TabStop = true;
+            this.radVS.Text = "VS";
+            this.radVS.UseVisualStyleBackColor = true;
+            // 
+            // radSSMS
+            // 
+            this.radSSMS.AutoSize = true;
+            this.radSSMS.Location = new System.Drawing.Point(6, 14);
+            this.radSSMS.Name = "radSSMS";
+            this.radSSMS.Size = new System.Drawing.Size(55, 17);
+            this.radSSMS.TabIndex = 12;
+            this.radSSMS.TabStop = true;
+            this.radSSMS.Text = "SSMS";
+            this.radSSMS.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(478, 395);
-            this.Controls.Add(this.lblVSOutputDirectory);
+            this.Controls.Add(this.grpBoxPlatform);
+            this.Controls.Add(this.txtOutputDirectory);
+            this.Controls.Add(this.pnlSnippetType);
+            this.Controls.Add(this.lblOutput);
             this.Controls.Add(this.btnGenerateAndSave);
-            this.Controls.Add(this.lblSSMSOutputDirectory);
             this.Controls.Add(this.txtCodeToSnippet);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlMetaData);
@@ -303,6 +388,10 @@
             this.pnlMetaData.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.pnlSnippetType.ResumeLayout(false);
+            this.pnlSnippetType.PerformLayout();
+            this.grpBoxPlatform.ResumeLayout(false);
+            this.grpBoxPlatform.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -332,9 +421,16 @@
         private System.Windows.Forms.ListBox lstboxLiterals;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnAddLiteral;
-        private System.Windows.Forms.Label lblSSMSOutputDirectory;
         private System.Windows.Forms.Button btnGenerateAndSave;
-        private System.Windows.Forms.Label lblVSOutputDirectory;
+        private System.Windows.Forms.Label lblOutput;
+        private System.Windows.Forms.Panel pnlSnippetType;
+        private System.Windows.Forms.RadioButton radSurroundsWith;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RadioButton radExpansion;
+        private System.Windows.Forms.TextBox txtOutputDirectory;
+        private System.Windows.Forms.GroupBox grpBoxPlatform;
+        private System.Windows.Forms.RadioButton radVS;
+        private System.Windows.Forms.RadioButton radSSMS;
     }
 }
 
