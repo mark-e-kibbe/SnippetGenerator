@@ -39,14 +39,14 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.lblSnippetType = new System.Windows.Forms.Label();
             this.pnlConfigSnippetType = new System.Windows.Forms.Panel();
+            this.radConfigTypeNone = new System.Windows.Forms.RadioButton();
             this.radConfigTypeExpansion = new System.Windows.Forms.RadioButton();
             this.radConfigTypeSurroundsWith = new System.Windows.Forms.RadioButton();
             this.pnlConfigPlatform = new System.Windows.Forms.Panel();
+            this.radConfigPlatformNone = new System.Windows.Forms.RadioButton();
             this.radConfigPlatformVS = new System.Windows.Forms.RadioButton();
             this.radConfigPlatformSSMS = new System.Windows.Forms.RadioButton();
             this.lblPlatform = new System.Windows.Forms.Label();
-            this.radConfigPlatformNone = new System.Windows.Forms.RadioButton();
-            this.radConfigTypeNone = new System.Windows.Forms.RadioButton();
             this.pnlConfigSnippetType.SuspendLayout();
             this.pnlConfigPlatform.SuspendLayout();
             this.SuspendLayout();
@@ -146,6 +146,18 @@
             this.pnlConfigSnippetType.Size = new System.Drawing.Size(266, 20);
             this.pnlConfigSnippetType.TabIndex = 10;
             // 
+            // radConfigTypeNone
+            // 
+            this.radConfigTypeNone.AutoSize = true;
+            this.radConfigTypeNone.Checked = true;
+            this.radConfigTypeNone.Location = new System.Drawing.Point(193, 2);
+            this.radConfigTypeNone.Name = "radConfigTypeNone";
+            this.radConfigTypeNone.Size = new System.Drawing.Size(51, 17);
+            this.radConfigTypeNone.TabIndex = 15;
+            this.radConfigTypeNone.TabStop = true;
+            this.radConfigTypeNone.Text = "None";
+            this.radConfigTypeNone.UseVisualStyleBackColor = true;
+            // 
             // radConfigTypeExpansion
             // 
             this.radConfigTypeExpansion.AutoSize = true;
@@ -176,6 +188,18 @@
             this.pnlConfigPlatform.Size = new System.Drawing.Size(266, 20);
             this.pnlConfigPlatform.TabIndex = 12;
             // 
+            // radConfigPlatformNone
+            // 
+            this.radConfigPlatformNone.AutoSize = true;
+            this.radConfigPlatformNone.Checked = true;
+            this.radConfigPlatformNone.Location = new System.Drawing.Point(193, 2);
+            this.radConfigPlatformNone.Name = "radConfigPlatformNone";
+            this.radConfigPlatformNone.Size = new System.Drawing.Size(51, 17);
+            this.radConfigPlatformNone.TabIndex = 14;
+            this.radConfigPlatformNone.TabStop = true;
+            this.radConfigPlatformNone.Text = "None";
+            this.radConfigPlatformNone.UseVisualStyleBackColor = true;
+            // 
             // radConfigPlatformVS
             // 
             this.radConfigPlatformVS.AutoSize = true;
@@ -199,35 +223,11 @@
             // lblPlatform
             // 
             this.lblPlatform.AutoSize = true;
-            this.lblPlatform.Location = new System.Drawing.Point(21, 69);
+            this.lblPlatform.Location = new System.Drawing.Point(18, 69);
             this.lblPlatform.Name = "lblPlatform";
             this.lblPlatform.Size = new System.Drawing.Size(45, 13);
             this.lblPlatform.TabIndex = 11;
             this.lblPlatform.Text = "Platform";
-            // 
-            // radConfigPlatformNone
-            // 
-            this.radConfigPlatformNone.AutoSize = true;
-            this.radConfigPlatformNone.Checked = true;
-            this.radConfigPlatformNone.Location = new System.Drawing.Point(193, 2);
-            this.radConfigPlatformNone.Name = "radConfigPlatformNone";
-            this.radConfigPlatformNone.Size = new System.Drawing.Size(51, 17);
-            this.radConfigPlatformNone.TabIndex = 14;
-            this.radConfigPlatformNone.TabStop = true;
-            this.radConfigPlatformNone.Text = "None";
-            this.radConfigPlatformNone.UseVisualStyleBackColor = true;
-            // 
-            // radConfigTypeNone
-            // 
-            this.radConfigTypeNone.AutoSize = true;
-            this.radConfigTypeNone.Checked = true;
-            this.radConfigTypeNone.Location = new System.Drawing.Point(193, 2);
-            this.radConfigTypeNone.Name = "radConfigTypeNone";
-            this.radConfigTypeNone.Size = new System.Drawing.Size(51, 17);
-            this.radConfigTypeNone.TabIndex = 15;
-            this.radConfigTypeNone.TabStop = true;
-            this.radConfigTypeNone.Text = "None";
-            this.radConfigTypeNone.UseVisualStyleBackColor = true;
             // 
             // ConfigurationForm
             // 
