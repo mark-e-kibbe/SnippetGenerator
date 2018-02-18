@@ -14,6 +14,8 @@ namespace SnippetGenerator
 {
     public partial class MainForm : Form
     {
+        private Snippet _Snippet = new Snippet();
+
         public MainForm()
         {
             InitializeComponent();
