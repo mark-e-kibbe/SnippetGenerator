@@ -116,11 +116,6 @@ namespace SnippetGenerator.BLLs
             return CodeXML;
         }
 
-        public void Save(string path)
-        {
-
-        }
-
         private string FormatXML(string xmlStr)
         {
             string FormattedXML = string.Empty;
