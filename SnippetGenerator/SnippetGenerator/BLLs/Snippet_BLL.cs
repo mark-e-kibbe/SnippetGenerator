@@ -46,11 +46,10 @@ namespace SnippetGenerator.BLLs
             return CompletedXMLStr;
         }
 
-        private void Save(string snippetToSave, string path)
+        public void Save(string snippetToSave, string path)
         {
             if (!File.Exists(path))
             {
-                // Create a file to write to.
                 using (StreamWriter sw = File.CreateText(path))
                 {
                     //sw.WriteLine("Hello");
