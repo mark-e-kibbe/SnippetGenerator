@@ -25,6 +25,8 @@ namespace SnippetGenerator
         private void btnGenerateAndSave_Click(object sender, EventArgs e)
         {
             _Snippet.CompleteSnippetToXMLString();
+
+            _Snippet.Save(txtOutputDirectory.Text);
         }
 
         private void InitializeDefaults()

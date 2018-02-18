@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace SnippetGenerator.BLLs
 {
@@ -126,8 +127,10 @@ namespace SnippetGenerator.BLLs
 
             try
             {
-                return FormattedXML;
+                XDocument xDoc = XDocument.Parse(xmlStr);
+                FormattedXML = xDoc.ToString();
 
+                return FormattedXML;
             }
             catch (Exception)
             {
