@@ -27,6 +27,7 @@ namespace SnippetGenerator.BLLs
 
             sb.AppendLine(@"</Header>");
 
+            XMLToReturn = sb.ToString();
             return XMLToReturn;
         }
     }

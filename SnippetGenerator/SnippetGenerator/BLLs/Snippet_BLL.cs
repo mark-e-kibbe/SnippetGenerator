@@ -18,6 +18,14 @@ namespace SnippetGenerator.BLLs
             _stringBuilder.AppendLine(LocDefinitionXML());
             _stringBuilder.AppendLine(@"<CodeSnippet Format =""1.0.0"">");
             _stringBuilder.AppendLine(HeaderXML(snippet._Metadata));
+            _stringBuilder.AppendLine(@"<Snippet>");
+            _stringBuilder.AppendLine(@"<Declarations>");
+
+
+
+            _stringBuilder.AppendLine(@"</Declarations>");
+            _stringBuilder.AppendLine(@"</CodeSnippet>");
+            _stringBuilder.AppendLine(@"</CodeSnippets>");
         }
 
         private void Save(string snippetToSave, string path)
@@ -48,6 +56,8 @@ namespace SnippetGenerator.BLLs
             sb.AppendLine(@"<_locTag _loc=""locData"">Default</_locTag>");
             sb.AppendLine(@"</_locDefinition>");
 
+            LocDef = sb.ToString();
+
             return LocDef;
         }
 
@@ -56,11 +66,19 @@ namespace SnippetGenerator.BLLs
             string HeaderXML = string.Empty;
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine(@"<Header>");
+            sb.AppendLine(metadata.GetMetadataXMLStr());
 
-            sb.AppendLine(@"</Header>");
-
+            HeaderXML = sb.ToString();
             return HeaderXML;
+        }
+
+        private string LiteralXML(Literal literal)
+        {
+            string LiteralXML = string.Empty;
+            StringBuilder sb = new StringBuilder();
+
+            LiteralXML = sb.ToString();
+            return LiteralXML;
         }
     }
 }

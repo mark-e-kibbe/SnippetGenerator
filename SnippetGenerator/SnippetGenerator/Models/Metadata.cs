@@ -28,5 +28,9 @@ namespace SnippetGenerator.Models
             _SnippetType = SnippetType;
         }
 
+        public string GetMetadataXMLStr()
+        {
+            return metadata_BLL.FormattedMetadataXMLString(this);
+        }
     }
 }
