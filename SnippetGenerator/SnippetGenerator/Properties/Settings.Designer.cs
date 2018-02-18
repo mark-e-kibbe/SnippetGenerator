@@ -70,5 +70,29 @@ namespace SnippetGenerator.Properties {
                 this["Author"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Platform {
+            get {
+                return ((string)(this["Platform"]));
+            }
+            set {
+                this["Platform"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SnippetType {
+            get {
+                return ((string)(this["SnippetType"]));
+            }
+            set {
+                this["SnippetType"] = value;
+            }
+        }
     }
 }
