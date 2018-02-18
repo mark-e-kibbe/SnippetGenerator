@@ -19,5 +19,15 @@ namespace SnippetGenerator.Models
 
         //TODO Class this property out
         public string CodeToSnippet = string.Empty;
+
+        public string CompleteSnippetToXMLString()
+        {
+            return snippet_BLL.GenerateSnippet(this);
+        }
+
+        public void Save(string path)
+        {
+            snippet_BLL.Save(path);
+        }
     }
 }

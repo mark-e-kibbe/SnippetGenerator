@@ -10,8 +10,10 @@ namespace SnippetGenerator.BLLs
 {
     public class Snippet_BLL
     {
-        public void GenerateSnippet(Snippet snippet)
+        public string GenerateSnippet(Snippet snippet)
         {
+            string CompletedXMLStr = string.Empty;
+
             //start basic no literals
             StringBuilder _stringBuilder = new StringBuilder();
             _stringBuilder.AppendLine(@"<CodeSnippets xmlns=""http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet"">");
@@ -27,7 +29,7 @@ namespace SnippetGenerator.BLLs
                 foreach (Literal literal in snippet._Literals)
                 {
                     _stringBuilder.AppendLine(literal.GetLiteralXMLStr());
-                } 
+                }
             }
 
             _stringBuilder.AppendLine(@"</Declarations>");
@@ -36,6 +38,9 @@ namespace SnippetGenerator.BLLs
 
             _stringBuilder.AppendLine(@"</CodeSnippet>");
             _stringBuilder.AppendLine(@"</CodeSnippets>");
+
+            CompletedXMLStr = _stringBuilder.ToString();
+            return CompletedXMLStr;
         }
 
         private void Save(string snippetToSave, string path)
@@ -108,6 +113,26 @@ namespace SnippetGenerator.BLLs
 
             CodeXML = sb.ToString();
             return CodeXML;
+        }
+
+        public void Save(string path)
+        {
+
+        }
+
+        private string FormatXML(string xmlStr)
+        {
+            string FormattedXML = string.Empty;
+
+            try
+            {
+                return FormattedXML;
+
+            }
+            catch (Exception)
+            {
+                return xmlStr;
+            }
         }
     }
 }
