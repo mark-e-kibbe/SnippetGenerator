@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SnippetGenerator.BLLs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,13 @@ namespace SnippetGenerator.Models
 {
     public class Metadata
     {
+        private Metadata_BLL metadata_BLL = new Metadata_BLL();
+        public string _Title {get;set;}
+        public string _Shortcut {get;set;}
+        public string _Description {get;set;}
+        public string _Author {get;set;}
+        public SnippetTypeEnums _SnippetType { get; set; }
+
         public Metadata() { }
 
         public Metadata(string Title, string Shortcut, string Description, string Author, SnippetTypeEnums SnippetType)
@@ -20,10 +28,5 @@ namespace SnippetGenerator.Models
             _SnippetType = SnippetType;
         }
 
-        public string _Title {get;set;}
-        public string _Shortcut {get;set;}
-        public string _Description {get;set;}
-        public string _Author {get;set;}
-        public SnippetTypeEnums _SnippetType { get; set; }
     }
 }
