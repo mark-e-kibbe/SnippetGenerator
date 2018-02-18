@@ -8,6 +8,8 @@ namespace SnippetGenerator.Models
 {
     public class Metadata
     {
+        public Metadata() { }
+
         public Metadata(string Title, string Shortcut, string Description, string Author)
         {
             _Title = Title;
