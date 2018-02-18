@@ -13,7 +13,8 @@ namespace SnippetGenerator.BLLs
         public void GenerateSnippet(Snippet snippet)
         {
             //start basic no literals
-            StringWriter stringWriter = new StringWriter();
+            StringBuilder _stringBuilder = new StringBuilder();
+            _stringBuilder.AppendLine(@"<CodeSnippets xmlns=""http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet"">");
         }
 
         private void Save(string snippetToSave, string path)
@@ -28,6 +29,23 @@ namespace SnippetGenerator.BLLs
                     //sw.WriteLine("Welcome");
                 }
             }
+        }
+
+        private string LocDefinition()
+        {
+            string LocDef = string.Empty;
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine(@"<_locDefinition xmlns=""urn:locstudio"">");
+            sb.AppendLine(@"<_locDefault _loc=""locNone"" />");
+            sb.AppendLine(@"<_locTag _loc=""locData"">Title</_locTag>");
+            sb.AppendLine(@"<_locTag _loc=""locData"">Description</_locTag>");
+            sb.AppendLine(@"<_locTag _loc=""locData"">Author</_locTag>");
+            sb.AppendLine(@"<_locTag _loc=""locData"">ToolTip</_locTag>");
+            sb.AppendLine(@"<_locTag _loc=""locData"">Default</_locTag>");
+            sb.AppendLine(@"</_locDefinition>");
+
+            return LocDef;
         }
     }
 }
