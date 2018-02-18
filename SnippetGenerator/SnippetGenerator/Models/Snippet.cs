@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SnippetGenerator.BLLs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,8 @@ namespace SnippetGenerator.Models
 {
     public class Snippet
     {
+        private Snippet_BLL snippet_BLL = new Snippet_BLL();
+
         public PlatformEnums _Platform { get; set; }
         public SnippetTypeEnums _SnippetType { get; set; }
 
