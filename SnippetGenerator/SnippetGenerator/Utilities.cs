@@ -11,11 +11,11 @@ namespace SnippetGenerator
     {
         public static string ValueOfChecked(Panel container)
         {
-            return ValueOfChecked(container);
+            return ValueOfChecked((Control)container);
         }
         public static string ValueOfChecked(GroupBox container)
         {
-            return ValueOfChecked(container);
+            return ValueOfChecked((Control)container);
         }
         private static string ValueOfChecked(Control container)
         {
