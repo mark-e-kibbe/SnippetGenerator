@@ -11,13 +11,15 @@ namespace SnippetGenerator.Models
     {
         public enum PlatformEnums
         {
-            VS,
-            SSMS
+            None,
+            SSMS,
+            VS
         }
         public  enum SnippetTypeEnums
         {
-            SurroundsWith,
-            Expansion
+            Expansion,
+            None,
+            SurroundsWith
         }
 
         public string VStudioOutputFilePath { get; set; }
