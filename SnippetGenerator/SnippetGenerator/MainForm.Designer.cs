@@ -44,7 +44,7 @@
             this.lstboxLiterals = new System.Windows.Forms.ListBox();
             this.lblLiterals = new System.Windows.Forms.Label();
             this.txtLiteralID = new System.Windows.Forms.TextBox();
-            this.txtToolTip = new System.Windows.Forms.TextBox();
+            this.txtLiteralToolTip = new System.Windows.Forms.TextBox();
             this.txtLiteralDefault = new System.Windows.Forms.TextBox();
             this.lblDefault = new System.Windows.Forms.Label();
             this.lblLiteralsToolTip = new System.Windows.Forms.Label();
@@ -60,6 +60,8 @@
             this.grpBoxPlatform = new System.Windows.Forms.GroupBox();
             this.radVS = new System.Windows.Forms.RadioButton();
             this.radSSMS = new System.Windows.Forms.RadioButton();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnResetDefaults = new System.Windows.Forms.Button();
             this.pnlMetaData.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlSnippetType.SuspendLayout();
@@ -80,7 +82,7 @@
             this.pnlMetaData.Location = new System.Drawing.Point(12, 55);
             this.pnlMetaData.Name = "pnlMetaData";
             this.pnlMetaData.Size = new System.Drawing.Size(181, 136);
-            this.pnlMetaData.TabIndex = 2;
+            this.pnlMetaData.TabIndex = 3;
             // 
             // lblMetadata
             // 
@@ -164,7 +166,7 @@
             this.panel1.Controls.Add(this.lstboxLiterals);
             this.panel1.Controls.Add(this.lblLiterals);
             this.panel1.Controls.Add(this.txtLiteralID);
-            this.panel1.Controls.Add(this.txtToolTip);
+            this.panel1.Controls.Add(this.txtLiteralToolTip);
             this.panel1.Controls.Add(this.txtLiteralDefault);
             this.panel1.Controls.Add(this.lblDefault);
             this.panel1.Controls.Add(this.lblLiteralsToolTip);
@@ -172,7 +174,7 @@
             this.panel1.Location = new System.Drawing.Point(199, 55);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(267, 136);
-            this.panel1.TabIndex = 3;
+            this.panel1.TabIndex = 4;
             // 
             // button1
             // 
@@ -218,12 +220,12 @@
             this.txtLiteralID.Size = new System.Drawing.Size(100, 20);
             this.txtLiteralID.TabIndex = 2;
             // 
-            // txtToolTip
+            // txtLiteralToolTip
             // 
-            this.txtToolTip.Location = new System.Drawing.Point(70, 59);
-            this.txtToolTip.Name = "txtToolTip";
-            this.txtToolTip.Size = new System.Drawing.Size(100, 20);
-            this.txtToolTip.TabIndex = 4;
+            this.txtLiteralToolTip.Location = new System.Drawing.Point(70, 59);
+            this.txtLiteralToolTip.Name = "txtLiteralToolTip";
+            this.txtLiteralToolTip.Size = new System.Drawing.Size(100, 20);
+            this.txtLiteralToolTip.TabIndex = 4;
             // 
             // txtLiteralDefault
             // 
@@ -265,14 +267,14 @@
             this.txtCodeToSnippet.Multiline = true;
             this.txtCodeToSnippet.Name = "txtCodeToSnippet";
             this.txtCodeToSnippet.Size = new System.Drawing.Size(454, 114);
-            this.txtCodeToSnippet.TabIndex = 4;
+            this.txtCodeToSnippet.TabIndex = 5;
             // 
             // btnGenerateAndSave
             // 
-            this.btnGenerateAndSave.Location = new System.Drawing.Point(180, 360);
+            this.btnGenerateAndSave.Location = new System.Drawing.Point(70, 360);
             this.btnGenerateAndSave.Name = "btnGenerateAndSave";
             this.btnGenerateAndSave.Size = new System.Drawing.Size(109, 23);
-            this.btnGenerateAndSave.TabIndex = 7;
+            this.btnGenerateAndSave.TabIndex = 8;
             this.btnGenerateAndSave.Text = "Generate and Save";
             this.btnGenerateAndSave.UseVisualStyleBackColor = true;
             this.btnGenerateAndSave.Click += new System.EventHandler(this.btnGenerateAndSave_Click);
@@ -283,7 +285,7 @@
             this.lblOutput.Location = new System.Drawing.Point(15, 317);
             this.lblOutput.Name = "lblOutput";
             this.lblOutput.Size = new System.Drawing.Size(90, 13);
-            this.lblOutput.TabIndex = 5;
+            this.lblOutput.TabIndex = 6;
             this.lblOutput.Text = "Output Directory :";
             // 
             // pnlSnippetType
@@ -294,25 +296,25 @@
             this.pnlSnippetType.Location = new System.Drawing.Point(173, 12);
             this.pnlSnippetType.Name = "pnlSnippetType";
             this.pnlSnippetType.Size = new System.Drawing.Size(293, 37);
-            this.pnlSnippetType.TabIndex = 1;
+            this.pnlSnippetType.TabIndex = 2;
             // 
             // radExpansion
             // 
             this.radExpansion.AutoSize = true;
-            this.radExpansion.Location = new System.Drawing.Point(214, 10);
+            this.radExpansion.Location = new System.Drawing.Point(113, 10);
             this.radExpansion.Name = "radExpansion";
             this.radExpansion.Size = new System.Drawing.Size(74, 17);
-            this.radExpansion.TabIndex = 2;
+            this.radExpansion.TabIndex = 1;
             this.radExpansion.Text = "Expansion";
             this.radExpansion.UseVisualStyleBackColor = true;
             // 
             // radSurroundsWith
             // 
             this.radSurroundsWith.AutoSize = true;
-            this.radSurroundsWith.Location = new System.Drawing.Point(113, 10);
+            this.radSurroundsWith.Location = new System.Drawing.Point(193, 10);
             this.radSurroundsWith.Name = "radSurroundsWith";
             this.radSurroundsWith.Size = new System.Drawing.Size(95, 17);
-            this.radSurroundsWith.TabIndex = 1;
+            this.radSurroundsWith.TabIndex = 2;
             this.radSurroundsWith.TabStop = true;
             this.radSurroundsWith.Text = "SurroundsWith";
             this.radSurroundsWith.UseVisualStyleBackColor = true;
@@ -333,7 +335,7 @@
             this.txtOutputDirectory.Location = new System.Drawing.Point(144, 314);
             this.txtOutputDirectory.Name = "txtOutputDirectory";
             this.txtOutputDirectory.Size = new System.Drawing.Size(322, 20);
-            this.txtOutputDirectory.TabIndex = 6;
+            this.txtOutputDirectory.TabIndex = 7;
             // 
             // grpBoxPlatform
             // 
@@ -342,7 +344,7 @@
             this.grpBoxPlatform.Location = new System.Drawing.Point(33, 7);
             this.grpBoxPlatform.Name = "grpBoxPlatform";
             this.grpBoxPlatform.Size = new System.Drawing.Size(109, 42);
-            this.grpBoxPlatform.TabIndex = 0;
+            this.grpBoxPlatform.TabIndex = 1;
             this.grpBoxPlatform.TabStop = false;
             this.grpBoxPlatform.Text = "Platform";
             // 
@@ -355,6 +357,7 @@
             this.radVS.TabIndex = 1;
             this.radVS.Text = "VS";
             this.radVS.UseVisualStyleBackColor = true;
+            this.radVS.CheckedChanged += new System.EventHandler(this.radVS_CheckedChanged);
             // 
             // radSSMS
             // 
@@ -366,12 +369,35 @@
             this.radSSMS.TabStop = true;
             this.radSSMS.Text = "SSMS";
             this.radSSMS.UseVisualStyleBackColor = true;
+            this.radSSMS.CheckedChanged += new System.EventHandler(this.radSSMS_CheckedChanged);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(185, 360);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(109, 23);
+            this.btnClear.TabIndex = 9;
+            this.btnClear.Text = "Clear All Fields";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnResetDefaults
+            // 
+            this.btnResetDefaults.Location = new System.Drawing.Point(300, 360);
+            this.btnResetDefaults.Name = "btnResetDefaults";
+            this.btnResetDefaults.Size = new System.Drawing.Size(109, 23);
+            this.btnResetDefaults.TabIndex = 0;
+            this.btnResetDefaults.Text = "Reset Defaults";
+            this.btnResetDefaults.UseVisualStyleBackColor = true;
+            this.btnResetDefaults.Click += new System.EventHandler(this.btnResetDefaults_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(478, 395);
+            this.Controls.Add(this.btnResetDefaults);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.grpBoxPlatform);
             this.Controls.Add(this.txtOutputDirectory);
             this.Controls.Add(this.pnlSnippetType);
@@ -410,7 +436,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblLiterals;
         private System.Windows.Forms.TextBox txtLiteralID;
-        private System.Windows.Forms.TextBox txtToolTip;
+        private System.Windows.Forms.TextBox txtLiteralToolTip;
         private System.Windows.Forms.TextBox txtLiteralDefault;
         private System.Windows.Forms.Label lblDefault;
         private System.Windows.Forms.Label lblLiteralsToolTip;
@@ -429,6 +455,8 @@
         private System.Windows.Forms.GroupBox grpBoxPlatform;
         private System.Windows.Forms.RadioButton radVS;
         private System.Windows.Forms.RadioButton radSSMS;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnResetDefaults;
     }
 }
 

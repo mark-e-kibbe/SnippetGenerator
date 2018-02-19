@@ -63,5 +63,20 @@ namespace SnippetGenerator
             config.UpdateConfiguration();
             this.Close();
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            if(config.IsFirstTimeRun == false)
+            {
+                this.Close();
+            }
+            else
+            {
+                config.Platform = (PlatformEnums)Enum.Parse(typeof(PlatformEnums), Utilities.ValueOfChecked(pnlConfigPlatform));
+                config.SnippetType = (SnippetTypeEnums)Enum.Parse(typeof(SnippetTypeEnums), Utilities.ValueOfChecked(pnlConfigSnippetType));
+                config.UpdateConfiguration();
+                this.Close();
+            }
+        }
     }
 }

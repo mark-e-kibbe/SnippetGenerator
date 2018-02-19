@@ -102,7 +102,7 @@
             // lblOutputs
             // 
             this.lblOutputs.AutoSize = true;
-            this.lblOutputs.Location = new System.Drawing.Point(160, 126);
+            this.lblOutputs.Location = new System.Drawing.Point(124, 126);
             this.lblOutputs.Name = "lblOutputs";
             this.lblOutputs.Size = new System.Drawing.Size(123, 13);
             this.lblOutputs.TabIndex = 6;
@@ -110,7 +110,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(21, 204);
+            this.btnSave.Location = new System.Drawing.Point(12, 204);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 11;
@@ -120,12 +120,13 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(283, 205);
+            this.btnCancel.Location = new System.Drawing.Point(283, 204);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // lblSnippetType
             // 
