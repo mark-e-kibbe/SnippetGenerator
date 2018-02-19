@@ -62,10 +62,17 @@
             this.radSSMS = new System.Windows.Forms.RadioButton();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnResetDefaults = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configurationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMetaData.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlSnippetType.SuspendLayout();
             this.grpBoxPlatform.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMetaData
@@ -79,7 +86,7 @@
             this.pnlMetaData.Controls.Add(this.lblMetadataDescription);
             this.pnlMetaData.Controls.Add(this.lblMetadataShortcut);
             this.pnlMetaData.Controls.Add(this.lblMetadataTitle);
-            this.pnlMetaData.Location = new System.Drawing.Point(12, 55);
+            this.pnlMetaData.Location = new System.Drawing.Point(12, 73);
             this.pnlMetaData.Name = "pnlMetaData";
             this.pnlMetaData.Size = new System.Drawing.Size(181, 136);
             this.pnlMetaData.TabIndex = 3;
@@ -171,7 +178,7 @@
             this.panel1.Controls.Add(this.lblDefault);
             this.panel1.Controls.Add(this.lblLiteralsToolTip);
             this.panel1.Controls.Add(this.lblLiteralID);
-            this.panel1.Location = new System.Drawing.Point(199, 55);
+            this.panel1.Location = new System.Drawing.Point(199, 73);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(267, 136);
             this.panel1.TabIndex = 4;
@@ -263,7 +270,7 @@
             // 
             // txtCodeToSnippet
             // 
-            this.txtCodeToSnippet.Location = new System.Drawing.Point(12, 197);
+            this.txtCodeToSnippet.Location = new System.Drawing.Point(12, 215);
             this.txtCodeToSnippet.Multiline = true;
             this.txtCodeToSnippet.Name = "txtCodeToSnippet";
             this.txtCodeToSnippet.Size = new System.Drawing.Size(454, 114);
@@ -271,7 +278,7 @@
             // 
             // btnGenerateAndSave
             // 
-            this.btnGenerateAndSave.Location = new System.Drawing.Point(70, 360);
+            this.btnGenerateAndSave.Location = new System.Drawing.Point(70, 378);
             this.btnGenerateAndSave.Name = "btnGenerateAndSave";
             this.btnGenerateAndSave.Size = new System.Drawing.Size(109, 23);
             this.btnGenerateAndSave.TabIndex = 8;
@@ -282,7 +289,7 @@
             // lblOutput
             // 
             this.lblOutput.AutoSize = true;
-            this.lblOutput.Location = new System.Drawing.Point(15, 317);
+            this.lblOutput.Location = new System.Drawing.Point(15, 335);
             this.lblOutput.Name = "lblOutput";
             this.lblOutput.Size = new System.Drawing.Size(90, 13);
             this.lblOutput.TabIndex = 6;
@@ -293,7 +300,7 @@
             this.pnlSnippetType.Controls.Add(this.radExpansion);
             this.pnlSnippetType.Controls.Add(this.radSurroundsWith);
             this.pnlSnippetType.Controls.Add(this.label1);
-            this.pnlSnippetType.Location = new System.Drawing.Point(173, 12);
+            this.pnlSnippetType.Location = new System.Drawing.Point(173, 30);
             this.pnlSnippetType.Name = "pnlSnippetType";
             this.pnlSnippetType.Size = new System.Drawing.Size(293, 37);
             this.pnlSnippetType.TabIndex = 2;
@@ -332,7 +339,7 @@
             // 
             // txtOutputDirectory
             // 
-            this.txtOutputDirectory.Location = new System.Drawing.Point(144, 314);
+            this.txtOutputDirectory.Location = new System.Drawing.Point(144, 332);
             this.txtOutputDirectory.Name = "txtOutputDirectory";
             this.txtOutputDirectory.Size = new System.Drawing.Size(322, 20);
             this.txtOutputDirectory.TabIndex = 7;
@@ -341,7 +348,7 @@
             // 
             this.grpBoxPlatform.Controls.Add(this.radVS);
             this.grpBoxPlatform.Controls.Add(this.radSSMS);
-            this.grpBoxPlatform.Location = new System.Drawing.Point(33, 7);
+            this.grpBoxPlatform.Location = new System.Drawing.Point(33, 25);
             this.grpBoxPlatform.Name = "grpBoxPlatform";
             this.grpBoxPlatform.Size = new System.Drawing.Size(109, 42);
             this.grpBoxPlatform.TabIndex = 1;
@@ -373,7 +380,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(185, 360);
+            this.btnClear.Location = new System.Drawing.Point(185, 378);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(109, 23);
             this.btnClear.TabIndex = 9;
@@ -383,7 +390,7 @@
             // 
             // btnResetDefaults
             // 
-            this.btnResetDefaults.Location = new System.Drawing.Point(300, 360);
+            this.btnResetDefaults.Location = new System.Drawing.Point(300, 378);
             this.btnResetDefaults.Name = "btnResetDefaults";
             this.btnResetDefaults.Size = new System.Drawing.Size(109, 23);
             this.btnResetDefaults.TabIndex = 0;
@@ -391,11 +398,60 @@
             this.btnResetDefaults.UseVisualStyleBackColor = true;
             this.btnResetDefaults.Click += new System.EventHandler(this.btnResetDefaults_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.settingsToolStripMenuItem,
+            this.aboutToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(478, 24);
+            this.menuStrip1.TabIndex = 10;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
+            this.toolStripMenuItem1.Text = "File";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.configurationsToolStripMenuItem});
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            // 
+            // configurationsToolStripMenuItem
+            // 
+            this.configurationsToolStripMenuItem.Name = "configurationsToolStripMenuItem";
+            this.configurationsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.configurationsToolStripMenuItem.Text = "Settings";
+            this.configurationsToolStripMenuItem.Click += new System.EventHandler(this.configurationsToolStripMenuItem_Click);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(478, 395);
+            this.ClientSize = new System.Drawing.Size(478, 402);
             this.Controls.Add(this.btnResetDefaults);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.grpBoxPlatform);
@@ -406,6 +462,8 @@
             this.Controls.Add(this.txtCodeToSnippet);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlMetaData);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Snippet Generator";
             this.pnlMetaData.ResumeLayout(false);
@@ -416,6 +474,8 @@
             this.pnlSnippetType.PerformLayout();
             this.grpBoxPlatform.ResumeLayout(false);
             this.grpBoxPlatform.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -457,6 +517,12 @@
         private System.Windows.Forms.RadioButton radSSMS;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnResetDefaults;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem configurationsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
 

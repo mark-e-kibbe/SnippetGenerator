@@ -121,5 +121,22 @@ namespace SnippetGenerator
                 txtOutputDirectory.Text = new Configuration().VStudioOutputFilePath;
             }
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void configurationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurationForm configForm = new ConfigurationForm();
+            configForm.ShowDialog();
+            InitializeDefaults();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //create about form
+        }
     }
 }
