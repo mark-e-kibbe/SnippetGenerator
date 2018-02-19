@@ -27,7 +27,7 @@ namespace SnippetGenerator.Models
 
         public void Save(string path)
         {
-            snippet_BLL.Save(path);
+            snippet_BLL.Save(CompleteSnippetToXMLString(),path);
         }
     }
 }
