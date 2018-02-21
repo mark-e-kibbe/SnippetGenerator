@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SnippetGenerator.Snippet_Enumerations.SnippetEnums;
 
 namespace SnippetGenerator
 {
@@ -34,6 +35,14 @@ namespace SnippetGenerator
             }
             //TODO Hardcoded strings I feel should not be used, change if possible
             return "None";
+        }
+        public static SnippetTypeEnums EnumParseToSnippetTypeEnum(Panel pnlWithSnippetType)
+        {
+            return (SnippetTypeEnums)Enum.Parse(typeof(SnippetTypeEnums), ValueOfChecked(pnlWithSnippetType));
+        }
+        public static PlatformEnums EnumParseToSnippetTypeEnum(GroupBox grpBoxWithPlatform)
+        {
+            return (PlatformEnums)Enum.Parse(typeof(PlatformEnums), ValueOfChecked(grpBoxWithPlatform));
         }
     }
 }
