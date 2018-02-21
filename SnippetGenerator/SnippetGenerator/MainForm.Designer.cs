@@ -284,7 +284,7 @@
             this.btnGenerateAndSave.TabIndex = 8;
             this.btnGenerateAndSave.Text = "Generate and Save";
             this.btnGenerateAndSave.UseVisualStyleBackColor = true;
-            this.btnGenerateAndSave.Click += new System.EventHandler(this.btnGenerateAndSave_Click);
+            this.btnGenerateAndSave.Click += new System.EventHandler(this.BtnGenerateAndSave_Click);
             // 
             // lblOutput
             // 
