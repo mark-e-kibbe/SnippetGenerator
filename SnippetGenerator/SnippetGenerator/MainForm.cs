@@ -23,11 +23,12 @@ namespace SnippetGenerator
             InitializeDefaults();
         }
 
-        private void btnGenerateAndSave_Click(object sender, EventArgs e)
+        private void BtnGenerateAndSave_Click(object sender, EventArgs e)
         {
-            _Snippet.CompleteSnippetToXMLString();
+            ProcessFormData(_Snippet);
 
-            _Snippet.Save(txtOutputDirectory.Text);
+            //TODO Make This Better, Currently functional using title for the filename
+            _Snippet.Save($@"{txtOutputDirectory.Text}\{_Snippet._Metadata._Title}.snippet");
         }
 
         private void InitializeDefaults()
@@ -140,6 +141,19 @@ namespace SnippetGenerator
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //create about form
+        }
+
+        private void ProcessFormData(Snippet snippet)
+        {
+            snippet._Metadata._Author = txtMetadataAuthor.Text;
+            snippet._Metadata._Description = txtMetadataDescription.Text;
+            snippet._Metadata._Shortcut = txtMetadataShortcut.Text;
+            snippet._Metadata._Title = txtMetadataTitle.Text;
+            snippet._Metadata._SnippetType = Utilities.EnumParseToSnippetTypeEnum(pnlSnippetType);
+
+            _Snippet.CodeToSnippet = txtCodeToSnippet.Text;
+
+            snippet._Platform = Utilities.EnumParseToSnippetTypeEnum(grpBoxPlatform);
         }
     }
 }
