@@ -18,6 +18,7 @@ namespace SnippetGenerator.BLLs
 
             //start basic no literals
             StringBuilder _stringBuilder = new StringBuilder();
+            _stringBuilder.AppendLine(@"<?xml version=""1.0"" encoding=""utf-8"" ?> ");
             _stringBuilder.AppendLine(@"<CodeSnippets xmlns=""http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet"">");
             _stringBuilder.AppendLine(LocDefinitionXML());
             _stringBuilder.AppendLine(@"<CodeSnippet Format =""1.0.0"">");
@@ -37,7 +38,7 @@ namespace SnippetGenerator.BLLs
             _stringBuilder.AppendLine(@"</Declarations>");
 
             _stringBuilder.AppendLine(CodeXML(snippet.CodeToSnippet, snippet._Platform));
-
+            _stringBuilder.AppendLine(@"</Snippet>");
             _stringBuilder.AppendLine(@"</CodeSnippet>");
             _stringBuilder.AppendLine(@"</CodeSnippets>");
 
@@ -103,11 +104,11 @@ namespace SnippetGenerator.BLLs
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine($@"<Code Language=""{CodeLanguageAttribute}"">");
-            sb.AppendLine(@"< ![CDATA[");
+            sb.AppendLine(@"<![CDATA[");
 
             sb.AppendLine(code);
 
-            sb.AppendLine(@"]] >");
+            sb.AppendLine(@"]]>");
             sb.AppendLine(@" </Code>");
 
             CodeXML = sb.ToString();
