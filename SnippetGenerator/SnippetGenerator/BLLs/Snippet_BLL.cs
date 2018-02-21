@@ -6,14 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using static SnippetGenerator.Snippet_Enumerations.SnippetEnums;
 
 namespace SnippetGenerator.BLLs
 {
     public class Snippet_BLL
     {
-        public string GenerateSnippet(Snippet snippet)
+        private XDocument GenerateSnippet(Snippet snippet)
         {
-            string CompletedXMLStr = string.Empty;
+            XDocument CompletedXML = new XDocument();
 
             //start basic no literals
             StringBuilder _stringBuilder = new StringBuilder();
@@ -35,28 +36,21 @@ namespace SnippetGenerator.BLLs
 
             _stringBuilder.AppendLine(@"</Declarations>");
 
-            _stringBuilder.AppendLine(CodeXML(snippet.CodeToSnippet));
+            _stringBuilder.AppendLine(CodeXML(snippet.CodeToSnippet, snippet._Platform));
 
             _stringBuilder.AppendLine(@"</CodeSnippet>");
             _stringBuilder.AppendLine(@"</CodeSnippets>");
 
-            CompletedXMLStr = FormatXMLStr(_stringBuilder.ToString());
+            CompletedXML = ParseXMLStr(_stringBuilder.ToString());
 
 
-            return CompletedXMLStr;
+            return CompletedXML;
         }
 
-        public void Save(string snippetToSave, string path)
+        public void Save(Snippet snippetToSave, string path)
         {
-            if (!File.Exists(path))
-            {
-                using (StreamWriter sw = File.CreateText(path))
-                {
-                    //sw.WriteLine("Hello");
-                    //sw.WriteLine("And");
-                    //sw.WriteLine("Welcome");
-                }
-            }
+            XDocument xdocSnippet = GenerateSnippet(snippetToSave);
+            xdocSnippet.Save(path);
         }
 
         private string LocDefinitionXML()
@@ -100,12 +94,15 @@ namespace SnippetGenerator.BLLs
             return LiteralXML;
         }
 
-        private string CodeXML(string code)
+        private string CodeXML(string code, Snippet_Enumerations.SnippetEnums.PlatformEnums platform)
         {
             string CodeXML = string.Empty;
+            //determine which enum, set string to the appropriate required attribute of Language Property
+            string CodeLanguageAttribute = platform == PlatformEnums.SSMS ? "SQL" : "csharp";
+
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine(@"<Code Language=""SQL"">");
+            sb.AppendLine($@"<Code Language=""{CodeLanguageAttribute}"">");
             sb.AppendLine(@"< ![CDATA[");
 
             sb.AppendLine(code);
@@ -117,20 +114,17 @@ namespace SnippetGenerator.BLLs
             return CodeXML;
         }
 
-        private string FormatXMLStr(string xmlStr)
+        private XDocument ParseXMLStr(string xmlStr)
         {
-            string FormattedXML = string.Empty;
-
             try
             {
                 XDocument xDoc = XDocument.Parse(xmlStr);
-                FormattedXML = xDoc.ToString();
 
-                return FormattedXML;
+                return xDoc;
             }
             catch (Exception)
             {
-                return xmlStr;
+                throw new NotImplementedException();
             }
         }
     }
