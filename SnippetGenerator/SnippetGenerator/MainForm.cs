@@ -14,6 +14,7 @@ namespace SnippetGenerator
 {
     public partial class MainForm : Form
     {
+        private const string LblOutputDefault_Text = "Output Directory :";
         private Snippet _Snippet = new Snippet();
 
         public MainForm()
@@ -39,18 +40,19 @@ namespace SnippetGenerator
             {
                 case PlatformEnums.SSMS:
                     radSSMS.Checked = true;
-                    lblOutput.Text = $"{radSSMS.Text} {lblOutput.Text}";
+                    lblOutput.Text = $"{radSSMS.Text} {LblOutputDefault_Text}";
                     txtOutputDirectory.Text = config.SSMSOutputFilePath;
                     break;
                 case PlatformEnums.VS:
                     radVS.Checked = true;
-                    lblOutput.Text = $"{radVS.Text} {lblOutput.Text}";
+                    lblOutput.Text = $"{radVS.Text} {LblOutputDefault_Text}";
                     txtOutputDirectory.Text = config.VStudioOutputFilePath;
                     break;
                 default:
                     radSSMS.Checked = false;
                     radSSMS.TabStop = true;
                     radVS.Checked = false;
+                    lblOutput.Text = LblOutputDefault_Text;
                     txtOutputDirectory.Text = string.Empty;
                     break;
             }
@@ -84,6 +86,7 @@ namespace SnippetGenerator
             radExpansion.Checked = false;
             radExpansion.TabStop = true;
             radSurroundsWith.Checked = false;
+            lblOutput.Text = LblOutputDefault_Text;
             txtMetadataAuthor.Text = string.Empty;
             txtMetadataDescription.Text = string.Empty;
             txtMetadataShortcut.Text = string.Empty;
@@ -104,20 +107,20 @@ namespace SnippetGenerator
 
         private void radSSMS_CheckedChanged(object sender, EventArgs e)
         {
-            lblOutput.Text = "Output Directory :";
+            lblOutput.Text = LblOutputDefault_Text;
             if (radSSMS.Checked == true)
             {
-                lblOutput.Text = $"{radSSMS.Text} {lblOutput.Text}";
+                lblOutput.Text = $"{radSSMS.Text} {LblOutputDefault_Text}";
                 txtOutputDirectory.Text = new Configuration().SSMSOutputFilePath;
             }
         }
 
         private void radVS_CheckedChanged(object sender, EventArgs e)
         {
-            lblOutput.Text = "Output Directory :";
+            lblOutput.Text = LblOutputDefault_Text;
             if (radVS.Checked == true)
             {
-                lblOutput.Text = $"{radVS.Text} {lblOutput.Text}";
+                lblOutput.Text = $"{radVS.Text} {LblOutputDefault_Text}";
                 txtOutputDirectory.Text = new Configuration().VStudioOutputFilePath;
             }
         }
