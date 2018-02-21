@@ -7,13 +7,23 @@ using System.Threading.Tasks;
 
 namespace SnippetGenerator.BLLs
 {
+    /// <summary>
+    /// Class for use of logic by Literal model
+    /// </summary>
     public class Literal_BLL
     {
+        /// <summary>
+        /// Formats and returns a Literal object to an XML string
+        /// </summary>
+        /// <param name="literal">Completed Literal to be formatted</param>
+        /// <returns>Formatted XML string</returns>
         public string FormattedLiteralXMLString(Literal literal)
         {
             string XMLToReturn = string.Empty;
+
             StringBuilder sb = new StringBuilder();
 
+            //Parse Literal to required syntax for XML Snippet
             sb.AppendLine(@"<Literal>");
 
             sb.AppendLine($@"<ID>{literal._ID}</ID>");
@@ -23,6 +33,7 @@ namespace SnippetGenerator.BLLs
             sb.AppendLine(@"</Literal>");
 
             XMLToReturn = sb.ToString();
+
             return XMLToReturn;
         }
     }
