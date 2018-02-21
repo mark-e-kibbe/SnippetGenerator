@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using static SnippetGenerator.Snippet_Enumerations.SnippetEnums;
 
 namespace SnippetGenerator.Models
@@ -12,22 +13,15 @@ namespace SnippetGenerator.Models
     {
         private Snippet_BLL snippet_BLL = new Snippet_BLL();
 
-        public PlatformEnums _Platform { get; set; }
+        public string CodeToSnippet { get; set;}
 
+        public PlatformEnums _Platform { get; set; }
         public Metadata _Metadata = new Metadata();
         public List<Literal> _Literals = new List<Literal>();
 
-        //TODO Class this property out
-        public string CodeToSnippet = string.Empty;
-
-        public string CompleteSnippetToXMLString()
-        {
-            return snippet_BLL.GenerateSnippet(this);
-        }
-
         public void Save(string path)
         {
-            snippet_BLL.Save(CompleteSnippetToXMLString(),path);
+            snippet_BLL.Save(this, path);
         }
     }
 }
