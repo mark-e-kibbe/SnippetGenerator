@@ -1,9 +1,9 @@
-﻿using System;
+﻿using SnippetGenerator.BLLs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static SnippetGenerator.Properties.Settings;
 using static SnippetGenerator.Snippet_Enumerations.SnippetEnums;
 
 namespace SnippetGenerator.Models
@@ -13,6 +13,7 @@ namespace SnippetGenerator.Models
     /// </summary>
     public class Configuration
     {
+        private Configuration_BLL configuration_BLL= new Configuration_BLL();
         /*
          * VSOutputFilePath: Default filepath for saving a Visual Studio Code Snippet
          * SSMS OutputFilePath: Default filepath for saving a SQl Server Management Studio Code Snippet
@@ -29,30 +30,19 @@ namespace SnippetGenerator.Models
         public  SnippetTypeEnums SnippetType { get; set; }
 
         /// <summary>
-        /// Constructor that prepopulates configuration settings
+        /// Constructor that populates this model
         /// </summary>
         public Configuration()
         {
-            VStudioOutputFilePath = Default.VisualStudioSnippetFilePath;
-            SSMSOutputFilePath = Default.SSMSSnippetFilePath;
-            Author = Default.Author;
-            IsFirstTimeRun = Default.IsFirstRun;
-            Platform = (PlatformEnums)Enum.Parse(typeof(PlatformEnums), Default.Platform);
-            SnippetType = (SnippetTypeEnums)Enum.Parse(typeof(SnippetTypeEnums), Default.SnippetType);
+            configuration_BLL.Load(this);
         }
 
         /// <summary>
-        /// Saves any settings to the Properties.Settings.settings configuration file
+        /// Updates and Saves configuration settings currently set in model
         /// </summary>
         public void UpdateConfiguration()
         {
-            Default.VisualStudioSnippetFilePath = VStudioOutputFilePath;
-            Default.SSMSSnippetFilePath = SSMSOutputFilePath;
-            Default.Author = Author;
-            Default.IsFirstRun = false;
-            Default.Platform = Platform.ToString();
-            Default.SnippetType = SnippetType.ToString();
-            Default.Save();
+            configuration_BLL.UpdateConfiguration(this);
         }
     }
     
