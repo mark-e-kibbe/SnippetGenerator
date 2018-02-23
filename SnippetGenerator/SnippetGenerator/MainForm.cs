@@ -124,6 +124,23 @@ namespace SnippetGenerator
         }
 
         /// <summary>
+        /// Helper method to populate Snippet model with Form information
+        /// </summary>
+        /// <param name="snippet"></param>
+        private void ProcessFormData(Snippet snippet)
+        {
+            snippet._Metadata._Author = txtMetadataAuthor.Text;
+            snippet._Metadata._Description = txtMetadataDescription.Text;
+            snippet._Metadata._Shortcut = txtMetadataShortcut.Text;
+            snippet._Metadata._Title = txtMetadataTitle.Text;
+            snippet._Metadata._SnippetType = Utilities.EnumParseToSnippetTypeEnum(pnlSnippetType);
+
+            _Snippet.CodeToSnippet = txtCodeToSnippet.Text;
+
+            snippet._Platform = Utilities.EnumParseToSnippetTypeEnum(grpBoxPlatform);
+        }
+
+        /// <summary>
         /// Clears all fields and defaults off the main form
         /// </summary>
         /// <param name="sender"></param>
@@ -202,22 +219,5 @@ namespace SnippetGenerator
             }
         } 
         #endregion
-
-        /// <summary>
-        /// Helper method to populate Snippet model with Form information
-        /// </summary>
-        /// <param name="snippet"></param>
-        private void ProcessFormData(Snippet snippet)
-        {
-            snippet._Metadata._Author = txtMetadataAuthor.Text;
-            snippet._Metadata._Description = txtMetadataDescription.Text;
-            snippet._Metadata._Shortcut = txtMetadataShortcut.Text;
-            snippet._Metadata._Title = txtMetadataTitle.Text;
-            snippet._Metadata._SnippetType = Utilities.EnumParseToSnippetTypeEnum(pnlSnippetType);
-
-            _Snippet.CodeToSnippet = txtCodeToSnippet.Text;
-
-            snippet._Platform = Utilities.EnumParseToSnippetTypeEnum(grpBoxPlatform);
-        }
     }
 }
