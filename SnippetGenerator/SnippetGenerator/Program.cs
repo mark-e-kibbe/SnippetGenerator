@@ -6,6 +6,9 @@ using System.Windows.Forms;
 
 namespace SnippetGenerator
 {
+    /// <summary>
+    /// Main Entry Class and exterior logic related to the Application as a whole
+    /// </summary>
     static class Program
     {
         /// <summary>
