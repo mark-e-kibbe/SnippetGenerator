@@ -77,11 +77,21 @@ namespace SnippetGenerator
         }
 
         #region Menu Events
+        /// <summary>
+        /// Exits the application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Opens the configuration form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void configurationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurationForm configForm = new ConfigurationForm();
@@ -89,12 +99,22 @@ namespace SnippetGenerator
             InitializeDefaults();
         }
 
+        /// <summary>
+        /// Opens the about form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //create about form
         } 
         #endregion
 
+        /// <summary>
+        /// Processes form data and saves the Code Snippet to the output directory
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnGenerateAndSave_Click(object sender, EventArgs e)
         {
             ProcessFormData(_Snippet);
@@ -103,12 +123,22 @@ namespace SnippetGenerator
             _Snippet.Save($@"{txtOutputDirectory.Text}\{_Snippet._Metadata._Title}.snippet");
         }
 
-
+        /// <summary>
+        /// Clears all fields and defaults off the main form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClear_Click(object sender, EventArgs e)
         {
             Clear();
         }
 
+        /// <summary>
+        /// Resets all fields to empty
+        /// </summary>
+        /// <remarks>
+        /// Without the Tab Stops being set to true, on unchecking the radio buttons Tab Stops would break
+        /// </remarks>
         private void Clear()
         {
             radSSMS.Checked = false;
@@ -130,12 +160,23 @@ namespace SnippetGenerator
             lstboxLiterals.Items.Clear();
         }
 
+        /// <summary>
+        /// Clears the form and populates the defaulted fields
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnResetDefaults_Click(object sender, EventArgs e)
         {
             Clear();
             InitializeDefaults();
         }
 
+        #region Platform Radio Button Check Changed Events
+        /// <summary>
+        /// Event that changes output text according to if SSMS was checked or unchecked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void radSSMS_CheckedChanged(object sender, EventArgs e)
         {
             lblOutput.Text = LblOutputDefault_Text;
@@ -146,6 +187,11 @@ namespace SnippetGenerator
             }
         }
 
+        /// <summary>
+        /// Event that that also changes output text according ot if SSMS was checked or unchecked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void radVS_CheckedChanged(object sender, EventArgs e)
         {
             lblOutput.Text = LblOutputDefault_Text;
@@ -154,9 +200,13 @@ namespace SnippetGenerator
                 lblOutput.Text = $"{radVS.Text} {LblOutputDefault_Text}";
                 txtOutputDirectory.Text = new Configuration().VStudioOutputFilePath;
             }
-        }
+        } 
+        #endregion
 
-
+        /// <summary>
+        /// Helper method to populate Snippet model with Form information
+        /// </summary>
+        /// <param name="snippet"></param>
         private void ProcessFormData(Snippet snippet)
         {
             snippet._Metadata._Author = txtMetadataAuthor.Text;
