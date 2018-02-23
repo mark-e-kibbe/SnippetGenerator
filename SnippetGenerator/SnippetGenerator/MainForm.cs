@@ -14,21 +14,20 @@ namespace SnippetGenerator
 {
     public partial class MainForm : Form
     {
+        /*
+         * LblOutputDefault_Text: Default value for dynamic label Output Directory
+         * Snippet: The snippet to be used for applying model properties to from the GUI
+        */
         private const string LblOutputDefault_Text = "Output Directory :";
         private Snippet _Snippet = new Snippet();
 
+        /// <summary>
+        /// Sets up Form and form defaults
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
             InitializeDefaults();
-        }
-
-        private void BtnGenerateAndSave_Click(object sender, EventArgs e)
-        {
-            ProcessFormData(_Snippet);
-
-            //TODO Make This Better, Currently functional using title for the filename
-            _Snippet.Save($@"{txtOutputDirectory.Text}\{_Snippet._Metadata._Title}.snippet");
         }
 
         private void InitializeDefaults()
@@ -73,6 +72,15 @@ namespace SnippetGenerator
                     break;
             }
         }
+
+        private void BtnGenerateAndSave_Click(object sender, EventArgs e)
+        {
+            ProcessFormData(_Snippet);
+
+            //TODO Make This Better, Currently functional using title for the filename
+            _Snippet.Save($@"{txtOutputDirectory.Text}\{_Snippet._Metadata._Title}.snippet");
+        }
+
 
         private void btnClear_Click(object sender, EventArgs e)
         {
