@@ -30,6 +30,9 @@ namespace SnippetGenerator
             InitializeDefaults();
         }
 
+        /// <summary>
+        /// Populates user configuration defaults
+        /// </summary>
         private void InitializeDefaults()
         { 
             Configuration config = new Configuration();
@@ -72,6 +75,25 @@ namespace SnippetGenerator
                     break;
             }
         }
+
+        #region Menu Events
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void configurationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurationForm configForm = new ConfigurationForm();
+            configForm.ShowDialog();
+            InitializeDefaults();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //create about form
+        } 
+        #endregion
 
         private void BtnGenerateAndSave_Click(object sender, EventArgs e)
         {
@@ -134,22 +156,6 @@ namespace SnippetGenerator
             }
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void configurationsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ConfigurationForm configForm = new ConfigurationForm();
-            configForm.ShowDialog();
-            InitializeDefaults();
-        }
-
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //create about form
-        }
 
         private void ProcessFormData(Snippet snippet)
         {
