@@ -12,14 +12,25 @@ using System.Windows.Forms;
 
 namespace SnippetGenerator
 {
+    /// <summary>
+    /// Configuration Settings Form
+    /// </summary>
     public partial class ConfigurationForm : Form
     {
         private Configuration config = new Configuration();
+
+        /// <summary>
+        /// Initializes form and defaults
+        /// </summary>
         public ConfigurationForm()
         {
             InitializeComponent();
             InitializeDefaults();
         }
+
+        /// <summary>
+        /// helper for prepopulating configuration settings if already set once
+        /// </summary>
         private void InitializeDefaults()
         {
             txtDefaultAuthor.Text = config.Author;
@@ -53,6 +64,12 @@ namespace SnippetGenerator
                     break;
             }
         }
+
+        /// <summary>
+        /// Button save event for saving all current configuration settings on the configuration form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
             config.Author = txtDefaultAuthor.Text;
@@ -64,6 +81,12 @@ namespace SnippetGenerator
             this.Close();
         }
 
+        /// <summary>
+        /// Button Cancel event that will either not save configuration settings unless first run.
+        /// First run saves default Platform and SnippetType to none.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
             if(config.IsFirstTimeRun == false)
