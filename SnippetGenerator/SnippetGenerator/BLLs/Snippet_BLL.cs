@@ -16,6 +16,17 @@ namespace SnippetGenerator.BLLs
     public class Snippet_BLL
     {
         /// <summary>
+        /// Saves the code snippet to path provided - path includes filename
+        /// </summary>
+        /// <param name="snippetToSave">The Snippet to turn into an XML Code Snippet file</param>
+        /// <param name="path">Path and filename the snippet will be stored at</param>
+        public void Save(Snippet snippetToSave, string path)
+        {
+            XDocument xdocSnippet = GenerateSnippet(snippetToSave);
+            xdocSnippet.Save(path);
+        }
+
+        /// <summary>
         /// Creates validated and formatted Code Snippet XDocument object
         /// </summary>
         /// <param name="snippet">The snippet model to convert into a XML Code Snippet</param>
@@ -59,16 +70,6 @@ namespace SnippetGenerator.BLLs
             return CompletedXML;
         }
 
-        /// <summary>
-        /// Saves the code snippet to path provided - path includes filename
-        /// </summary>
-        /// <param name="snippetToSave">The Snippet to turn into an XML Code Snippet file</param>
-        /// <param name="path">Path and filename the snippet will be stored at</param>
-        public void Save(Snippet snippetToSave, string path)
-        {
-            XDocument xdocSnippet = GenerateSnippet(snippetToSave);
-            xdocSnippet.Save(path);
-        }
 
         /// <summary>
         /// Generates XML string of standard metadata xml definitions - not the Metadata itself
