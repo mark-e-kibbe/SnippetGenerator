@@ -8,8 +8,19 @@ using static SnippetGenerator.Snippet_Enumerations.SnippetEnums;
 
 namespace SnippetGenerator.Models
 {
+    /// <summary>
+    /// Helper for accessing and saving default configuration options easily
+    /// </summary>
     public class Configuration
     {
+        /*
+         * VSOutputFilePath: Default filepath for saving a Visual Studio Code Snippet
+         * SSMS OutputFilePath: Default filepath for saving a SQl Server Management Studio Code Snippet
+         * Author: Default Author
+         * IsFirstTimeRun: Bool for checking if application is ran for first time
+         * Platform: The default platform to target
+         * SnippetType: The default type of snippet to use
+        */
         public string VStudioOutputFilePath { get; set; }
         public string SSMSOutputFilePath { get; set; }
         public string Author { get; set; }
@@ -17,6 +28,9 @@ namespace SnippetGenerator.Models
         public PlatformEnums Platform { get; set; }
         public  SnippetTypeEnums SnippetType { get; set; }
 
+        /// <summary>
+        /// Constructor that prepopulates configuration settings
+        /// </summary>
         public Configuration()
         {
             VStudioOutputFilePath = Default.VisualStudioSnippetFilePath;
@@ -27,6 +41,9 @@ namespace SnippetGenerator.Models
             SnippetType = (SnippetTypeEnums)Enum.Parse(typeof(SnippetTypeEnums), Default.SnippetType);
         }
 
+        /// <summary>
+        /// Saves any settings to the Properties.Settings.settings configuration file
+        /// </summary>
         public void UpdateConfiguration()
         {
             Default.VisualStudioSnippetFilePath = VStudioOutputFilePath;
