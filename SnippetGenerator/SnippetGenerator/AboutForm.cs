@@ -33,7 +33,10 @@ namespace SnippetGenerator
         /// <param name="e"></param>
         private void linkLblEmailAddress_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            string ToastMessage = "Email Copied to Clipboard";
             Clipboard.SetText(linkLblEmailAddress.Text);
+            ToastNotification Toast = new ToastNotification(ToastMessage, Cursor.Position);
+            Toast.Show();
         }
 
         /// <summary>
