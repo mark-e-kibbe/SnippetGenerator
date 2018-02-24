@@ -117,4 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="lblProjectOrigin.Text" xml:space="preserve">
+    <value>I originally started this project after discovering the Snippets feature in SSMS and Visual Studio. After playing with the built in functionality from microsoft, I quickly discovered that it was quite powerful. I've also always wanted to do a project that other developers could benefit from. The problem was that Snippets require XML files to be created, and I saw an opportunity to abstract this away from the developer into a simple application. This is the result.</value>
+  </data>
+  <data name="lblProjectPurpose.Text" xml:space="preserve">
+    <value>The goal of this application is to generate the xml files required for custom code snippets, without the end user having to even look at the XML file at all. Essentially fill out the information required, click generate, and the snippet will become available in Visual Studio or SSMS.</value>
+  </data>
+  <data name="lblBackground.Text" xml:space="preserve">
+    <value>My name is Mark E. Kibbe. I graduated from a local community college in May 2016 at age 28 with an Associates of Applied Business Software Development degree. I initially started out of college as a CSR at a software company, but due to restructuring was let go. I then applied for a Software Engineer position and began an entry level position January 2017. I havn't done a project before on my own, and have always wanted to do one that is actually useful, especially to other developers.
+
+If you use this application and are an individual, THANK YOU. Take a minute to visit the github where this project is open sourced at and please leave a like and a comment, I highly appreciate constructive criticism.
+
+If you are a business, I feel privleged that you chose to use this application. I'd appreciate as well if you could visit my github or Linked In profile and leave some feedback.
+
+Again, Thank You for using this application!
+
+Mark E. Kibbe
+ </value>
+  </data>
 </root>

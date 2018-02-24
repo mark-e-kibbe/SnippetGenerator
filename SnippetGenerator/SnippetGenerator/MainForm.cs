@@ -106,7 +106,8 @@ namespace SnippetGenerator
         /// <param name="e"></param>
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //create about form
+            AboutForm aboutForm = new AboutForm();
+            aboutForm.ShowDialog();
         } 
         #endregion
 

@@ -12,12 +12,32 @@ namespace SnippetGenerator
 {
     public partial class AboutForm : Form
     {
-        //snippet to use for when setting up link button hyperlink functionality
-        //System.Diagnostics.Process.Start("http://www.microsoft.com");  
+        private const string GitHubLink = @"https://github.com/mark-e-kibbe/SnippetGenerator";
+        private const string LinkedInLink = @"https://www.linkedin.com/in/mark-kibbe-729629122/";
 
         public AboutForm()
         {
             InitializeComponent();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void linkLblGitHub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(GitHubLink); 
+        }
+
+        private void linkLblEmailAddress_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Clipboard.SetText(linkLblEmailAddress.Text);
+        }
+
+        private void linkLblLinkedIn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(LinkedInLink);
         }
     }
 }
