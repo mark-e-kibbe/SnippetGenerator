@@ -141,7 +141,8 @@ namespace SnippetGenerator
         /// <param name="e"></param>
         private void SaveFileDialog_FileOk(object sender, CancelEventArgs e)
         {
-            _Snippet.Save(Path.GetFileName(saveFileDialog1.FileName));
+            SaveFileDialog sfDialog = (SaveFileDialog)sender;
+            _Snippet.Save(Path.GetFullPath(sfDialog.FileName));
         }
 
         /// <summary>
@@ -244,22 +245,24 @@ namespace SnippetGenerator
         /// <summary>
         /// Folder Picker button click event. Sets folder for output directory
         /// </summary>
-        /// <param name="sender"></param>
+        /// <param name="sender">The sending button causing the event</param>
         /// <param name="e"></param>
         private void btnOutputDirectory_Click(object sender, EventArgs e)
         {
             Microsoft.WindowsAPICodePack.Dialogs.CommonOpenFileDialog commonOpenFileDialog = new Microsoft.WindowsAPICodePack.Dialogs.CommonOpenFileDialog();
             commonOpenFileDialog.IsFolderPicker = true;
 
+            //Check if there is a default, if not open at Program Files
             if(string.IsNullOrWhiteSpace(txtOutputDirectory.Text))
             {
                 commonOpenFileDialog.InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
             }
-            else
+            else//there is a default
             {
                 commonOpenFileDialog.InitialDirectory = txtOutputDirectory.Text;
             }
 
+            //Filename and directory OK - set OutputDir
             if (commonOpenFileDialog.ShowDialog() == Microsoft.WindowsAPICodePack.Dialogs.CommonFileDialogResult.Ok)
             {
                 txtOutputDirectory.Text = commonOpenFileDialog.FileName;

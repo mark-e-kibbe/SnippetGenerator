@@ -43,10 +43,17 @@ namespace SnippetGenerator
         {
             foreach (Control control in container.Controls)
             {
-                RadioButton rb = (RadioButton)control;
-                if (rb.Checked == true)
+                if (control.GetType() == typeof(RadioButton))
                 {
-                    return rb.Text;
+                    RadioButton rb = (RadioButton)control;
+                    if (rb.Checked == true)
+                    {
+                        return rb.Text;
+                    }
+                    else
+                    {
+                        continue;
+                    }
                 }
                 else
                 {
@@ -78,7 +85,7 @@ namespace SnippetGenerator
         public static PlatformEnums EnumParseToSnippetTypeEnum(GroupBox grpBoxWithPlatform)
         {
             return (PlatformEnums)Enum.Parse(typeof(PlatformEnums), ValueOfChecked(grpBoxWithPlatform));
-        } 
+        }
         #endregion
     }
 }

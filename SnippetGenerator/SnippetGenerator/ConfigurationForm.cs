@@ -103,6 +103,11 @@ namespace SnippetGenerator
             }
         }
 
+        /// <summary>
+        /// Create FileDialog, check for first time run, set output texts according to sender
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPickOutputDirectory_Click(object sender, EventArgs e)
         {
             Button btnThatSent = (Button)sender;
@@ -110,30 +115,29 @@ namespace SnippetGenerator
             Microsoft.WindowsAPICodePack.Dialogs.CommonOpenFileDialog commonOpenFileDialog = new Microsoft.WindowsAPICodePack.Dialogs.CommonOpenFileDialog();
             commonOpenFileDialog.IsFolderPicker = true;
 
+            //If this is a first time run
             if (config.IsFirstTimeRun)
             {
                 commonOpenFileDialog.DefaultDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
-                if(btnThatSent.Name.Equals(btnPickSSMSOutputDirectory.Text))
+                if(btnThatSent.Name.Equals(btnPickSSMSOutputDirectory.Name))
                 {
                     txtDefaultSSMSPath.Text = commonOpenFileDialog.ShowDialog() == CommonFileDialogResult.Ok ? commonOpenFileDialog.FileName : string.Empty;
                 }
-                else
+                else//visual studio output directory
                 {
                     txtDefaultVisualStudioPath.Text = commonOpenFileDialog.ShowDialog() == CommonFileDialogResult.Ok ? commonOpenFileDialog.FileName : string.Empty;
                 }
             }
-            else
+            else//every subsequent run
             {
                 if (btnThatSent.Name.Equals(btnPickSSMSOutputDirectory.Name))
                 {
                     commonOpenFileDialog.DefaultDirectory = config.SSMSOutputFilePath;
-                    txtDefaultSSMSPath.Text = commonOpenFileDialog.ShowDialog() == CommonFileDialogResult.Ok ? commonOpenFileDialog.FileName : string.Empty;
-
-                }
+                    txtDefaultSSMSPath.Text = commonOpenFileDialog.ShowDialog() == CommonFileDialogResult.Ok ? commonOpenFileDialog.FileName : txtDefaultSSMSPath.Text;                }
                 else//btnThatSent.Name.Equals(btnPicksVisualStudioOutputDirectory.Text
                 {
                     commonOpenFileDialog.DefaultDirectory = config.VStudioOutputFilePath;
-                    txtDefaultVisualStudioPath.Text = commonOpenFileDialog.ShowDialog() == CommonFileDialogResult.Ok ? commonOpenFileDialog.FileName : string.Empty;
+                    txtDefaultVisualStudioPath.Text = commonOpenFileDialog.ShowDialog() == CommonFileDialogResult.Ok ? commonOpenFileDialog.FileName : txtDefaultVisualStudioPath.Text;
                 }
             }
         }
