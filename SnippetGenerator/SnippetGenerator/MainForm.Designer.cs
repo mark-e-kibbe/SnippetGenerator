@@ -68,6 +68,8 @@
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configurationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.btnOutputDirectory = new System.Windows.Forms.Button();
             this.pnlMetaData.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlSnippetType.SuspendLayout();
@@ -341,7 +343,7 @@
             // 
             this.txtOutputDirectory.Location = new System.Drawing.Point(144, 332);
             this.txtOutputDirectory.Name = "txtOutputDirectory";
-            this.txtOutputDirectory.Size = new System.Drawing.Size(322, 20);
+            this.txtOutputDirectory.Size = new System.Drawing.Size(265, 20);
             this.txtOutputDirectory.TabIndex = 7;
             // 
             // grpBoxPlatform
@@ -421,7 +423,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -436,7 +438,7 @@
             // configurationsToolStripMenuItem
             // 
             this.configurationsToolStripMenuItem.Name = "configurationsToolStripMenuItem";
-            this.configurationsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.configurationsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.configurationsToolStripMenuItem.Text = "Settings";
             this.configurationsToolStripMenuItem.Click += new System.EventHandler(this.configurationsToolStripMenuItem_Click);
             // 
@@ -447,11 +449,26 @@
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.SaveFileDialog_FileOk);
+            // 
+            // btnOutputDirectory
+            // 
+            this.btnOutputDirectory.Location = new System.Drawing.Point(415, 332);
+            this.btnOutputDirectory.Name = "btnOutputDirectory";
+            this.btnOutputDirectory.Size = new System.Drawing.Size(51, 20);
+            this.btnOutputDirectory.TabIndex = 11;
+            this.btnOutputDirectory.Text = "Pick";
+            this.btnOutputDirectory.UseVisualStyleBackColor = true;
+            this.btnOutputDirectory.Click += new System.EventHandler(this.btnOutputDirectory_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(478, 402);
+            this.Controls.Add(this.btnOutputDirectory);
             this.Controls.Add(this.btnResetDefaults);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.grpBoxPlatform);
@@ -523,6 +540,8 @@
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configurationsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button btnOutputDirectory;
     }
 }
 

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace SnippetGenerator
 {
@@ -34,11 +35,11 @@ namespace SnippetGenerator
         /// Populates user configuration defaults
         /// </summary>
         private void InitializeDefaults()
-        { 
+        {
             Configuration config = new Configuration();
 
             txtMetadataAuthor.Text = config.Author;
-            
+
             switch (config.Platform)
             {
                 case PlatformEnums.SSMS:
@@ -108,7 +109,7 @@ namespace SnippetGenerator
         {
             AboutForm aboutForm = new AboutForm();
             aboutForm.ShowDialog();
-        } 
+        }
         #endregion
 
         /// <summary>
@@ -118,12 +119,33 @@ namespace SnippetGenerator
         /// <param name="e"></param>
         private void BtnGenerateAndSave_Click(object sender, EventArgs e)
         {
+            //SaveFileDialog savefile = new SaveFileDialog();
+            //// set a default file name
+            //savefile.FileName = "unknown.txt";
+            //// set filters - this can be done in properties as well
+            //savefile.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+
+            //if (savefile.ShowDialog() == DialogResult.OK)
+            //{
+
+            //}
             ProcessFormData(_Snippet);
 
-            //TODO Make This Better, Currently functional using title for the filename
-            _Snippet.Save($@"{txtOutputDirectory.Text}\{_Snippet._Metadata._Title}.snippet");
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.FileOk += SaveFileDialog_FileOk;
+            saveFileDialog.InitialDirectory = txtOutputDirectory.Text;
+            saveFileDialog.DefaultExt = ".snippet";
+            saveFileDialog.Filter = "Snippet Files (*.snippet)|*.snippet";
+            saveFileDialog.FileName = _Snippet._Metadata._Title;
+            saveFileDialog.ValidateNames = true;
+            saveFileDialog.ShowDialog();
         }
 
+        private void SaveFileDialog_FileOk(object sender, CancelEventArgs e)
+        {
+
+            _Snippet.Save(Path.GetFileName(saveFileDialog1.FileName));
+        }
         /// <summary>
         /// Helper method to populate Snippet model with Form information
         /// </summary>
@@ -218,7 +240,18 @@ namespace SnippetGenerator
                 lblOutput.Text = $"{radVS.Text} {LblOutputDefault_Text}";
                 txtOutputDirectory.Text = new Configuration().VStudioOutputFilePath;
             }
-        } 
+        }
         #endregion
+
+        private void btnOutputDirectory_Click(object sender, EventArgs e)
+        {
+            Microsoft.WindowsAPICodePack.Dialogs.CommonOpenFileDialog commonOpenFileDialog = new Microsoft.WindowsAPICodePack.Dialogs.CommonOpenFileDialog();
+            commonOpenFileDialog.IsFolderPicker = true;
+            commonOpenFileDialog.InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
+            if (commonOpenFileDialog.ShowDialog() == Microsoft.WindowsAPICodePack.Dialogs.CommonFileDialogResult.Ok)
+            {
+                txtOutputDirectory.Text = commonOpenFileDialog.FileName;
+            }
+        }
     }
 }
