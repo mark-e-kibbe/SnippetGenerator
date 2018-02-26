@@ -113,26 +113,19 @@ namespace SnippetGenerator
         #endregion
 
         /// <summary>
-        /// Processes form data and saves the Code Snippet to the output directory
+        /// Processes form data and saves the Code Snippet to the output directory using SaveFileDialog
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void BtnGenerateAndSave_Click(object sender, EventArgs e)
         {
-            //SaveFileDialog savefile = new SaveFileDialog();
-            //// set a default file name
-            //savefile.FileName = "unknown.txt";
-            //// set filters - this can be done in properties as well
-            //savefile.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
-
-            //if (savefile.ShowDialog() == DialogResult.OK)
-            //{
-
-            //}
             ProcessFormData(_Snippet);
 
+            //Save File Dialog Setup
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.FileOk += SaveFileDialog_FileOk;
+
+            //Set Initial Directory to what the output directory was, set extension and filter. Preset filename
             saveFileDialog.InitialDirectory = txtOutputDirectory.Text;
             saveFileDialog.DefaultExt = ".snippet";
             saveFileDialog.Filter = "Snippet Files (*.snippet)|*.snippet";
@@ -141,11 +134,16 @@ namespace SnippetGenerator
             saveFileDialog.ShowDialog();
         }
 
+        /// <summary>
+        /// EventHandler for DialogResult == Ok from SaveFileDialog
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveFileDialog_FileOk(object sender, CancelEventArgs e)
         {
-
             _Snippet.Save(Path.GetFileName(saveFileDialog1.FileName));
         }
+
         /// <summary>
         /// Helper method to populate Snippet model with Form information
         /// </summary>
@@ -243,11 +241,25 @@ namespace SnippetGenerator
         }
         #endregion
 
+        /// <summary>
+        /// Folder Picker button click event. Sets folder for output directory
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOutputDirectory_Click(object sender, EventArgs e)
         {
             Microsoft.WindowsAPICodePack.Dialogs.CommonOpenFileDialog commonOpenFileDialog = new Microsoft.WindowsAPICodePack.Dialogs.CommonOpenFileDialog();
             commonOpenFileDialog.IsFolderPicker = true;
-            commonOpenFileDialog.InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
+
+            if(string.IsNullOrWhiteSpace(txtOutputDirectory.Text))
+            {
+                commonOpenFileDialog.InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
+            }
+            else
+            {
+                commonOpenFileDialog.InitialDirectory = txtOutputDirectory.Text;
+            }
+
             if (commonOpenFileDialog.ShowDialog() == Microsoft.WindowsAPICodePack.Dialogs.CommonFileDialogResult.Ok)
             {
                 txtOutputDirectory.Text = commonOpenFileDialog.FileName;
