@@ -47,6 +47,8 @@
             this.radConfigPlatformVS = new System.Windows.Forms.RadioButton();
             this.radConfigPlatformSSMS = new System.Windows.Forms.RadioButton();
             this.lblPlatform = new System.Windows.Forms.Label();
+            this.btnPickVisualStudioOutputDirectory = new System.Windows.Forms.Button();
+            this.btnPickSSMSOutputDirectory = new System.Windows.Forms.Button();
             this.pnlConfigSnippetType.SuspendLayout();
             this.pnlConfigPlatform.SuspendLayout();
             this.SuspendLayout();
@@ -87,16 +89,18 @@
             // 
             // txtDefaultSSMSPath
             // 
+            this.txtDefaultSSMSPath.Enabled = false;
             this.txtDefaultSSMSPath.Location = new System.Drawing.Point(92, 179);
             this.txtDefaultSSMSPath.Name = "txtDefaultSSMSPath";
-            this.txtDefaultSSMSPath.Size = new System.Drawing.Size(266, 20);
+            this.txtDefaultSSMSPath.Size = new System.Drawing.Size(222, 20);
             this.txtDefaultSSMSPath.TabIndex = 10;
             // 
             // txtDefaultVisualStudioPath
             // 
+            this.txtDefaultVisualStudioPath.Enabled = false;
             this.txtDefaultVisualStudioPath.Location = new System.Drawing.Point(92, 142);
             this.txtDefaultVisualStudioPath.Name = "txtDefaultVisualStudioPath";
-            this.txtDefaultVisualStudioPath.Size = new System.Drawing.Size(266, 20);
+            this.txtDefaultVisualStudioPath.Size = new System.Drawing.Size(222, 20);
             this.txtDefaultVisualStudioPath.TabIndex = 8;
             // 
             // lblOutputs
@@ -230,11 +234,33 @@
             this.lblPlatform.TabIndex = 4;
             this.lblPlatform.Text = "Platform";
             // 
+            // btnPickVisualStudioOutputDirectory
+            // 
+            this.btnPickVisualStudioOutputDirectory.Location = new System.Drawing.Point(320, 142);
+            this.btnPickVisualStudioOutputDirectory.Name = "btnPickVisualStudioOutputDirectory";
+            this.btnPickVisualStudioOutputDirectory.Size = new System.Drawing.Size(37, 23);
+            this.btnPickVisualStudioOutputDirectory.TabIndex = 13;
+            this.btnPickVisualStudioOutputDirectory.Text = "Pick";
+            this.btnPickVisualStudioOutputDirectory.UseVisualStyleBackColor = true;
+            this.btnPickVisualStudioOutputDirectory.Click += new System.EventHandler(this.btnPickOutputDirectory_Click);
+            // 
+            // btnPickSSMSOutputDirectory
+            // 
+            this.btnPickSSMSOutputDirectory.Location = new System.Drawing.Point(320, 177);
+            this.btnPickSSMSOutputDirectory.Name = "btnPickSSMSOutputDirectory";
+            this.btnPickSSMSOutputDirectory.Size = new System.Drawing.Size(37, 23);
+            this.btnPickSSMSOutputDirectory.TabIndex = 14;
+            this.btnPickSSMSOutputDirectory.Text = "Pick";
+            this.btnPickSSMSOutputDirectory.UseVisualStyleBackColor = true;
+            this.btnPickSSMSOutputDirectory.Click += new System.EventHandler(this.btnPickOutputDirectory_Click);
+            // 
             // ConfigurationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(370, 239);
+            this.Controls.Add(this.btnPickSSMSOutputDirectory);
+            this.Controls.Add(this.btnPickVisualStudioOutputDirectory);
             this.Controls.Add(this.pnlConfigPlatform);
             this.Controls.Add(this.lblPlatform);
             this.Controls.Add(this.pnlConfigSnippetType);
@@ -280,5 +306,7 @@
         private System.Windows.Forms.Label lblPlatform;
         private System.Windows.Forms.RadioButton radConfigPlatformNone;
         private System.Windows.Forms.RadioButton radConfigTypeNone;
+        private System.Windows.Forms.Button btnPickVisualStudioOutputDirectory;
+        private System.Windows.Forms.Button btnPickSSMSOutputDirectory;
     }
 }

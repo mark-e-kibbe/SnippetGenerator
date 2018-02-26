@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace SnippetGenerator
 {
@@ -89,7 +90,7 @@ namespace SnippetGenerator
         /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if(config.IsFirstTimeRun == false)
+            if (config.IsFirstTimeRun == false)
             {
                 this.Close();
             }
@@ -99,6 +100,41 @@ namespace SnippetGenerator
                 config.SnippetType = (SnippetTypeEnums)Enum.Parse(typeof(SnippetTypeEnums), Utilities.ValueOfChecked(pnlConfigSnippetType));
                 config.UpdateConfiguration();
                 this.Close();
+            }
+        }
+
+        private void btnPickOutputDirectory_Click(object sender, EventArgs e)
+        {
+            Button btnThatSent = (Button)sender;
+
+            Microsoft.WindowsAPICodePack.Dialogs.CommonOpenFileDialog commonOpenFileDialog = new Microsoft.WindowsAPICodePack.Dialogs.CommonOpenFileDialog();
+            commonOpenFileDialog.IsFolderPicker = true;
+
+            if (config.IsFirstTimeRun)
+            {
+                commonOpenFileDialog.DefaultDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
+                if(btnThatSent.Name.Equals(btnPickSSMSOutputDirectory.Text))
+                {
+                    txtDefaultSSMSPath.Text = commonOpenFileDialog.ShowDialog() == CommonFileDialogResult.Ok ? commonOpenFileDialog.FileName : string.Empty;
+                }
+                else
+                {
+                    txtDefaultVisualStudioPath.Text = commonOpenFileDialog.ShowDialog() == CommonFileDialogResult.Ok ? commonOpenFileDialog.FileName : string.Empty;
+                }
+            }
+            else
+            {
+                if (btnThatSent.Name.Equals(btnPickSSMSOutputDirectory.Name))
+                {
+                    commonOpenFileDialog.DefaultDirectory = config.SSMSOutputFilePath;
+                    txtDefaultSSMSPath.Text = commonOpenFileDialog.ShowDialog() == CommonFileDialogResult.Ok ? commonOpenFileDialog.FileName : string.Empty;
+
+                }
+                else//btnThatSent.Name.Equals(btnPicksVisualStudioOutputDirectory.Text
+                {
+                    commonOpenFileDialog.DefaultDirectory = config.VStudioOutputFilePath;
+                    txtDefaultVisualStudioPath.Text = commonOpenFileDialog.ShowDialog() == CommonFileDialogResult.Ok ? commonOpenFileDialog.FileName : string.Empty;
+                }
             }
         }
     }

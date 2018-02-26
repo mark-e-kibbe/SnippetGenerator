@@ -341,6 +341,7 @@
             // 
             // txtOutputDirectory
             // 
+            this.txtOutputDirectory.Enabled = false;
             this.txtOutputDirectory.Location = new System.Drawing.Point(144, 332);
             this.txtOutputDirectory.Name = "txtOutputDirectory";
             this.txtOutputDirectory.Size = new System.Drawing.Size(265, 20);
