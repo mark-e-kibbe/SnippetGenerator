@@ -39,12 +39,12 @@
             this.lblMetadataShortcut = new System.Windows.Forms.Label();
             this.lblMetadataTitle = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnRemoveToApplyApplied = new System.Windows.Forms.Button();
-            this.lstboxApplied = new System.Windows.Forms.ListBox();
+            this.btnUnapply = new System.Windows.Forms.Button();
+            this.lstboxAppliedLiterals = new System.Windows.Forms.ListBox();
             this.btnApply = new System.Windows.Forms.Button();
-            this.btnRemoveToApplyToApply = new System.Windows.Forms.Button();
+            this.btnRemoveFromUnapplied = new System.Windows.Forms.Button();
             this.btnAddLiteral = new System.Windows.Forms.Button();
-            this.lstboxLiterals = new System.Windows.Forms.ListBox();
+            this.lstboxUnappliedLiterals = new System.Windows.Forms.ListBox();
             this.lblLiterals = new System.Windows.Forms.Label();
             this.txtLiteralID = new System.Windows.Forms.TextBox();
             this.txtLiteralToolTip = new System.Windows.Forms.TextBox();
@@ -183,12 +183,12 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnRemoveToApplyApplied);
-            this.panel1.Controls.Add(this.lstboxApplied);
+            this.panel1.Controls.Add(this.btnUnapply);
+            this.panel1.Controls.Add(this.lstboxAppliedLiterals);
             this.panel1.Controls.Add(this.btnApply);
-            this.panel1.Controls.Add(this.btnRemoveToApplyToApply);
+            this.panel1.Controls.Add(this.btnRemoveFromUnapplied);
             this.panel1.Controls.Add(this.btnAddLiteral);
-            this.panel1.Controls.Add(this.lstboxLiterals);
+            this.panel1.Controls.Add(this.lstboxUnappliedLiterals);
             this.panel1.Controls.Add(this.lblLiterals);
             this.panel1.Controls.Add(this.txtLiteralID);
             this.panel1.Controls.Add(this.txtLiteralToolTip);
@@ -202,53 +202,52 @@
             this.panel1.Size = new System.Drawing.Size(532, 245);
             this.panel1.TabIndex = 4;
             // 
-            // btnRemoveToApplyApplied
+            // btnUnapply
             // 
-            this.btnRemoveToApplyApplied.Enabled = false;
-            this.btnRemoveToApplyApplied.Location = new System.Drawing.Point(442, 205);
-            this.btnRemoveToApplyApplied.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnRemoveToApplyApplied.Name = "btnRemoveToApplyApplied";
-            this.btnRemoveToApplyApplied.Size = new System.Drawing.Size(80, 35);
-            this.btnRemoveToApplyApplied.TabIndex = 12;
-            this.btnRemoveToApplyApplied.Text = "Remove";
-            this.btnRemoveToApplyApplied.UseVisualStyleBackColor = true;
+            this.btnUnapply.Location = new System.Drawing.Point(405, 205);
+            this.btnUnapply.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnUnapply.Name = "btnUnapply";
+            this.btnUnapply.Size = new System.Drawing.Size(117, 35);
+            this.btnUnapply.TabIndex = 12;
+            this.btnUnapply.Text = "Unapply";
+            this.btnUnapply.UseVisualStyleBackColor = true;
+            this.btnUnapply.Click += new System.EventHandler(this.btnUnapply_Click);
             // 
-            // lstboxApplied
+            // lstboxAppliedLiterals
             // 
-            this.lstboxApplied.FormattingEnabled = true;
-            this.lstboxApplied.ItemHeight = 20;
-            this.lstboxApplied.Location = new System.Drawing.Point(405, 15);
-            this.lstboxApplied.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.lstboxApplied.Name = "lstboxApplied";
-            this.lstboxApplied.Size = new System.Drawing.Size(117, 184);
-            this.lstboxApplied.TabIndex = 11;
+            this.lstboxAppliedLiterals.FormattingEnabled = true;
+            this.lstboxAppliedLiterals.ItemHeight = 20;
+            this.lstboxAppliedLiterals.Location = new System.Drawing.Point(405, 15);
+            this.lstboxAppliedLiterals.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lstboxAppliedLiterals.Name = "lstboxAppliedLiterals";
+            this.lstboxAppliedLiterals.Size = new System.Drawing.Size(117, 184);
+            this.lstboxAppliedLiterals.TabIndex = 11;
             // 
             // btnApply
             // 
-            this.btnApply.Enabled = false;
-            this.btnApply.Location = new System.Drawing.Point(364, 205);
+            this.btnApply.Location = new System.Drawing.Point(4, 205);
             this.btnApply.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(70, 35);
+            this.btnApply.Size = new System.Drawing.Size(117, 35);
             this.btnApply.TabIndex = 10;
             this.btnApply.Text = "Apply";
             this.btnApply.UseVisualStyleBackColor = true;
             this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
-            // btnRemoveToApplyToApply
+            // btnRemoveFromUnapplied
             // 
-            this.btnRemoveToApplyToApply.Location = new System.Drawing.Point(106, 205);
-            this.btnRemoveToApplyToApply.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnRemoveToApplyToApply.Name = "btnRemoveToApplyToApply";
-            this.btnRemoveToApplyToApply.Size = new System.Drawing.Size(80, 35);
-            this.btnRemoveToApplyToApply.TabIndex = 8;
-            this.btnRemoveToApplyToApply.Text = "Remove";
-            this.btnRemoveToApplyToApply.UseVisualStyleBackColor = true;
-            this.btnRemoveToApplyToApply.Click += new System.EventHandler(this.btnRemoveToApply_Click);
+            this.btnRemoveFromUnapplied.Location = new System.Drawing.Point(290, 167);
+            this.btnRemoveFromUnapplied.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRemoveFromUnapplied.Name = "btnRemoveFromUnapplied";
+            this.btnRemoveFromUnapplied.Size = new System.Drawing.Size(80, 35);
+            this.btnRemoveFromUnapplied.TabIndex = 8;
+            this.btnRemoveFromUnapplied.Text = "Remove";
+            this.btnRemoveFromUnapplied.UseVisualStyleBackColor = true;
+            this.btnRemoveFromUnapplied.Click += new System.EventHandler(this.btnRemoveFromUnapplied_Click);
             // 
             // btnAddLiteral
             // 
-            this.btnAddLiteral.Location = new System.Drawing.Point(4, 205);
+            this.btnAddLiteral.Location = new System.Drawing.Point(183, 167);
             this.btnAddLiteral.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddLiteral.Name = "btnAddLiteral";
             this.btnAddLiteral.Size = new System.Drawing.Size(94, 35);
@@ -257,15 +256,15 @@
             this.btnAddLiteral.UseVisualStyleBackColor = true;
             this.btnAddLiteral.Click += new System.EventHandler(this.btnAddLiteral_Click);
             // 
-            // lstboxLiterals
+            // lstboxUnappliedLiterals
             // 
-            this.lstboxLiterals.FormattingEnabled = true;
-            this.lstboxLiterals.ItemHeight = 20;
-            this.lstboxLiterals.Location = new System.Drawing.Point(4, 15);
-            this.lstboxLiterals.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.lstboxLiterals.Name = "lstboxLiterals";
-            this.lstboxLiterals.Size = new System.Drawing.Size(117, 184);
-            this.lstboxLiterals.TabIndex = 9;
+            this.lstboxUnappliedLiterals.FormattingEnabled = true;
+            this.lstboxUnappliedLiterals.ItemHeight = 20;
+            this.lstboxUnappliedLiterals.Location = new System.Drawing.Point(4, 15);
+            this.lstboxUnappliedLiterals.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lstboxUnappliedLiterals.Name = "lstboxUnappliedLiterals";
+            this.lstboxUnappliedLiterals.Size = new System.Drawing.Size(117, 184);
+            this.lstboxUnappliedLiterals.TabIndex = 9;
             // 
             // lblLiterals
             // 
@@ -601,8 +600,8 @@
         private System.Windows.Forms.Label lblLiteralsToolTip;
         private System.Windows.Forms.Label lblLiteralID;
         private System.Windows.Forms.TextBox txtCodeToSnippet;
-        private System.Windows.Forms.ListBox lstboxLiterals;
-        private System.Windows.Forms.Button btnRemoveToApplyToApply;
+        private System.Windows.Forms.ListBox lstboxUnappliedLiterals;
+        private System.Windows.Forms.Button btnRemoveFromUnapplied;
         private System.Windows.Forms.Button btnAddLiteral;
         private System.Windows.Forms.Button btnGenerateAndSave;
         private System.Windows.Forms.Label lblOutput;
@@ -625,8 +624,8 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Button btnOutputDirectory;
         private System.Windows.Forms.Button btnApply;
-        private System.Windows.Forms.ListBox lstboxApplied;
-        private System.Windows.Forms.Button btnRemoveToApplyApplied;
+        private System.Windows.Forms.ListBox lstboxAppliedLiterals;
+        private System.Windows.Forms.Button btnUnapply;
     }
 }
 

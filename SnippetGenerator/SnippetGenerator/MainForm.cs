@@ -22,6 +22,8 @@ namespace SnippetGenerator
         private const string LblOutputDefault_Text = "Output Directory :";
         private Snippet _Snippet = new Snippet();
         private BindingList<Literal> bindingListLiteralsToApply = new BindingList<Literal>();
+        private BindingList<Literal> bindingListLiteralsApplied = new BindingList<Literal>();
+
         /// <summary>
         /// Sets up Form and form defaults
         /// </summary>
@@ -29,8 +31,10 @@ namespace SnippetGenerator
         {
             InitializeComponent();
             InitializeDefaults();
-            lstboxLiterals.DataSource = bindingListLiteralsToApply;
-            lstboxLiterals.DisplayMember = "_ID";
+            lstboxUnappliedLiterals.DataSource = bindingListLiteralsToApply;
+            lstboxUnappliedLiterals.DisplayMember = "_ID";
+            lstboxAppliedLiterals.DataSource = bindingListLiteralsApplied;
+            lstboxAppliedLiterals.DisplayMember = "_ID";
         }
 
         /// <summary>
@@ -198,7 +202,7 @@ namespace SnippetGenerator
             txtLiteralToolTip.Text = string.Empty;
             txtLiteralDefault.Text = string.Empty;
             txtCodeToSnippet.Text = string.Empty;
-            lstboxLiterals.Items.Clear();
+            lstboxUnappliedLiterals.Items.Clear();
         }
 
         /// <summary>
@@ -274,26 +278,42 @@ namespace SnippetGenerator
         private void btnAddLiteral_Click(object sender, EventArgs e)
         {
             bindingListLiteralsToApply.Add(new Literal(txtLiteralID.Text, txtLiteralToolTip.Text, txtLiteralDefault.Text));
-            btnApply.Enabled = true;
         }
 
-        private void btnRemoveToApply_Click(object sender, EventArgs e)
+        private void btnRemoveFromUnapplied_Click(object sender, EventArgs e)
         {
-            if(lstboxLiterals.SelectedItem == null || lstboxLiterals.Items.Count <= 0)
+            if(lstboxUnappliedLiterals.SelectedItem == null || lstboxUnappliedLiterals.Items.Count <= 0)
             {
                 MessageBox.Show("Select the Literal to Remove From the Left ListBox");
             }
             else
             {
-                bindingListLiteralsToApply.Remove((Literal)lstboxLiterals.SelectedItem); 
+                bindingListLiteralsToApply.Remove((Literal)lstboxUnappliedLiterals.SelectedItem); 
             }
-
-            btnApply.Enabled = (lstboxLiterals.SelectedItem != null && lstboxLiterals.Items.Count > 0);
         }
 
         private void btnApply_Click(object sender, EventArgs e)
         {
+            if (lstboxUnappliedLiterals.SelectedItem == null || lstboxUnappliedLiterals.Items.Count <= 0 || txtCodeToSnippet.SelectedText == null)
+            {
+                MessageBox.Show("Select the Literal to Apply From the Left ListBox and the Text to Replace with the Literal");
+            }
+            else
+            {
+                Literal literalToManipulate = (Literal)lstboxUnappliedLiterals.SelectedItem;
+                //txtCodeToSnippet.Text.Replace(txtCodeToSnippet.SelectedText, $"${literalToManipulate._ID.ToString()}$");
+                txtCodeToSnippet.SelectedText = $"${literalToManipulate._ID.ToString()}$";
+                bindingListLiteralsApplied.Add(literalToManipulate);
+                bindingListLiteralsToApply.Remove((Literal)lstboxUnappliedLiterals.SelectedItem);
+            }
+        }
 
+        private void btnUnapply_Click(object sender, EventArgs e)
+        {
+            Literal literalToManipulate = (Literal)lstboxUnappliedLiterals.SelectedItem;
+            txtCodeToSnippet.Text.Replace($"${literalToManipulate._ID}$", string.Empty);
+            bindingListLiteralsToApply.Add(literalToManipulate);
+            bindingListLiteralsApplied.Remove((Literal)lstboxAppliedLiterals.SelectedItem);
         }
     }
 }
