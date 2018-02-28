@@ -39,8 +39,10 @@
             this.lblMetadataShortcut = new System.Windows.Forms.Label();
             this.lblMetadataTitle = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnRemoveToApplyApplied = new System.Windows.Forms.Button();
+            this.lstboxApplied = new System.Windows.Forms.ListBox();
             this.btnApply = new System.Windows.Forms.Button();
-            this.btnRemove = new System.Windows.Forms.Button();
+            this.btnRemoveToApplyToApply = new System.Windows.Forms.Button();
             this.btnAddLiteral = new System.Windows.Forms.Button();
             this.lstboxLiterals = new System.Windows.Forms.ListBox();
             this.lblLiterals = new System.Windows.Forms.Label();
@@ -181,8 +183,10 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnRemoveToApplyApplied);
+            this.panel1.Controls.Add(this.lstboxApplied);
             this.panel1.Controls.Add(this.btnApply);
-            this.panel1.Controls.Add(this.btnRemove);
+            this.panel1.Controls.Add(this.btnRemoveToApplyToApply);
             this.panel1.Controls.Add(this.btnAddLiteral);
             this.panel1.Controls.Add(this.lstboxLiterals);
             this.panel1.Controls.Add(this.lblLiterals);
@@ -195,13 +199,34 @@
             this.panel1.Location = new System.Drawing.Point(298, 112);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(400, 209);
+            this.panel1.Size = new System.Drawing.Size(532, 245);
             this.panel1.TabIndex = 4;
+            // 
+            // btnRemoveToApplyApplied
+            // 
+            this.btnRemoveToApplyApplied.Enabled = false;
+            this.btnRemoveToApplyApplied.Location = new System.Drawing.Point(442, 205);
+            this.btnRemoveToApplyApplied.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRemoveToApplyApplied.Name = "btnRemoveToApplyApplied";
+            this.btnRemoveToApplyApplied.Size = new System.Drawing.Size(80, 35);
+            this.btnRemoveToApplyApplied.TabIndex = 12;
+            this.btnRemoveToApplyApplied.Text = "Remove";
+            this.btnRemoveToApplyApplied.UseVisualStyleBackColor = true;
+            // 
+            // lstboxApplied
+            // 
+            this.lstboxApplied.FormattingEnabled = true;
+            this.lstboxApplied.ItemHeight = 20;
+            this.lstboxApplied.Location = new System.Drawing.Point(405, 15);
+            this.lstboxApplied.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lstboxApplied.Name = "lstboxApplied";
+            this.lstboxApplied.Size = new System.Drawing.Size(117, 184);
+            this.lstboxApplied.TabIndex = 11;
             // 
             // btnApply
             // 
             this.btnApply.Enabled = false;
-            this.btnApply.Location = new System.Drawing.Point(199, 166);
+            this.btnApply.Location = new System.Drawing.Point(364, 205);
             this.btnApply.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(70, 35);
@@ -210,20 +235,20 @@
             this.btnApply.UseVisualStyleBackColor = true;
             this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
-            // btnRemove
+            // btnRemoveToApplyToApply
             // 
-            this.btnRemove.Location = new System.Drawing.Point(111, 166);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(80, 35);
-            this.btnRemove.TabIndex = 8;
-            this.btnRemove.Text = "Remove";
-            this.btnRemove.UseVisualStyleBackColor = true;
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            this.btnRemoveToApplyToApply.Location = new System.Drawing.Point(106, 205);
+            this.btnRemoveToApplyToApply.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRemoveToApplyToApply.Name = "btnRemoveToApplyToApply";
+            this.btnRemoveToApplyToApply.Size = new System.Drawing.Size(80, 35);
+            this.btnRemoveToApplyToApply.TabIndex = 8;
+            this.btnRemoveToApplyToApply.Text = "Remove";
+            this.btnRemoveToApplyToApply.UseVisualStyleBackColor = true;
+            this.btnRemoveToApplyToApply.Click += new System.EventHandler(this.btnRemoveToApply_Click);
             // 
             // btnAddLiteral
             // 
-            this.btnAddLiteral.Location = new System.Drawing.Point(9, 166);
+            this.btnAddLiteral.Location = new System.Drawing.Point(4, 205);
             this.btnAddLiteral.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddLiteral.Name = "btnAddLiteral";
             this.btnAddLiteral.Size = new System.Drawing.Size(94, 35);
@@ -236,7 +261,7 @@
             // 
             this.lstboxLiterals.FormattingEnabled = true;
             this.lstboxLiterals.ItemHeight = 20;
-            this.lstboxLiterals.Location = new System.Drawing.Point(277, 15);
+            this.lstboxLiterals.Location = new System.Drawing.Point(4, 15);
             this.lstboxLiterals.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lstboxLiterals.Name = "lstboxLiterals";
             this.lstboxLiterals.Size = new System.Drawing.Size(117, 184);
@@ -246,7 +271,7 @@
             // 
             this.lblLiterals.AutoSize = true;
             this.lblLiterals.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.lblLiterals.Location = new System.Drawing.Point(78, 11);
+            this.lblLiterals.Location = new System.Drawing.Point(209, 11);
             this.lblLiterals.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLiterals.Name = "lblLiterals";
             this.lblLiterals.Size = new System.Drawing.Size(95, 29);
@@ -256,7 +281,7 @@
             // 
             // txtLiteralID
             // 
-            this.txtLiteralID.Location = new System.Drawing.Point(105, 51);
+            this.txtLiteralID.Location = new System.Drawing.Point(236, 51);
             this.txtLiteralID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtLiteralID.Name = "txtLiteralID";
             this.txtLiteralID.Size = new System.Drawing.Size(148, 26);
@@ -264,7 +289,7 @@
             // 
             // txtLiteralToolTip
             // 
-            this.txtLiteralToolTip.Location = new System.Drawing.Point(105, 91);
+            this.txtLiteralToolTip.Location = new System.Drawing.Point(236, 91);
             this.txtLiteralToolTip.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtLiteralToolTip.Name = "txtLiteralToolTip";
             this.txtLiteralToolTip.Size = new System.Drawing.Size(148, 26);
@@ -272,7 +297,7 @@
             // 
             // txtLiteralDefault
             // 
-            this.txtLiteralDefault.Location = new System.Drawing.Point(105, 131);
+            this.txtLiteralDefault.Location = new System.Drawing.Point(236, 131);
             this.txtLiteralDefault.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtLiteralDefault.Name = "txtLiteralDefault";
             this.txtLiteralDefault.Size = new System.Drawing.Size(148, 26);
@@ -281,7 +306,7 @@
             // lblDefault
             // 
             this.lblDefault.AutoSize = true;
-            this.lblDefault.Location = new System.Drawing.Point(4, 135);
+            this.lblDefault.Location = new System.Drawing.Point(135, 135);
             this.lblDefault.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDefault.Name = "lblDefault";
             this.lblDefault.Size = new System.Drawing.Size(61, 20);
@@ -291,7 +316,7 @@
             // lblLiteralsToolTip
             // 
             this.lblLiteralsToolTip.AutoSize = true;
-            this.lblLiteralsToolTip.Location = new System.Drawing.Point(4, 95);
+            this.lblLiteralsToolTip.Location = new System.Drawing.Point(135, 95);
             this.lblLiteralsToolTip.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLiteralsToolTip.Name = "lblLiteralsToolTip";
             this.lblLiteralsToolTip.Size = new System.Drawing.Size(60, 20);
@@ -301,7 +326,7 @@
             // lblLiteralID
             // 
             this.lblLiteralID.AutoSize = true;
-            this.lblLiteralID.Location = new System.Drawing.Point(4, 55);
+            this.lblLiteralID.Location = new System.Drawing.Point(135, 55);
             this.lblLiteralID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLiteralID.Name = "lblLiteralID";
             this.lblLiteralID.Size = new System.Drawing.Size(26, 20);
@@ -310,16 +335,16 @@
             // 
             // txtCodeToSnippet
             // 
-            this.txtCodeToSnippet.Location = new System.Drawing.Point(18, 331);
+            this.txtCodeToSnippet.Location = new System.Drawing.Point(18, 367);
             this.txtCodeToSnippet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCodeToSnippet.Multiline = true;
             this.txtCodeToSnippet.Name = "txtCodeToSnippet";
-            this.txtCodeToSnippet.Size = new System.Drawing.Size(679, 173);
+            this.txtCodeToSnippet.Size = new System.Drawing.Size(812, 173);
             this.txtCodeToSnippet.TabIndex = 5;
             // 
             // btnGenerateAndSave
             // 
-            this.btnGenerateAndSave.Location = new System.Drawing.Point(105, 582);
+            this.btnGenerateAndSave.Location = new System.Drawing.Point(167, 582);
             this.btnGenerateAndSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGenerateAndSave.Name = "btnGenerateAndSave";
             this.btnGenerateAndSave.Size = new System.Drawing.Size(164, 35);
@@ -331,7 +356,7 @@
             // lblOutput
             // 
             this.lblOutput.AutoSize = true;
-            this.lblOutput.Location = new System.Drawing.Point(22, 515);
+            this.lblOutput.Location = new System.Drawing.Point(22, 551);
             this.lblOutput.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOutput.Name = "lblOutput";
             this.lblOutput.Size = new System.Drawing.Size(133, 20);
@@ -343,7 +368,7 @@
             this.pnlSnippetType.Controls.Add(this.radExpansion);
             this.pnlSnippetType.Controls.Add(this.radSurroundsWith);
             this.pnlSnippetType.Controls.Add(this.label1);
-            this.pnlSnippetType.Location = new System.Drawing.Point(260, 46);
+            this.pnlSnippetType.Location = new System.Drawing.Point(390, 45);
             this.pnlSnippetType.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlSnippetType.Name = "pnlSnippetType";
             this.pnlSnippetType.Size = new System.Drawing.Size(440, 57);
@@ -387,10 +412,10 @@
             // txtOutputDirectory
             // 
             this.txtOutputDirectory.Enabled = false;
-            this.txtOutputDirectory.Location = new System.Drawing.Point(216, 511);
+            this.txtOutputDirectory.Location = new System.Drawing.Point(216, 547);
             this.txtOutputDirectory.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtOutputDirectory.Name = "txtOutputDirectory";
-            this.txtOutputDirectory.Size = new System.Drawing.Size(396, 26);
+            this.txtOutputDirectory.Size = new System.Drawing.Size(530, 26);
             this.txtOutputDirectory.TabIndex = 7;
             // 
             // grpBoxPlatform
@@ -433,7 +458,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(278, 582);
+            this.btnClear.Location = new System.Drawing.Point(340, 582);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(164, 35);
@@ -444,7 +469,7 @@
             // 
             // btnResetDefaults
             // 
-            this.btnResetDefaults.Location = new System.Drawing.Point(450, 582);
+            this.btnResetDefaults.Location = new System.Drawing.Point(512, 582);
             this.btnResetDefaults.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnResetDefaults.Name = "btnResetDefaults";
             this.btnResetDefaults.Size = new System.Drawing.Size(164, 35);
@@ -463,7 +488,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(717, 35);
+            this.menuStrip1.Size = new System.Drawing.Size(843, 35);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -510,7 +535,7 @@
             // 
             // btnOutputDirectory
             // 
-            this.btnOutputDirectory.Location = new System.Drawing.Point(622, 511);
+            this.btnOutputDirectory.Location = new System.Drawing.Point(754, 545);
             this.btnOutputDirectory.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnOutputDirectory.Name = "btnOutputDirectory";
             this.btnOutputDirectory.Size = new System.Drawing.Size(76, 31);
@@ -523,7 +548,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(717, 618);
+            this.ClientSize = new System.Drawing.Size(843, 618);
             this.Controls.Add(this.btnOutputDirectory);
             this.Controls.Add(this.btnResetDefaults);
             this.Controls.Add(this.btnClear);
@@ -577,7 +602,7 @@
         private System.Windows.Forms.Label lblLiteralID;
         private System.Windows.Forms.TextBox txtCodeToSnippet;
         private System.Windows.Forms.ListBox lstboxLiterals;
-        private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.Button btnRemoveToApplyToApply;
         private System.Windows.Forms.Button btnAddLiteral;
         private System.Windows.Forms.Button btnGenerateAndSave;
         private System.Windows.Forms.Label lblOutput;
@@ -600,6 +625,8 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Button btnOutputDirectory;
         private System.Windows.Forms.Button btnApply;
+        private System.Windows.Forms.ListBox lstboxApplied;
+        private System.Windows.Forms.Button btnRemoveToApplyApplied;
     }
 }
 

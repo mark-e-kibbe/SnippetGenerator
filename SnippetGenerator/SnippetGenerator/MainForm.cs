@@ -21,7 +21,7 @@ namespace SnippetGenerator
         */
         private const string LblOutputDefault_Text = "Output Directory :";
         private Snippet _Snippet = new Snippet();
-        private BindingList<Literal> literalsList = new BindingList<Literal>();
+        private BindingList<Literal> bindingListLiteralsToApply = new BindingList<Literal>();
         /// <summary>
         /// Sets up Form and form defaults
         /// </summary>
@@ -29,7 +29,7 @@ namespace SnippetGenerator
         {
             InitializeComponent();
             InitializeDefaults();
-            lstboxLiterals.DataSource = literalsList;
+            lstboxLiterals.DataSource = bindingListLiteralsToApply;
             lstboxLiterals.DisplayMember = "_ID";
         }
 
@@ -273,20 +273,19 @@ namespace SnippetGenerator
 
         private void btnAddLiteral_Click(object sender, EventArgs e)
         {
-            literalsList.Add(new Literal(txtLiteralID.Text, txtLiteralToolTip.Text, txtLiteralDefault.Text));
+            bindingListLiteralsToApply.Add(new Literal(txtLiteralID.Text, txtLiteralToolTip.Text, txtLiteralDefault.Text));
             btnApply.Enabled = true;
         }
 
-        private void btnRemove_Click(object sender, EventArgs e)
+        private void btnRemoveToApply_Click(object sender, EventArgs e)
         {
             if(lstboxLiterals.SelectedItem == null || lstboxLiterals.Items.Count <= 0)
             {
-                MessageBox.Show("Select the Literal to Remove");
-                btnApply.Enabled = false;
+                MessageBox.Show("Select the Literal to Remove From the Left ListBox");
             }
             else
             {
-                literalsList.Remove((Literal)lstboxLiterals.SelectedItem); 
+                bindingListLiteralsToApply.Remove((Literal)lstboxLiterals.SelectedItem); 
             }
 
             btnApply.Enabled = (lstboxLiterals.SelectedItem != null && lstboxLiterals.Items.Count > 0);
