@@ -21,7 +21,7 @@ namespace SnippetGenerator
         */
         private const string LblOutputDefault_Text = "Output Directory :";
         private Snippet _Snippet = new Snippet();
-
+        private BindingList<Literal> literalsList = new BindingList<Literal>();
         /// <summary>
         /// Sets up Form and form defaults
         /// </summary>
@@ -29,6 +29,8 @@ namespace SnippetGenerator
         {
             InitializeComponent();
             InitializeDefaults();
+            lstboxLiterals.DataSource = literalsList;
+            lstboxLiterals.DisplayMember = "_ID";
         }
 
         /// <summary>
@@ -267,6 +269,32 @@ namespace SnippetGenerator
             {
                 txtOutputDirectory.Text = commonOpenFileDialog.FileName;
             }
+        }
+
+        private void btnAddLiteral_Click(object sender, EventArgs e)
+        {
+            literalsList.Add(new Literal(txtLiteralID.Text, txtLiteralToolTip.Text, txtLiteralDefault.Text));
+            btnApply.Enabled = true;
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            if(lstboxLiterals.SelectedItem == null || lstboxLiterals.Items.Count <= 0)
+            {
+                MessageBox.Show("Select the Literal to Remove");
+                btnApply.Enabled = false;
+            }
+            else
+            {
+                literalsList.Remove((Literal)lstboxLiterals.SelectedItem); 
+            }
+
+            btnApply.Enabled = (lstboxLiterals.SelectedItem != null && lstboxLiterals.Items.Count > 0);
+        }
+
+        private void btnApply_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
