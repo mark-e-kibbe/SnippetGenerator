@@ -52,7 +52,7 @@
             this.lblDefault = new System.Windows.Forms.Label();
             this.lblLiteralsToolTip = new System.Windows.Forms.Label();
             this.lblLiteralID = new System.Windows.Forms.Label();
-            this.txtCodeToSnippet = new System.Windows.Forms.TextBox();
+            this.txtCodeToSnippet = new System.Windows.Forms.RichTextBox();
             this.btnGenerateAndSave = new System.Windows.Forms.Button();
             this.lblOutput = new System.Windows.Forms.Label();
             this.pnlSnippetType = new System.Windows.Forms.Panel();
@@ -599,7 +599,7 @@
         private System.Windows.Forms.Label lblDefault;
         private System.Windows.Forms.Label lblLiteralsToolTip;
         private System.Windows.Forms.Label lblLiteralID;
-        private System.Windows.Forms.TextBox txtCodeToSnippet;
+        private System.Windows.Forms.RichTextBox txtCodeToSnippet;
         private System.Windows.Forms.ListBox lstboxUnappliedLiterals;
         private System.Windows.Forms.Button btnRemoveFromUnapplied;
         private System.Windows.Forms.Button btnAddLiteral;
