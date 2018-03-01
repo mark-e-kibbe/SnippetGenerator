@@ -278,6 +278,7 @@ namespace SnippetGenerator
         private void btnAddLiteral_Click(object sender, EventArgs e)
         {
             bindingListLiteralsToApply.Add(new Literal(txtLiteralID.Text, txtLiteralToolTip.Text, txtLiteralDefault.Text));
+            ValidateLiteralControls();
         }
 
         private void btnRemoveFromUnapplied_Click(object sender, EventArgs e)
@@ -288,7 +289,8 @@ namespace SnippetGenerator
             }
             else
             {
-                bindingListLiteralsToApply.Remove((Literal)lstboxUnappliedLiterals.SelectedItem); 
+                bindingListLiteralsToApply.Remove((Literal)lstboxUnappliedLiterals.SelectedItem);
+                ValidateLiteralControls();
             }
         }
 
@@ -305,6 +307,7 @@ namespace SnippetGenerator
                 _Snippet._Literals.Add(literalToManipulate);
                 bindingListLiteralsApplied.Add(literalToManipulate);
                 bindingListLiteralsToApply.Remove((Literal)lstboxUnappliedLiterals.SelectedItem);
+                ValidateLiteralControls();
             }
         }
 
@@ -315,6 +318,30 @@ namespace SnippetGenerator
             _Snippet._Literals.Remove(literalToManipulate);
             bindingListLiteralsToApply.Add(literalToManipulate);
             bindingListLiteralsApplied.Remove((Literal)lstboxAppliedLiterals.SelectedItem);
+            ValidateLiteralControls();
+        }
+
+        private void ValidateLiteralControls()
+        {
+            if(lstboxUnappliedLiterals.Items.Count == 0)
+            {
+                btnRemoveFromUnapplied.Enabled = false;
+                btnApply.Enabled = false;
+            }
+            else
+            {
+                btnRemoveFromUnapplied.Enabled = true;
+                btnApply.Enabled = true;
+            }
+
+            if(lstboxAppliedLiterals.Items.Count == 0)
+            {
+                btnUnapply.Enabled = false;
+            }
+            else
+            {
+                btnUnapply.Enabled = true;
+            }
         }
     }
 }

@@ -204,6 +204,7 @@
             // 
             // btnUnapply
             // 
+            this.btnUnapply.Enabled = false;
             this.btnUnapply.Location = new System.Drawing.Point(405, 205);
             this.btnUnapply.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnUnapply.Name = "btnUnapply";
@@ -225,6 +226,7 @@
             // 
             // btnApply
             // 
+            this.btnApply.Enabled = false;
             this.btnApply.Location = new System.Drawing.Point(4, 205);
             this.btnApply.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnApply.Name = "btnApply";
@@ -236,6 +238,7 @@
             // 
             // btnRemoveFromUnapplied
             // 
+            this.btnRemoveFromUnapplied.Enabled = false;
             this.btnRemoveFromUnapplied.Location = new System.Drawing.Point(290, 167);
             this.btnRemoveFromUnapplied.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRemoveFromUnapplied.Name = "btnRemoveFromUnapplied";
@@ -336,10 +339,10 @@
             // 
             this.txtCodeToSnippet.Location = new System.Drawing.Point(18, 367);
             this.txtCodeToSnippet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtCodeToSnippet.Multiline = true;
             this.txtCodeToSnippet.Name = "txtCodeToSnippet";
             this.txtCodeToSnippet.Size = new System.Drawing.Size(812, 173);
             this.txtCodeToSnippet.TabIndex = 5;
+            this.txtCodeToSnippet.Text = "";
             // 
             // btnGenerateAndSave
             // 
