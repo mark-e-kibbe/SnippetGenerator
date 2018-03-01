@@ -301,8 +301,8 @@ namespace SnippetGenerator
             else
             {
                 Literal literalToManipulate = (Literal)lstboxUnappliedLiterals.SelectedItem;
-                //txtCodeToSnippet.Text.Replace(txtCodeToSnippet.SelectedText, $"${literalToManipulate._ID.ToString()}$");
                 txtCodeToSnippet.SelectedText = $"${literalToManipulate._ID.ToString()}$";
+                _Snippet._Literals.Add(literalToManipulate);
                 bindingListLiteralsApplied.Add(literalToManipulate);
                 bindingListLiteralsToApply.Remove((Literal)lstboxUnappliedLiterals.SelectedItem);
             }
@@ -310,8 +310,9 @@ namespace SnippetGenerator
 
         private void btnUnapply_Click(object sender, EventArgs e)
         {
-            Literal literalToManipulate = (Literal)lstboxUnappliedLiterals.SelectedItem;
-            txtCodeToSnippet.Text.Replace($"${literalToManipulate._ID}$", string.Empty);
+            Literal literalToManipulate = (Literal)lstboxAppliedLiterals.SelectedItem;
+            txtCodeToSnippet.Text = txtCodeToSnippet.Text.Replace($"${literalToManipulate._ID}$", string.Empty);
+            _Snippet._Literals.Remove(literalToManipulate);
             bindingListLiteralsToApply.Add(literalToManipulate);
             bindingListLiteralsApplied.Remove((Literal)lstboxAppliedLiterals.SelectedItem);
         }
