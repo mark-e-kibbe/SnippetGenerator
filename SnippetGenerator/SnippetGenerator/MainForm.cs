@@ -23,6 +23,7 @@ namespace SnippetGenerator
         private Snippet _Snippet = new Snippet();
         private BindingList<Literal> bindingListLiteralsToApply = new BindingList<Literal>();
         private BindingList<Literal> bindingListLiteralsApplied = new BindingList<Literal>();
+        private Dictionary<string, string> textReplacedRecoveryDict = new Dictionary<string, string>();
 
         /// <summary>
         /// Sets up Form and form defaults
@@ -303,10 +304,21 @@ namespace SnippetGenerator
             else
             {
                 Literal literalToManipulate = (Literal)lstboxUnappliedLiterals.SelectedItem;
+
+                //add text to replacement dictionary before replacement
+                textReplacedRecoveryDict.Add(literalToManipulate._ID.ToString(), txtCodeToSnippet.SelectedText);
+
+                //replace the selection with the id being applied
                 txtCodeToSnippet.SelectedText = $"${literalToManipulate._ID.ToString()}$";
+
+                //add applied literal to snippet to be used during snippet generation
                 _Snippet._Literals.Add(literalToManipulate);
+
+                //transfer the literal to the other listbox
                 bindingListLiteralsApplied.Add(literalToManipulate);
                 bindingListLiteralsToApply.Remove((Literal)lstboxUnappliedLiterals.SelectedItem);
+
+                //add to text recovery dictionary
                 ValidateLiteralControls();
             }
         }
@@ -314,7 +326,11 @@ namespace SnippetGenerator
         private void btnUnapply_Click(object sender, EventArgs e)
         {
             Literal literalToManipulate = (Literal)lstboxAppliedLiterals.SelectedItem;
-            txtCodeToSnippet.Text = txtCodeToSnippet.Text.Replace($"${literalToManipulate._ID}$", string.Empty);
+
+            //recover and reapply the text initially replaced then remove it from recovery dictionary
+            txtCodeToSnippet.Text = txtCodeToSnippet.Text.Replace($"${literalToManipulate._ID}$", textReplacedRecoveryDict[literalToManipulate._ID.ToString()]);
+            textReplacedRecoveryDict.Remove(literalToManipulate._ID.ToString());
+
             _Snippet._Literals.Remove(literalToManipulate);
             bindingListLiteralsToApply.Add(literalToManipulate);
             bindingListLiteralsApplied.Remove((Literal)lstboxAppliedLiterals.SelectedItem);
@@ -341,6 +357,46 @@ namespace SnippetGenerator
             else
             {
                 btnUnapply.Enabled = true;
+            }
+
+            lstboxAppliedLiterals.ClearSelected();
+            lstboxUnappliedLiterals.ClearSelected();
+
+            txtLiteralDefault.Text = string.Empty;
+            txtLiteralID.Text = string.Empty;
+            txtLiteralToolTip.Text = string.Empty;
+        }
+
+        private void PopulateLiteralFieldsOnSelection(Literal literalToRepopulateTextboxes)
+        {
+            txtLiteralID.Text = literalToRepopulateTextboxes._ID;
+            txtLiteralToolTip.Text = literalToRepopulateTextboxes._ToolTip;
+            txtLiteralDefault.Text = literalToRepopulateTextboxes._Default;
+        }
+
+        private void lstboxUnappliedLiterals_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(lstboxUnappliedLiterals.SelectedItem != null && lstboxUnappliedLiterals.SelectedIndex > -1 && lstboxUnappliedLiterals.Items.Count > 0)
+            {
+                PopulateLiteralFieldsOnSelection((Literal)lstboxUnappliedLiterals.SelectedItem);
+                lstboxAppliedLiterals.ClearSelected();
+            }
+            else
+            {
+                lstboxUnappliedLiterals.ClearSelected();
+            }
+        }
+
+        private void lstboxAppliedLiterals_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstboxAppliedLiterals.SelectedItem != null && lstboxAppliedLiterals.SelectedIndex > -1 && lstboxAppliedLiterals.Items.Count > 0)
+            {
+                PopulateLiteralFieldsOnSelection((Literal)lstboxAppliedLiterals.SelectedItem);
+                lstboxUnappliedLiterals.ClearSelected();
+            }
+            else
+            {
+                lstboxAppliedLiterals.ClearSelected();
             }
         }
     }

@@ -223,6 +223,7 @@
             this.lstboxAppliedLiterals.Name = "lstboxAppliedLiterals";
             this.lstboxAppliedLiterals.Size = new System.Drawing.Size(117, 184);
             this.lstboxAppliedLiterals.TabIndex = 11;
+            this.lstboxAppliedLiterals.SelectedIndexChanged += new System.EventHandler(this.lstboxAppliedLiterals_SelectedIndexChanged);
             // 
             // btnApply
             // 
@@ -268,6 +269,7 @@
             this.lstboxUnappliedLiterals.Name = "lstboxUnappliedLiterals";
             this.lstboxUnappliedLiterals.Size = new System.Drawing.Size(117, 184);
             this.lstboxUnappliedLiterals.TabIndex = 9;
+            this.lstboxUnappliedLiterals.SelectedIndexChanged += new System.EventHandler(this.lstboxUnappliedLiterals_SelectedIndexChanged);
             // 
             // lblLiterals
             // 
