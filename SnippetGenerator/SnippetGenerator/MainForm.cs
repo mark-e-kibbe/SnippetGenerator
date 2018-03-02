@@ -276,12 +276,23 @@ namespace SnippetGenerator
             }
         }
 
+        #region LiteralsArea Events and Helper Methods
+        /// <summary>
+        /// Adds a literal to the Literals To Apply listbox via binding list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddLiteral_Click(object sender, EventArgs e)
         {
             bindingListLiteralsToApply.Add(new Literal(txtLiteralID.Text, txtLiteralToolTip.Text, txtLiteralDefault.Text));
             ValidateLiteralControls();
         }
 
+        /// <summary>
+        /// Removes Literal from Literals To Apply Listbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRemoveFromUnapplied_Click(object sender, EventArgs e)
         {
             if (lstboxUnappliedLiterals.SelectedItem == null || lstboxUnappliedLiterals.Items.Count <= 0)
@@ -295,6 +306,11 @@ namespace SnippetGenerator
             }
         }
 
+        /// <summary>
+        /// Applys literal to last position/selected text in code textbox, adds literal to applied listbox and to snippet model if not surrounds with defaults
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnApply_Click(object sender, EventArgs e)
         {
             if (lstboxUnappliedLiterals.SelectedItem == null || lstboxUnappliedLiterals.Items.Count <= 0 || txtCodeToSnippet.SelectedText == null)
@@ -327,6 +343,11 @@ namespace SnippetGenerator
             }
         }
 
+        /// <summary>
+        /// Unapplies literal from textbox, removes from applied and snippet model, and places literal back in literals to apply
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUnapply_Click(object sender, EventArgs e)
         {
             Literal literalToManipulate = (Literal)lstboxAppliedLiterals.SelectedItem;
@@ -334,7 +355,7 @@ namespace SnippetGenerator
             //recover and reapply the text initially replaced then remove it from recovery dictionary
             txtCodeToSnippet.Text = txtCodeToSnippet.Text.Replace($"${literalToManipulate._ID}$", textReplacedRecoveryDict[literalToManipulate._ID.ToString()]);
             textReplacedRecoveryDict.Remove(literalToManipulate._ID.ToString());
-            
+
             //check if literal is reserved ID for SurroundsWith, if not then it can be removed from snippet
             if (!(literalToManipulate._ID.Equals("selected") || literalToManipulate._ID.Equals("end")))
             {
@@ -346,6 +367,9 @@ namespace SnippetGenerator
             ValidateLiteralControls();
         }
 
+        /// <summary>
+        /// Checks Literal controls for conditions on what their current state should be and sets them
+        /// </summary>
         private void ValidateLiteralControls()
         {
             if (lstboxUnappliedLiterals.Items.Count == 0)
@@ -376,6 +400,10 @@ namespace SnippetGenerator
             txtLiteralToolTip.Text = string.Empty;
         }
 
+        /// <summary>
+        /// Helper to populate Literal text fields on selection
+        /// </summary>
+        /// <param name="literalToRepopulateTextboxes">Literal to set the text fields</param>
         private void PopulateLiteralFieldsOnSelection(Literal literalToRepopulateTextboxes)
         {
             txtLiteralID.Text = literalToRepopulateTextboxes._ID;
@@ -383,6 +411,11 @@ namespace SnippetGenerator
             txtLiteralDefault.Text = literalToRepopulateTextboxes._Default;
         }
 
+        /// <summary>
+        /// Event to populate Literal textfields and populates based on Unapplied Literal selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lstboxUnappliedLiterals_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lstboxUnappliedLiterals.SelectedItem != null && lstboxUnappliedLiterals.SelectedIndex > -1 && lstboxUnappliedLiterals.Items.Count > 0)
@@ -396,6 +429,11 @@ namespace SnippetGenerator
             }
         }
 
+        /// <summary>
+        /// Checks selected Applied Literal from lstboxApplied, and prefills selected text
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lstboxAppliedLiterals_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lstboxAppliedLiterals.SelectedItem != null && lstboxAppliedLiterals.SelectedIndex > -1 && lstboxAppliedLiterals.Items.Count > 0)
@@ -407,7 +445,8 @@ namespace SnippetGenerator
             {
                 lstboxAppliedLiterals.ClearSelected();
             }
-        }
+        } 
+        #endregion
 
         /// <summary>
         /// Checks if SurroundsWith was selected and if so adds Required tags into literals unapplied, else removes if there
