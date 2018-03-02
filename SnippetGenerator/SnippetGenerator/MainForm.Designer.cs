@@ -400,6 +400,7 @@
             this.radSurroundsWith.TabStop = true;
             this.radSurroundsWith.Text = "SurroundsWith";
             this.radSurroundsWith.UseVisualStyleBackColor = true;
+            this.radSurroundsWith.CheckedChanged += new System.EventHandler(this.radSurroundsWith_CheckedChanged);
             // 
             // label1
             // 

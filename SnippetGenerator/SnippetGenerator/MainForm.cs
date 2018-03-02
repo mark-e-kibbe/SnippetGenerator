@@ -260,7 +260,7 @@ namespace SnippetGenerator
             commonOpenFileDialog.IsFolderPicker = true;
 
             //Check if there is a default, if not open at Program Files
-            if(string.IsNullOrWhiteSpace(txtOutputDirectory.Text))
+            if (string.IsNullOrWhiteSpace(txtOutputDirectory.Text))
             {
                 commonOpenFileDialog.InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
             }
@@ -284,7 +284,7 @@ namespace SnippetGenerator
 
         private void btnRemoveFromUnapplied_Click(object sender, EventArgs e)
         {
-            if(lstboxUnappliedLiterals.SelectedItem == null || lstboxUnappliedLiterals.Items.Count <= 0)
+            if (lstboxUnappliedLiterals.SelectedItem == null || lstboxUnappliedLiterals.Items.Count <= 0)
             {
                 MessageBox.Show("Select the Literal to Remove From the Left ListBox");
             }
@@ -311,8 +311,12 @@ namespace SnippetGenerator
                 //replace the selection with the id being applied
                 txtCodeToSnippet.SelectedText = $"${literalToManipulate._ID.ToString()}$";
 
-                //add applied literal to snippet to be used during snippet generation
-                _Snippet._Literals.Add(literalToManipulate);
+                //check to see if literal being applied is selected or end for SurroundsWith, if not add to snippet as literal
+                if (!(literalToManipulate._ID.Equals("selected") || literalToManipulate._ID.Equals("end")))
+                {
+                    //add applied literal to snippet to be used during snippet generation
+                    _Snippet._Literals.Add(literalToManipulate);
+                }
 
                 //transfer the literal to the other listbox
                 bindingListLiteralsApplied.Add(literalToManipulate);
@@ -330,8 +334,13 @@ namespace SnippetGenerator
             //recover and reapply the text initially replaced then remove it from recovery dictionary
             txtCodeToSnippet.Text = txtCodeToSnippet.Text.Replace($"${literalToManipulate._ID}$", textReplacedRecoveryDict[literalToManipulate._ID.ToString()]);
             textReplacedRecoveryDict.Remove(literalToManipulate._ID.ToString());
+            
+            //check if literal is reserved ID for SurroundsWith, if not then it can be removed from snippet
+            if (!(literalToManipulate._ID.Equals("selected") || literalToManipulate._ID.Equals("end")))
+            {
+                _Snippet._Literals.Remove(literalToManipulate);
+            }
 
-            _Snippet._Literals.Remove(literalToManipulate);
             bindingListLiteralsToApply.Add(literalToManipulate);
             bindingListLiteralsApplied.Remove((Literal)lstboxAppliedLiterals.SelectedItem);
             ValidateLiteralControls();
@@ -339,7 +348,7 @@ namespace SnippetGenerator
 
         private void ValidateLiteralControls()
         {
-            if(lstboxUnappliedLiterals.Items.Count == 0)
+            if (lstboxUnappliedLiterals.Items.Count == 0)
             {
                 btnRemoveFromUnapplied.Enabled = false;
                 btnApply.Enabled = false;
@@ -350,7 +359,7 @@ namespace SnippetGenerator
                 btnApply.Enabled = true;
             }
 
-            if(lstboxAppliedLiterals.Items.Count == 0)
+            if (lstboxAppliedLiterals.Items.Count == 0)
             {
                 btnUnapply.Enabled = false;
             }
@@ -376,7 +385,7 @@ namespace SnippetGenerator
 
         private void lstboxUnappliedLiterals_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(lstboxUnappliedLiterals.SelectedItem != null && lstboxUnappliedLiterals.SelectedIndex > -1 && lstboxUnappliedLiterals.Items.Count > 0)
+            if (lstboxUnappliedLiterals.SelectedItem != null && lstboxUnappliedLiterals.SelectedIndex > -1 && lstboxUnappliedLiterals.Items.Count > 0)
             {
                 PopulateLiteralFieldsOnSelection((Literal)lstboxUnappliedLiterals.SelectedItem);
                 lstboxAppliedLiterals.ClearSelected();
@@ -397,6 +406,45 @@ namespace SnippetGenerator
             else
             {
                 lstboxAppliedLiterals.ClearSelected();
+            }
+        }
+
+        /// <summary>
+        /// Checks if SurroundsWith was selected and if so adds Required tags into literals unapplied, else removes if there
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void radSurroundsWith_CheckedChanged(object sender, EventArgs e)
+        {
+            if(radSurroundsWith.Checked)
+            {
+                bindingListLiteralsToApply.Add(new Literal("selected", "", ""));
+                bindingListLiteralsToApply.Add(new Literal("end", "", ""));
+                ValidateLiteralControls();
+            }
+            else
+            {
+                //check if applied first, as it'll be unapplied then removed
+                if (bindingListLiteralsApplied.Any<Literal>(l => l._ID.Equals("selected")))
+                {
+                    lstboxAppliedLiterals.SelectedItem = bindingListLiteralsApplied.First<Literal>(l => l._ID.Equals("selected"));
+                    btnUnapply_Click(sender, e);
+                }
+                if (bindingListLiteralsApplied.Any<Literal>(l => l._ID.Equals("end")))
+                {
+                    lstboxAppliedLiterals.SelectedItem = bindingListLiteralsApplied.First<Literal>(l => l._ID.Equals("end"));
+                    btnUnapply_Click(sender, e);
+                }
+                if (bindingListLiteralsToApply.Any<Literal>(l => l._ID.Equals("selected")))
+                {
+                    lstboxUnappliedLiterals.SelectedItem = bindingListLiteralsToApply.First<Literal>(l => l._ID.Equals("selected"));
+                    btnRemoveFromUnapplied_Click(sender, e);
+                }
+                if(bindingListLiteralsToApply.Any<Literal>(l => l._ID.Equals("end")))
+                {
+                    lstboxUnappliedLiterals.SelectedItem = bindingListLiteralsToApply.First<Literal>(l => l._ID.Equals("end"));
+                    btnRemoveFromUnapplied_Click(sender, e);
+                }
             }
         }
     }
