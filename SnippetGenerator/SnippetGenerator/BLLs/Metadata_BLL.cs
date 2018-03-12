@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SnippetGenerator.BLLs
 {
@@ -39,6 +40,55 @@ namespace SnippetGenerator.BLLs
             XMLToReturn = sb.ToString();
 
             return XMLToReturn;
+        }
+
+        public static bool ValidateTitle(string titleToValidate, out string errorMessage)
+        {
+            //create a list for each error message
+            List<string> errorMessageList = new List<string>();
+
+            //Anon or Lambdas cannout interact with out parameters, temp str to set to out param later
+            string errorMessageForLinq = string.Empty;
+
+            //result boolean
+            bool DidNotValidate = false;
+
+            //blank title check
+            if (string.IsNullOrWhiteSpace(titleToValidate))
+            {
+                DidNotValidate = true;
+                errorMessageList.Add("A Title is required, please fill out a title");
+            }
+
+            //invalid xml characters check
+            if (titleToValidate.Contains("<") || titleToValidate.Contains(">"))
+            {
+                DidNotValidate = true;
+                errorMessageList.Add("Invalid character, please do not include < or > symbols");
+            }
+
+            errorMessageList.ForEach(str => errorMessageForLinq += str + Environment.NewLine);
+
+            errorMessage = errorMessageForLinq;
+
+            return DidNotValidate;
+        }
+
+        public static bool ValidateSnippetType(Panel parentWithRadioButtons, out string errorMessage)
+        {
+            string ErrorMessage = string.Empty;
+            bool DidValidate = false;
+
+            DidValidate = parentWithRadioButtons.Controls.OfType<RadioButton>().Any(rb => rb.Checked == true);
+
+            if(!DidValidate)
+            {
+                ErrorMessage = "Please select a snippet type";
+            }
+
+            errorMessage = ErrorMessage;
+
+            return DidValidate;
         }
     }
 }

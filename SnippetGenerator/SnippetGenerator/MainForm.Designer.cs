@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlMetaData = new System.Windows.Forms.Panel();
             this.lblMetadata = new System.Windows.Forms.Label();
             this.txtMetadataTitle = new System.Windows.Forms.TextBox();
@@ -73,11 +74,13 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.btnOutputDirectory = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlMetaData.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlSnippetType.SuspendLayout();
             this.grpBoxPlatform.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMetaData
@@ -116,6 +119,7 @@
             this.txtMetadataTitle.Name = "txtMetadataTitle";
             this.txtMetadataTitle.Size = new System.Drawing.Size(148, 26);
             this.txtMetadataTitle.TabIndex = 2;
+            this.txtMetadataTitle.Validating += new System.ComponentModel.CancelEventHandler(this.txtMetadataTitle_Validating);
             // 
             // txtMetadataAuthor
             // 
@@ -447,6 +451,7 @@
             this.radVS.Text = "VS";
             this.radVS.UseVisualStyleBackColor = true;
             this.radVS.CheckedChanged += new System.EventHandler(this.radVS_CheckedChanged);
+            this.radVS.Validating += new System.ComponentModel.CancelEventHandler(this.radSnippetType_Validating);
             // 
             // radSSMS
             // 
@@ -460,6 +465,7 @@
             this.radSSMS.Text = "SSMS";
             this.radSSMS.UseVisualStyleBackColor = true;
             this.radSSMS.CheckedChanged += new System.EventHandler(this.radSSMS_CheckedChanged);
+            this.radSSMS.Validating += new System.ComponentModel.CancelEventHandler(this.radSnippetType_Validating);
             // 
             // btnClear
             // 
@@ -549,10 +555,15 @@
             this.btnOutputDirectory.UseVisualStyleBackColor = true;
             this.btnOutputDirectory.Click += new System.EventHandler(this.btnOutputDirectory_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(843, 618);
             this.Controls.Add(this.btnOutputDirectory);
             this.Controls.Add(this.btnResetDefaults);
@@ -580,6 +591,7 @@
             this.grpBoxPlatform.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -632,6 +644,7 @@
         private System.Windows.Forms.Button btnApply;
         private System.Windows.Forms.ListBox lstboxAppliedLiterals;
         private System.Windows.Forms.Button btnUnapply;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 

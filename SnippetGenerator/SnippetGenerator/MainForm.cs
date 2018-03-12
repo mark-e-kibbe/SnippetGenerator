@@ -486,5 +486,19 @@ namespace SnippetGenerator
                 }
             }
         }
+
+        private void txtMetadataTitle_Validating(object sender, CancelEventArgs e)
+        {
+            string ErrorMessage = string.Empty;
+            e.Cancel = Metadata.ValidateTitle(txtMetadataTitle.Text, out ErrorMessage);
+            errorProvider1.SetError(txtMetadataTitle, ErrorMessage);
+        }
+
+        private void radSnippetType_Validating(object sender, CancelEventArgs e)
+        {
+            string ErrorMessage = string.Empty;
+            e.Cancel = !Metadata.ValidateSnippetType(grpBoxPlatform, out ErrorMessage);
+            errorProvider1.SetError(grpBoxPlatform, ErrorMessage);
+        }
     }
 }

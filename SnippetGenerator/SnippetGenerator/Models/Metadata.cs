@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using static SnippetGenerator.Snippet_Enumerations.SnippetEnums;
 
 namespace SnippetGenerator.Models
@@ -63,6 +64,16 @@ namespace SnippetGenerator.Models
         public string GetMetadataXMLStr()
         {
             return metadata_BLL.FormattedMetadataXMLString(this);
+        }
+
+        public static bool ValidateTitle(string titleToValidate, out string errorMessage)
+        {
+            return Metadata_BLL.ValidateTitle(titleToValidate, out errorMessage);
+        }
+
+        public static bool ValidateSnippetType(GroupBox parentWithRadioButtons, out string errorMessage)
+        {
+            return Metadata_BLL.ValidateSnippetType(parentWithRadioButtons, out errorMessage);
         }
     }
 }
