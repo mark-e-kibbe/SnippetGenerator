@@ -42,6 +42,12 @@ namespace SnippetGenerator.BLLs
             return XMLToReturn;
         }
 
+        /// <summary>
+        /// Validates the title for null, whitespace, and lessthen or greaterthen  invalid xml characters
+        /// </summary>
+        /// <param name="titleToValidate">The title to validate</param>
+        /// <param name="errorMessage">Error Message to pass by ref using out</param>
+        /// <returns>Boolean result, successful validation = true</returns>
         public static bool ValidateTitle(string titleToValidate, out string errorMessage)
         {
             //create a list for each error message
@@ -74,6 +80,12 @@ namespace SnippetGenerator.BLLs
             return DidValidate;
         }
 
+        /// <summary>
+        /// Validates and ensures a snippet type is selected in the Panel container with the types being represented by radio buttons
+        /// </summary>
+        /// <param name="parentWithRadioButtons">Panel container control containing the snippet type radio buttons to validate</param>
+        /// <param name="errorMessage">Error Message to pass by ref using out</param>
+        /// <returns>Boolean result, successful validation = true</returns>
         public static bool ValidateSnippetType(Panel parentWithRadioButtons, out string errorMessage)
         {
             string ErrorMessage = string.Empty;

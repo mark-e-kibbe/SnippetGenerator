@@ -71,6 +71,13 @@ namespace SnippetGenerator.BLLs
             return CompletedXML;
         }
 
+        /// <summary>
+        /// Validates code to turn into a snippet. Checks for whitespace, null, $selected$ and $end$ tags if SurroundsWith.
+        /// </summary>
+        /// <param name="codeToSnippet">The code to convert to a snippet</param>
+        /// <param name="isSurroundsWith">If true ensures required tags are included in the codeToSnippet for SurroundsWith snippets. $selected$ and $end$ are the required tags.</param>
+        /// <param name="errorMessage">Error Message to pass by ref using out</param>
+        /// <returns>Boolean result, successful validation = true</returns>
         public static bool ValidateCodeToSnippet(string codeToSnippet, bool isSurroundsWith, out string errorMessage)
         {
             //create a list for each error message
@@ -103,6 +110,12 @@ namespace SnippetGenerator.BLLs
             return DidValidate;
         }
 
+        /// <summary>
+        /// Checks a groupbox to ensure one of the 2 snippet types are selected. Validates if any radio buttons are selected in the container.
+        /// </summary>
+        /// <param name="parentWithRadioButtons">GroupBox parent container that contains snippet type radio buttons</param>
+        /// <param name="errorMessage">Error Message to pass by ref using out</param>
+        /// <returns>Boolean result, successful validation = true</returns>
         public static bool ValidateSnippetType(GroupBox parentWithRadioButtons, out string errorMessage)
         {
             string ErrorMessage = string.Empty;

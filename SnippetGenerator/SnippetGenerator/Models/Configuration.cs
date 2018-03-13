@@ -14,20 +14,31 @@ namespace SnippetGenerator.Models
     public class Configuration
     {
         private Configuration_BLL configuration_BLL= new Configuration_BLL();
-        /*
-         * VSOutputFilePath: Default filepath for saving a Visual Studio Code Snippet
-         * SSMS OutputFilePath: Default filepath for saving a SQl Server Management Studio Code Snippet
-         * Author: Default Author
-         * IsFirstTimeRun: Bool for checking if application is ran for first time
-         * Platform: The default platform to target
-         * SnippetType: The default type of snippet to use
-        */
+
+        /// <summary>
+        /// Default filepath for saving a Visual Studio Code Snippet
+        /// </summary>
         public string VStudioOutputFilePath { get; set; }
+        /// <summary>
+        /// Default filepath for saving a SQl Server Management Studio Code Snippet
+        /// </summary>
         public string SSMSOutputFilePath { get; set; }
+        /// <summary>
+        /// Default Author
+        /// </summary>
         public string Author { get; set; }
+        /// <summary>
+        /// Bool for checking if application is ran for first time
+        /// </summary>
         public bool IsFirstTimeRun { get; set; }
+        /// <summary>
+        /// The default platform to target
+        /// </summary>
         public PlatformEnums Platform { get; set; }
-        public  SnippetTypeEnums SnippetType { get; set; }
+        /// <summary>
+        /// The default type of snippet to use
+        /// </summary>
+        public SnippetTypeEnums SnippetType { get; set; }
 
         /// <summary>
         /// Constructor that populates this model
@@ -45,6 +56,12 @@ namespace SnippetGenerator.Models
             configuration_BLL.UpdateConfiguration(this);
         }
 
+        /// <summary>
+        /// Validates the directory for the snippet with Director.Exists
+        /// </summary>
+        /// <param name="outputDirectory">The directory to check</param>
+        /// <param name="errorMessage">Error Message to pass by ref using out</param>
+        /// <returns>Boolean result, successful validation = true</returns>
         public static bool ValidateFilePath(string outputDirectory, out string errorMessage)
         {
             return Configuration_BLL.ValidateFilePath(outputDirectory, out errorMessage);

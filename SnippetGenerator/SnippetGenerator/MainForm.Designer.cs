@@ -1,5 +1,8 @@
 ﻿namespace SnippetGenerator
 {
+    /// <summary>
+    /// Main application form. Has everything you need to make a snippet
+    /// </summary>
     partial class MainForm
     {
         /// <summary>
