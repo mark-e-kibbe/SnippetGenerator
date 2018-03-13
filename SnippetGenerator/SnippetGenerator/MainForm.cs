@@ -126,19 +126,27 @@ namespace SnippetGenerator
         /// <param name="e"></param>
         private void BtnGenerateAndSave_Click(object sender, EventArgs e)
         {
-            ProcessFormData(_Snippet);
+            //Check to see if Validation succeeds, if so do logic, else tell the user.
+            if (this.ValidateChildren())
+            {
+                ProcessFormData(_Snippet);
 
-            //Save File Dialog Setup
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.FileOk += SaveFileDialog_FileOk;
+                //Save File Dialog Setup
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.FileOk += SaveFileDialog_FileOk;
 
-            //Set Initial Directory to what the output directory was, set extension and filter. Preset filename
-            saveFileDialog.InitialDirectory = txtOutputDirectory.Text;
-            saveFileDialog.DefaultExt = ".snippet";
-            saveFileDialog.Filter = "Snippet Files (*.snippet)|*.snippet";
-            saveFileDialog.FileName = _Snippet._Metadata._Title;
-            saveFileDialog.ValidateNames = true;
-            saveFileDialog.ShowDialog();
+                //Set Initial Directory to what the output directory was, set extension and filter. Preset filename
+                saveFileDialog.InitialDirectory = txtOutputDirectory.Text;
+                saveFileDialog.DefaultExt = ".snippet";
+                saveFileDialog.Filter = "Snippet Files (*.snippet)|*.snippet";
+                saveFileDialog.FileName = _Snippet._Metadata._Title;
+                saveFileDialog.ValidateNames = true;
+                saveFileDialog.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("All required fields not complete, please fill out the required fields with error flags next to them. Hover over each red error flag to learn more");
+            }
         }
 
         /// <summary>
@@ -490,15 +498,36 @@ namespace SnippetGenerator
         private void txtMetadataTitle_Validating(object sender, CancelEventArgs e)
         {
             string ErrorMessage = string.Empty;
-            e.Cancel = Metadata.ValidateTitle(txtMetadataTitle.Text, out ErrorMessage);
+            e.Cancel = !Metadata.ValidateTitle(txtMetadataTitle.Text, out ErrorMessage);
             errorProvider1.SetError(txtMetadataTitle, ErrorMessage);
         }
 
         private void radSnippetType_Validating(object sender, CancelEventArgs e)
         {
             string ErrorMessage = string.Empty;
-            e.Cancel = !Metadata.ValidateSnippetType(grpBoxPlatform, out ErrorMessage);
+            e.Cancel = !Metadata.ValidateSnippetType(pnlSnippetType, out ErrorMessage);
+            errorProvider1.SetError(pnlSnippetType, ErrorMessage);
+        }
+
+        private void radSnippetPlatform_Validating(object sender, CancelEventArgs e)
+        {
+            string ErrorMessage = string.Empty;
+            e.Cancel = !Snippet.ValidateSnippetPlatform(grpBoxPlatform, out ErrorMessage);
             errorProvider1.SetError(grpBoxPlatform, ErrorMessage);
+        }
+
+        private void txtCodeToSnippet_Validating(object sender, CancelEventArgs e)
+        {
+            string ErrorMessage = string.Empty;
+            e.Cancel = !Snippet.ValidateCodeToSnippet(txtCodeToSnippet.Text, radExpansion.Checked, out ErrorMessage);
+            errorProvider1.SetError(txtCodeToSnippet, ErrorMessage);
+        }
+
+        private void txtOutputDirectory_Validating(object sender, CancelEventArgs e)
+        {
+            string ErrorMessage = string.Empty;
+            e.Cancel = !Configuration.ValidateFilePath(txtOutputDirectory.Text, out ErrorMessage);
+            errorProvider1.SetError(btnOutputDirectory, ErrorMessage);
         }
     }
 }

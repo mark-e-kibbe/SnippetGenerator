@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Linq;
 using static SnippetGenerator.Snippet_Enumerations.SnippetEnums;
 
@@ -68,6 +69,55 @@ namespace SnippetGenerator.BLLs
             CompletedXML = ParseXMLStr(_stringBuilder.ToString());
 
             return CompletedXML;
+        }
+
+        public static bool ValidateCodeToSnippet(string codeToSnippet, bool isSurroundsWith, out string errorMessage)
+        {
+            //create a list for each error message
+            List<string> errorMessageList = new List<string>();
+
+            //Anon or Lambdas cannout interact with out parameters, temp str to set to out param later
+            string errorMessageForLinq = string.Empty;
+
+            //result boolean
+            bool DidValidate = true;
+
+            //blank title check
+            if (string.IsNullOrWhiteSpace(codeToSnippet))
+            {
+                DidValidate = false;
+                errorMessageList.Add("$selected$ and $end$ tags are required for a surroundswith snippet, please ensure these tags are added where your selected text should be in the snippet ($selected$) and where your cursor should be after using the snippet ($end$)");
+            }
+
+            //invalid xml characters check
+            if (isSurroundsWith && !(codeToSnippet.Contains("$selected$") || (!(codeToSnippet.Contains("$end$")))))
+            {
+                DidValidate = false;
+                errorMessageList.Add("Invalid character, please do not include < or > symbols");
+            }
+
+            errorMessageList.ForEach(str => errorMessageForLinq += str + Environment.NewLine);
+
+            errorMessage = errorMessageForLinq;
+
+            return DidValidate;
+        }
+
+        public static bool ValidateSnippetType(GroupBox parentWithRadioButtons, out string errorMessage)
+        {
+            string ErrorMessage = string.Empty;
+            bool DidValidate = true;
+
+            DidValidate = !parentWithRadioButtons.Controls.OfType<RadioButton>().Any(rb => rb.Checked == true);
+
+            if (!DidValidate)
+            {
+                ErrorMessage = "Please select a snippet type";
+            }
+
+            errorMessage = ErrorMessage;
+
+            return DidValidate;
         }
 
 

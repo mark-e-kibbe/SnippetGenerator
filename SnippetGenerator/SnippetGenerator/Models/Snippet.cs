@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Linq;
 using static SnippetGenerator.Snippet_Enumerations.SnippetEnums;
 
@@ -35,6 +36,16 @@ namespace SnippetGenerator.Models
         public void Save(string path)
         {
             snippet_BLL.Save(this, path);
+        }
+
+        public static bool ValidateSnippetPlatform(GroupBox parentWithRadioButtons, out string errorMessage)
+        {
+            return Snippet_BLL.ValidateSnippetType(parentWithRadioButtons, out errorMessage);
+        }
+
+        public static bool ValidateCodeToSnippet(string codeToSnippet, bool isSurroundsWith, out string errorMessage)
+        {
+            return Snippet_BLL.ValidateCodeToSnippet(codeToSnippet, isSurroundsWith, out errorMessage);
         }
     }
 }

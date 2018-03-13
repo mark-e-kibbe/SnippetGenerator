@@ -44,6 +44,11 @@ namespace SnippetGenerator.Models
         {
             configuration_BLL.UpdateConfiguration(this);
         }
+
+        public static bool ValidateFilePath(string outputDirectory, out string errorMessage)
+        {
+            return Configuration_BLL.ValidateFilePath(outputDirectory, out errorMessage);
+        }
     }
     
 }

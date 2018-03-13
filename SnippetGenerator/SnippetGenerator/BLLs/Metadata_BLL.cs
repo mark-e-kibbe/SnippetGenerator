@@ -51,19 +51,19 @@ namespace SnippetGenerator.BLLs
             string errorMessageForLinq = string.Empty;
 
             //result boolean
-            bool DidNotValidate = false;
+            bool DidValidate = true;
 
             //blank title check
             if (string.IsNullOrWhiteSpace(titleToValidate))
             {
-                DidNotValidate = true;
+                DidValidate = false;
                 errorMessageList.Add("A Title is required, please fill out a title");
             }
 
             //invalid xml characters check
             if (titleToValidate.Contains("<") || titleToValidate.Contains(">"))
             {
-                DidNotValidate = true;
+                DidValidate = false;
                 errorMessageList.Add("Invalid character, please do not include < or > symbols");
             }
 
@@ -71,15 +71,15 @@ namespace SnippetGenerator.BLLs
 
             errorMessage = errorMessageForLinq;
 
-            return DidNotValidate;
+            return DidValidate;
         }
 
         public static bool ValidateSnippetType(Panel parentWithRadioButtons, out string errorMessage)
         {
             string ErrorMessage = string.Empty;
-            bool DidValidate = false;
+            bool DidValidate = true;
 
-            DidValidate = parentWithRadioButtons.Controls.OfType<RadioButton>().Any(rb => rb.Checked == true);
+            DidValidate = !parentWithRadioButtons.Controls.OfType<RadioButton>().Any(rb => rb.Checked == true);
 
             if(!DidValidate)
             {

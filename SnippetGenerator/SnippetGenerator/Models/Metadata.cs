@@ -71,7 +71,7 @@ namespace SnippetGenerator.Models
             return Metadata_BLL.ValidateTitle(titleToValidate, out errorMessage);
         }
 
-        public static bool ValidateSnippetType(GroupBox parentWithRadioButtons, out string errorMessage)
+        public static bool ValidateSnippetType(Panel parentWithRadioButtons, out string errorMessage)
         {
             return Metadata_BLL.ValidateSnippetType(parentWithRadioButtons, out errorMessage);
         }

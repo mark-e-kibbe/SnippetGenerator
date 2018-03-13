@@ -1,6 +1,7 @@
 ﻿using SnippetGenerator.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,6 +42,23 @@ namespace SnippetGenerator.BLLs
             Default.Platform = config.Platform.ToString();
             Default.SnippetType = config.SnippetType.ToString();
             Default.Save();
+        }
+
+        public static bool ValidateFilePath(string outputDirectory, out string errorMessage)
+        {
+            string ErrorMessage = string.Empty;
+            bool DidValidate = true;
+
+            DidValidate = Directory.Exists(outputDirectory);
+
+            if (!DidValidate)
+            {
+                ErrorMessage = "Directory does not exist, please ensure the chosen directory exists";
+            }
+
+            errorMessage = ErrorMessage;
+
+            return DidValidate;
         }
     }
 }
