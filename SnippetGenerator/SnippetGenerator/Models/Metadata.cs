@@ -25,23 +25,23 @@ namespace SnippetGenerator.Models
         /// <summary>
         /// The Title of the snippet that will show when using ctrl+k ctrl+x or ctrl+k ctrl+x
         /// </summary>
-        public string _Title {get;set;}
+        public string Title {get;set;}
         /// <summary>
         /// The shorthand required while in a text editor, ss would require ss tab to be typed, stock SSMS not supported but extensions enable this functionality
         /// </summary>
-        public string _Shortcut {get;set;}
+        public string Shortcut {get;set;}
         /// <summary>
         /// The description field that will show in a tool tip or Snippet Manager during usage/selection
         /// </summary>
-        public string _Description {get;set;}
+        public string Description {get;set;}
         /// <summary>
         /// The creator of the Snippet, can be defaulted through configuration
         /// </summary>
-        public string _Author {get;set;}
+        public string Author {get;set;}
         /// <summary>
         /// For setting the type of snippet
         /// </summary>
-        public SnippetTypeEnums _SnippetType { get; set; }
+        public SnippetTypeEnums SnippetType { get; set; }
 
         /// <summary>
         /// Clean slate empty constructor for self initialization of metadata properties
@@ -51,18 +51,18 @@ namespace SnippetGenerator.Models
         /// <summary>
         /// Constructor to fully initialize and set properties required for Metadata object
         /// </summary>
-        /// <param name="Title">Title of Snippet</param>
-        /// <param name="Shortcut">Keyboard shorthand for quick population, stock VS only or SSMS with extensions</param>
-        /// <param name="Description">Description field for the snippet when being used</param>
-        /// <param name="Author">Snippet Creator</param>
-        /// <param name="SnippetType">Enumeration for the only types of snippets</param>
-        public Metadata(string Title, string Shortcut, string Description, string Author, SnippetTypeEnums SnippetType)
+        /// <param name="title">Title of Snippet</param>
+        /// <param name="shortcut">Keyboard shorthand for quick population, stock VS only or SSMS with extensions</param>
+        /// <param name="description">Description field for the snippet when being used</param>
+        /// <param name="author">Snippet Creator</param>
+        /// <param name="snippetType">Enumeration for the only types of snippets</param>
+        public Metadata(string title, string shortcut, string description, string author, SnippetTypeEnums snippetType)
         {
-            _Title = Title;
-            _Shortcut = Shortcut;
-            _Description = Description;
-            _Author = Author;
-            _SnippetType = SnippetType;
+            this.Title = title;
+            Shortcut = shortcut;
+            Description = description;
+            Author = author;
+            SnippetType = snippetType;
         }
 
         /// <summary>

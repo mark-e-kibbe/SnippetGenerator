@@ -139,7 +139,7 @@ namespace SnippetGenerator
                 saveFileDialog.InitialDirectory = txtOutputDirectory.Text;
                 saveFileDialog.DefaultExt = ".snippet";
                 saveFileDialog.Filter = "Snippet Files (*.snippet)|*.snippet";
-                saveFileDialog.FileName = _Snippet._Metadata._Title;
+                saveFileDialog.FileName = _Snippet.Metadata.Title;
                 saveFileDialog.ValidateNames = true;
                 saveFileDialog.ShowDialog();
             }
@@ -166,15 +166,15 @@ namespace SnippetGenerator
         /// <param name="snippet"></param>
         private void ProcessFormData(Snippet snippet)
         {
-            snippet._Metadata._Author = txtMetadataAuthor.Text;
-            snippet._Metadata._Description = txtMetadataDescription.Text;
-            snippet._Metadata._Shortcut = txtMetadataShortcut.Text;
-            snippet._Metadata._Title = txtMetadataTitle.Text;
-            snippet._Metadata._SnippetType = Utilities.EnumParseToSnippetTypeEnum(pnlSnippetType);
+            snippet.Metadata.Author = txtMetadataAuthor.Text;
+            snippet.Metadata.Description = txtMetadataDescription.Text;
+            snippet.Metadata.Shortcut = txtMetadataShortcut.Text;
+            snippet.Metadata.Title = txtMetadataTitle.Text;
+            snippet.Metadata.SnippetType = Utilities.EnumParseToSnippetTypeEnum(pnlSnippetType);
 
             _Snippet.CodeToSnippet = txtCodeToSnippet.Text;
 
-            snippet._Platform = Utilities.EnumParseToSnippetTypeEnum(grpBoxPlatform);
+            snippet.Platform = Utilities.EnumParseToSnippetTypeEnum(grpBoxPlatform);
         }
 
         /// <summary>
@@ -332,16 +332,16 @@ namespace SnippetGenerator
                 Literal literalToManipulate = (Literal)lstboxUnappliedLiterals.SelectedItem;
 
                 //add text to replacement dictionary before replacement
-                textReplacedRecoveryDict.Add(literalToManipulate._ID.ToString(), txtCodeToSnippet.SelectedText);
+                textReplacedRecoveryDict.Add(literalToManipulate.ID.ToString(), txtCodeToSnippet.SelectedText);
 
                 //replace the selection with the id being applied
-                txtCodeToSnippet.SelectedText = $"${literalToManipulate._ID.ToString()}$";
+                txtCodeToSnippet.SelectedText = $"${literalToManipulate.ID.ToString()}$";
 
                 //check to see if literal being applied is selected or end for SurroundsWith, if not add to snippet as literal
-                if (!(literalToManipulate._ID.Equals("selected") || literalToManipulate._ID.Equals("end")))
+                if (!(literalToManipulate.ID.Equals("selected") || literalToManipulate.ID.Equals("end")))
                 {
                     //add applied literal to snippet to be used during snippet generation
-                    _Snippet._Literals.Add(literalToManipulate);
+                    _Snippet.Literals.Add(literalToManipulate);
                 }
 
                 //transfer the literal to the other listbox
@@ -363,13 +363,13 @@ namespace SnippetGenerator
             Literal literalToManipulate = (Literal)lstboxAppliedLiterals.SelectedItem;
 
             //recover and reapply the text initially replaced then remove it from recovery dictionary
-            txtCodeToSnippet.Text = txtCodeToSnippet.Text.Replace($"${literalToManipulate._ID}$", textReplacedRecoveryDict[literalToManipulate._ID.ToString()]);
-            textReplacedRecoveryDict.Remove(literalToManipulate._ID.ToString());
+            txtCodeToSnippet.Text = txtCodeToSnippet.Text.Replace($"${literalToManipulate.ID}$", textReplacedRecoveryDict[literalToManipulate.ID.ToString()]);
+            textReplacedRecoveryDict.Remove(literalToManipulate.ID.ToString());
 
             //check if literal is reserved ID for SurroundsWith, if not then it can be removed from snippet
-            if (!(literalToManipulate._ID.Equals("selected") || literalToManipulate._ID.Equals("end")))
+            if (!(literalToManipulate.ID.Equals("selected") || literalToManipulate.ID.Equals("end")))
             {
-                _Snippet._Literals.Remove(literalToManipulate);
+                _Snippet.Literals.Remove(literalToManipulate);
             }
 
             bindingListLiteralsToApply.Add(literalToManipulate);
@@ -416,9 +416,9 @@ namespace SnippetGenerator
         /// <param name="literalToRepopulateTextboxes">Literal to set the text fields</param>
         private void PopulateLiteralFieldsOnSelection(Literal literalToRepopulateTextboxes)
         {
-            txtLiteralID.Text = literalToRepopulateTextboxes._ID;
-            txtLiteralToolTip.Text = literalToRepopulateTextboxes._ToolTip;
-            txtLiteralDefault.Text = literalToRepopulateTextboxes._Default;
+            txtLiteralID.Text = literalToRepopulateTextboxes.ID;
+            txtLiteralToolTip.Text = literalToRepopulateTextboxes.ToolTip;
+            txtLiteralDefault.Text = literalToRepopulateTextboxes.Default;
         }
 
         /// <summary>
@@ -474,24 +474,24 @@ namespace SnippetGenerator
             else
             {
                 //check if applied first, as it'll be unapplied then removed
-                if (bindingListLiteralsApplied.Any<Literal>(l => l._ID.Equals("selected")))
+                if (bindingListLiteralsApplied.Any<Literal>(l => l.ID.Equals("selected")))
                 {
-                    lstboxAppliedLiterals.SelectedItem = bindingListLiteralsApplied.First<Literal>(l => l._ID.Equals("selected"));
+                    lstboxAppliedLiterals.SelectedItem = bindingListLiteralsApplied.First<Literal>(l => l.ID.Equals("selected"));
                     BtnUnapply_Click(sender, e);
                 }
-                if (bindingListLiteralsApplied.Any<Literal>(l => l._ID.Equals("end")))
+                if (bindingListLiteralsApplied.Any<Literal>(l => l.ID.Equals("end")))
                 {
-                    lstboxAppliedLiterals.SelectedItem = bindingListLiteralsApplied.First<Literal>(l => l._ID.Equals("end"));
+                    lstboxAppliedLiterals.SelectedItem = bindingListLiteralsApplied.First<Literal>(l => l.ID.Equals("end"));
                     BtnUnapply_Click(sender, e);
                 }
-                if (bindingListLiteralsToApply.Any<Literal>(l => l._ID.Equals("selected")))
+                if (bindingListLiteralsToApply.Any<Literal>(l => l.ID.Equals("selected")))
                 {
-                    lstboxUnappliedLiterals.SelectedItem = bindingListLiteralsToApply.First<Literal>(l => l._ID.Equals("selected"));
+                    lstboxUnappliedLiterals.SelectedItem = bindingListLiteralsToApply.First<Literal>(l => l.ID.Equals("selected"));
                     BtnRemoveFromUnapplied_Click(sender, e);
                 }
-                if(bindingListLiteralsToApply.Any<Literal>(l => l._ID.Equals("end")))
+                if(bindingListLiteralsToApply.Any<Literal>(l => l.ID.Equals("end")))
                 {
-                    lstboxUnappliedLiterals.SelectedItem = bindingListLiteralsToApply.First<Literal>(l => l._ID.Equals("end"));
+                    lstboxUnappliedLiterals.SelectedItem = bindingListLiteralsToApply.First<Literal>(l => l.ID.Equals("end"));
                     BtnRemoveFromUnapplied_Click(sender, e);
                 }
             }

@@ -21,27 +21,27 @@ namespace SnippetGenerator.Models
         /// <summary>
         /// How the literal is referenced via snippet generation with $ID$
         /// </summary>
-        public string _ID { get; set; }
+        public string ID { get; set; }
         /// <summary>
         /// Context window description when literal has focus while using a snippet
         /// </summary>
-        public string _ToolTip { get; set; }
+        public string ToolTip { get; set; }
         /// <summary>
         /// Value initially populated by the literal
         /// </summary>
-        public string _Default { get; set; }
+        public string Default { get; set; }
 
         /// <summary>
         /// Can create a Literal in it's entirety
         /// </summary>
-        /// <param name="ID">How Literal will be referenced in the snippet</param>
-        /// <param name="ToolTip">Context window description for when literal has focus after snippet population</param>
-        /// <param name="Default">Value initially populated by the literal</param>
-        public Literal(string ID, string ToolTip, string Default)
+        /// <param name="iD">How Literal will be referenced in the snippet</param>
+        /// <param name="toolTip">Context window description for when literal has focus after snippet population</param>
+        /// <param name="defaultValue">Value initially populated by the literal</param>
+        public Literal(string iD, string toolTip, string defaultValue)
         {
-            _ID = ID;
-            _ToolTip = ToolTip;
-            _Default = Default;
+            ID = iD;
+            ToolTip = toolTip;
+            Default = defaultValue;
         }
 
         /// <summary>

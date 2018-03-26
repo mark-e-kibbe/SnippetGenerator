@@ -43,14 +43,14 @@ namespace SnippetGenerator.BLLs
             _stringBuilder.AppendLine(@"<CodeSnippets xmlns=""http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet"">");
             _stringBuilder.AppendLine(LocDefinitionXML());
             _stringBuilder.AppendLine(@"<CodeSnippet Format =""1.0.0"">");
-            _stringBuilder.AppendLine(HeaderXML(snippet._Metadata));
+            _stringBuilder.AppendLine(HeaderXML(snippet.Metadata));
             _stringBuilder.AppendLine(@"<Snippet>");
             _stringBuilder.AppendLine(@"<Declarations>");
 
             //for each loop to create each literals XML in the list of Literals
-            if (snippet._Literals != null && snippet._Literals.Count > 0)
+            if (snippet.Literals != null && snippet.Literals.Count > 0)
             {
-                foreach (Literal literal in snippet._Literals)
+                foreach (Literal literal in snippet.Literals)
                 {
                     _stringBuilder.AppendLine(literal.GetLiteralXMLStr());
                 }
@@ -59,7 +59,7 @@ namespace SnippetGenerator.BLLs
             _stringBuilder.AppendLine(@"</Declarations>");
 
             //Appends the code the user would like to turn into a code snippet to the xml string being built
-            _stringBuilder.AppendLine(CodeXML(snippet.CodeToSnippet, snippet._Platform));
+            _stringBuilder.AppendLine(CodeXML(snippet.CodeToSnippet, snippet.Platform));
 
             _stringBuilder.AppendLine(@"</Snippet>");
             _stringBuilder.AppendLine(@"</CodeSnippet>");

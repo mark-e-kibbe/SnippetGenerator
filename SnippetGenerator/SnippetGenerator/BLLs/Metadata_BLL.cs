@@ -26,13 +26,13 @@ namespace SnippetGenerator.BLLs
             //Parse Metadata to required syntax for XML Snippet
             sb.AppendLine(@"<Header>");
 
-            sb.AppendLine($@"<Title>{metadata._Title}</Title>");
-            sb.AppendLine($@"<Shortcut>{metadata._Shortcut}</Shortcut>");
-            sb.AppendLine($@"<Description>{metadata._Description}</Description>");
-            sb.AppendLine($@"<Author>{metadata._Author}</Author>");
+            sb.AppendLine($@"<Title>{metadata.Title}</Title>");
+            sb.AppendLine($@"<Shortcut>{metadata.Shortcut}</Shortcut>");
+            sb.AppendLine($@"<Description>{metadata.Description}</Description>");
+            sb.AppendLine($@"<Author>{metadata.Author}</Author>");
 
             sb.AppendLine($@"<SnippetTypes>");
-            sb.AppendLine($@"<SnippetType>{metadata._SnippetType.ToString()}</SnippetType>");
+            sb.AppendLine($@"<SnippetType>{metadata.SnippetType.ToString()}</SnippetType>");
             sb.AppendLine($@"</SnippetTypes>");
 
             sb.AppendLine(@"</Header>");

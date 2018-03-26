@@ -24,15 +24,15 @@ namespace SnippetGenerator.Models
         /// <summary>
         /// Targeted platform for code snippet - SSMS or VS
         /// </summary>
-        public PlatformEnums _Platform { get; set; }
+        public PlatformEnums Platform { get; set; }
         /// <summary>
         /// Model containing everything required to make metadata portion of snippet
         /// </summary>
-        public Metadata _Metadata = new Metadata();
+        public Metadata Metadata = new Metadata();
         /// <summary>
         /// List containing literal models to be used in the code snippet
         /// </summary>
-        public List<Literal> _Literals = new List<Literal>();
+        public List<Literal> Literals = new List<Literal>();
 
         /// <summary>
         /// Saves the Code Snippet to the location passed in with the filename being Metadata Title

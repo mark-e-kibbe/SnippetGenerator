@@ -26,9 +26,9 @@ namespace SnippetGenerator.BLLs
             //Parse Literal to required syntax for XML Snippet
             sb.AppendLine(@"<Literal>");
 
-            sb.AppendLine($@"<ID>{literal._ID}</ID>");
-            sb.AppendLine($@"<ToolTip>{literal._ToolTip}</ToolTip>");
-            sb.AppendLine($@"<Default>{literal._Default}</Default>");
+            sb.AppendLine($@"<ID>{literal.ID}</ID>");
+            sb.AppendLine($@"<ToolTip>{literal.ToolTip}</ToolTip>");
+            sb.AppendLine($@"<Default>{literal.Default}</Default>");
 
             sb.AppendLine(@"</Literal>");
 
