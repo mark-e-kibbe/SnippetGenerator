@@ -18,13 +18,17 @@ namespace SnippetGenerator.Models
     {
         private Literal_BLL literal_BLL = new Literal_BLL();
 
-        /*
-         *ID: How the Literal is referenced via snippet generation
-         *ToolTip: The context window description when literal has focus post snippet population
-         *Default: The value initially populated by the literal
-        */
+        /// <summary>
+        /// How the literal is referenced via snippet generation with $ID$
+        /// </summary>
         public string _ID { get; set; }
+        /// <summary>
+        /// Context window description when literal has focus while using a snippet
+        /// </summary>
         public string _ToolTip { get; set; }
+        /// <summary>
+        /// Value initially populated by the literal
+        /// </summary>
         public string _Default { get; set; }
 
         /// <summary>

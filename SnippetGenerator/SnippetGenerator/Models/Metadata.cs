@@ -22,17 +22,25 @@ namespace SnippetGenerator.Models
     {
         private Metadata_BLL metadata_BLL = new Metadata_BLL();
 
-        /*
-         * Title: The Title of the snippet that will show when using ctrl+k ctrl+x or ctrl+k ctrl+x
-         * Shortcut: The shorthand required while in a text editor, ss would require ss tab to be typed, stock SSMS not supported but extensions enable this functionality
-         * Description: The description field that will show in a tool tip or Snippet Manager during usage/selection
-         * Author: The creator of the Snippet
-         * SnippetType: Either VS or SSMS
-        */
+        /// <summary>
+        /// The Title of the snippet that will show when using ctrl+k ctrl+x or ctrl+k ctrl+x
+        /// </summary>
         public string _Title {get;set;}
+        /// <summary>
+        /// The shorthand required while in a text editor, ss would require ss tab to be typed, stock SSMS not supported but extensions enable this functionality
+        /// </summary>
         public string _Shortcut {get;set;}
+        /// <summary>
+        /// The description field that will show in a tool tip or Snippet Manager during usage/selection
+        /// </summary>
         public string _Description {get;set;}
+        /// <summary>
+        /// The creator of the Snippet, can be defaulted through configuration
+        /// </summary>
         public string _Author {get;set;}
+        /// <summary>
+        /// For setting the type of snippet
+        /// </summary>
         public SnippetTypeEnums _SnippetType { get; set; }
 
         /// <summary>
@@ -66,11 +74,23 @@ namespace SnippetGenerator.Models
             return metadata_BLL.FormattedMetadataXMLString(this);
         }
 
+        /// <summary>
+        /// Validates the title for null, whitespace, and lessthen or greaterthen  invalid xml characters
+        /// </summary>
+        /// <param name="titleToValidate">Title that needs validated as string</param>
+        /// <param name="errorMessage">Error message returned, is out param</param>
+        /// <returns>boolean value on if validation was successful</returns>
         public static bool ValidateTitle(string titleToValidate, out string errorMessage)
         {
             return Metadata_BLL.ValidateTitle(titleToValidate, out errorMessage);
         }
 
+        /// <summary>
+        /// Validates and ensures a snippet type is selected in the Panel container with the types being represented by radio buttons
+        /// </summary>
+        /// <param name="parentWithRadioButtons">Container Panel that contains the Snippet Types as Radio Buttons</param>
+        /// <param name="errorMessage">Error message returned, is out param</param>
+        /// <returns>boolean value on if validation was successful</returns>
         public static bool ValidateSnippetType(Panel parentWithRadioButtons, out string errorMessage)
         {
             return Metadata_BLL.ValidateSnippetType(parentWithRadioButtons, out errorMessage);

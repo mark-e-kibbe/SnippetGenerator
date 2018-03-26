@@ -16,8 +16,17 @@ namespace SnippetGenerator.Snippet_Enumerations
         /// </summary>
         public enum PlatformEnums
         {
+            /// <summary>
+            /// Only used when a default platform is not chosen/initialization
+            /// </summary>
             None,
+            /// <summary>
+            /// Snippet is for SSMS
+            /// </summary>
             SSMS,
+            /// <summary>
+            /// Snippet is for Visual Studio
+            /// </summary>
             VS
         }
 
@@ -30,8 +39,17 @@ namespace SnippetGenerator.Snippet_Enumerations
         /// </remarks>
         public enum SnippetTypeEnums
         {
+            /// <summary>
+            /// Snippet type Expansion for dropping in preset snippets that "Expand"
+            /// </summary>
             Expansion,
+            /// <summary>
+            /// Only used when a default snippet type is not chosen/initialization
+            /// </summary>
             None,
+            /// <summary>
+            /// Snippet type surrounds with for surrounding highlighted code with a snippet
+            /// </summary>
             SurroundsWith
         }
     }

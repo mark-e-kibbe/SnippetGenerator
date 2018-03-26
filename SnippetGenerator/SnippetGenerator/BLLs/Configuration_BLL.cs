@@ -44,6 +44,12 @@ namespace SnippetGenerator.BLLs
             Default.Save();
         }
 
+        /// <summary>
+        /// Validates the directory for the snippet with Director.Exists
+        /// </summary>
+        /// <param name="outputDirectory">The directory to check</param>
+        /// <param name="errorMessage">Error Message to pass by ref using out</param>
+        /// <returns>Boolean result, successful validation = true</returns>
         public static bool ValidateFilePath(string outputDirectory, out string errorMessage)
         {
             string ErrorMessage = string.Empty;
