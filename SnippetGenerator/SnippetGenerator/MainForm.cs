@@ -90,7 +90,7 @@ namespace SnippetGenerator
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -100,7 +100,7 @@ namespace SnippetGenerator
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void configurationsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ConfigurationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurationForm configForm = new ConfigurationForm();
             configForm.ShowDialog();
@@ -112,7 +112,7 @@ namespace SnippetGenerator
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutForm aboutForm = new AboutForm();
             aboutForm.ShowDialog();
@@ -182,7 +182,7 @@ namespace SnippetGenerator
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnClear_Click(object sender, EventArgs e)
+        private void BtnClear_Click(object sender, EventArgs e)
         {
             Clear();
         }
@@ -219,7 +219,7 @@ namespace SnippetGenerator
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnResetDefaults_Click(object sender, EventArgs e)
+        private void BtnResetDefaults_Click(object sender, EventArgs e)
         {
             Clear();
             InitializeDefaults();
@@ -231,7 +231,7 @@ namespace SnippetGenerator
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void radSSMS_CheckedChanged(object sender, EventArgs e)
+        private void RadSSMS_CheckedChanged(object sender, EventArgs e)
         {
             lblOutput.Text = LblOutputDefault_Text;
             if (radSSMS.Checked == true)
@@ -246,7 +246,7 @@ namespace SnippetGenerator
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void radVS_CheckedChanged(object sender, EventArgs e)
+        private void RadVS_CheckedChanged(object sender, EventArgs e)
         {
             lblOutput.Text = LblOutputDefault_Text;
             if (radVS.Checked == true)
@@ -262,10 +262,12 @@ namespace SnippetGenerator
         /// </summary>
         /// <param name="sender">The sending button causing the event</param>
         /// <param name="e"></param>
-        private void btnOutputDirectory_Click(object sender, EventArgs e)
+        private void BtnOutputDirectory_Click(object sender, EventArgs e)
         {
-            Microsoft.WindowsAPICodePack.Dialogs.CommonOpenFileDialog commonOpenFileDialog = new Microsoft.WindowsAPICodePack.Dialogs.CommonOpenFileDialog();
-            commonOpenFileDialog.IsFolderPicker = true;
+            Microsoft.WindowsAPICodePack.Dialogs.CommonOpenFileDialog commonOpenFileDialog = new Microsoft.WindowsAPICodePack.Dialogs.CommonOpenFileDialog
+            {
+                IsFolderPicker = true
+            };
 
             //Check if there is a default, if not open at Program Files
             if (string.IsNullOrWhiteSpace(txtOutputDirectory.Text))
@@ -290,7 +292,7 @@ namespace SnippetGenerator
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnAddLiteral_Click(object sender, EventArgs e)
+        private void BtnAddLiteral_Click(object sender, EventArgs e)
         {
             bindingListLiteralsToApply.Add(new Literal(txtLiteralID.Text, txtLiteralToolTip.Text, txtLiteralDefault.Text));
             ValidateLiteralControls();
@@ -301,7 +303,7 @@ namespace SnippetGenerator
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnRemoveFromUnapplied_Click(object sender, EventArgs e)
+        private void BtnRemoveFromUnapplied_Click(object sender, EventArgs e)
         {
             if (lstboxUnappliedLiterals.SelectedItem == null || lstboxUnappliedLiterals.Items.Count <= 0)
             {
@@ -319,7 +321,7 @@ namespace SnippetGenerator
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnApply_Click(object sender, EventArgs e)
+        private void BtnApply_Click(object sender, EventArgs e)
         {
             if (lstboxUnappliedLiterals.SelectedItem == null || lstboxUnappliedLiterals.Items.Count <= 0 || txtCodeToSnippet.SelectedText == null)
             {
@@ -356,7 +358,7 @@ namespace SnippetGenerator
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnUnapply_Click(object sender, EventArgs e)
+        private void BtnUnapply_Click(object sender, EventArgs e)
         {
             Literal literalToManipulate = (Literal)lstboxAppliedLiterals.SelectedItem;
 
@@ -424,7 +426,7 @@ namespace SnippetGenerator
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void lstboxUnappliedLiterals_SelectedIndexChanged(object sender, EventArgs e)
+        private void LstboxUnappliedLiterals_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lstboxUnappliedLiterals.SelectedItem != null && lstboxUnappliedLiterals.SelectedIndex > -1 && lstboxUnappliedLiterals.Items.Count > 0)
             {
@@ -442,7 +444,7 @@ namespace SnippetGenerator
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void lstboxAppliedLiterals_SelectedIndexChanged(object sender, EventArgs e)
+        private void LstboxAppliedLiterals_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lstboxAppliedLiterals.SelectedItem != null && lstboxAppliedLiterals.SelectedIndex > -1 && lstboxAppliedLiterals.Items.Count > 0)
             {
@@ -461,7 +463,7 @@ namespace SnippetGenerator
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void radSurroundsWith_CheckedChanged(object sender, EventArgs e)
+        private void RadSurroundsWith_CheckedChanged(object sender, EventArgs e)
         {
             if(radSurroundsWith.Checked)
             {
@@ -475,55 +477,55 @@ namespace SnippetGenerator
                 if (bindingListLiteralsApplied.Any<Literal>(l => l._ID.Equals("selected")))
                 {
                     lstboxAppliedLiterals.SelectedItem = bindingListLiteralsApplied.First<Literal>(l => l._ID.Equals("selected"));
-                    btnUnapply_Click(sender, e);
+                    BtnUnapply_Click(sender, e);
                 }
                 if (bindingListLiteralsApplied.Any<Literal>(l => l._ID.Equals("end")))
                 {
                     lstboxAppliedLiterals.SelectedItem = bindingListLiteralsApplied.First<Literal>(l => l._ID.Equals("end"));
-                    btnUnapply_Click(sender, e);
+                    BtnUnapply_Click(sender, e);
                 }
                 if (bindingListLiteralsToApply.Any<Literal>(l => l._ID.Equals("selected")))
                 {
                     lstboxUnappliedLiterals.SelectedItem = bindingListLiteralsToApply.First<Literal>(l => l._ID.Equals("selected"));
-                    btnRemoveFromUnapplied_Click(sender, e);
+                    BtnRemoveFromUnapplied_Click(sender, e);
                 }
                 if(bindingListLiteralsToApply.Any<Literal>(l => l._ID.Equals("end")))
                 {
                     lstboxUnappliedLiterals.SelectedItem = bindingListLiteralsToApply.First<Literal>(l => l._ID.Equals("end"));
-                    btnRemoveFromUnapplied_Click(sender, e);
+                    BtnRemoveFromUnapplied_Click(sender, e);
                 }
             }
         }
 
-        private void txtMetadataTitle_Validating(object sender, CancelEventArgs e)
+        private void TxtMetadataTitle_Validating(object sender, CancelEventArgs e)
         {
             string ErrorMessage = string.Empty;
             e.Cancel = !Metadata.ValidateTitle(txtMetadataTitle.Text, out ErrorMessage);
             errorProvider1.SetError(txtMetadataTitle, ErrorMessage);
         }
 
-        private void radSnippetType_Validating(object sender, CancelEventArgs e)
+        private void RadSnippetType_Validating(object sender, CancelEventArgs e)
         {
             string ErrorMessage = string.Empty;
             e.Cancel = !Metadata.ValidateSnippetType(pnlSnippetType, out ErrorMessage);
             errorProvider1.SetError(pnlSnippetType, ErrorMessage);
         }
 
-        private void radSnippetPlatform_Validating(object sender, CancelEventArgs e)
+        private void RadSnippetPlatform_Validating(object sender, CancelEventArgs e)
         {
             string ErrorMessage = string.Empty;
             e.Cancel = !Snippet.ValidateSnippetPlatform(grpBoxPlatform, out ErrorMessage);
             errorProvider1.SetError(grpBoxPlatform, ErrorMessage);
         }
 
-        private void txtCodeToSnippet_Validating(object sender, CancelEventArgs e)
+        private void TxtCodeToSnippet_Validating(object sender, CancelEventArgs e)
         {
             string ErrorMessage = string.Empty;
             e.Cancel = !Snippet.ValidateCodeToSnippet(txtCodeToSnippet.Text, radExpansion.Checked, out ErrorMessage);
             errorProvider1.SetError(txtCodeToSnippet, ErrorMessage);
         }
 
-        private void txtOutputDirectory_Validating(object sender, CancelEventArgs e)
+        private void TxtOutputDirectory_Validating(object sender, CancelEventArgs e)
         {
             string ErrorMessage = string.Empty;
             e.Cancel = !Configuration.ValidateFilePath(txtOutputDirectory.Text, out ErrorMessage);

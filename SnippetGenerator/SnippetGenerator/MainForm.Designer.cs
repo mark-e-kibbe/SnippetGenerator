@@ -122,7 +122,7 @@
             this.txtMetadataTitle.Name = "txtMetadataTitle";
             this.txtMetadataTitle.Size = new System.Drawing.Size(148, 26);
             this.txtMetadataTitle.TabIndex = 2;
-            this.txtMetadataTitle.Validating += new System.ComponentModel.CancelEventHandler(this.txtMetadataTitle_Validating);
+            this.txtMetadataTitle.Validating += new System.ComponentModel.CancelEventHandler(this.TxtMetadataTitle_Validating);
             // 
             // txtMetadataAuthor
             // 
@@ -219,7 +219,7 @@
             this.btnUnapply.TabIndex = 12;
             this.btnUnapply.Text = "Unapply";
             this.btnUnapply.UseVisualStyleBackColor = true;
-            this.btnUnapply.Click += new System.EventHandler(this.btnUnapply_Click);
+            this.btnUnapply.Click += new System.EventHandler(this.BtnUnapply_Click);
             // 
             // lstboxAppliedLiterals
             // 
@@ -230,7 +230,7 @@
             this.lstboxAppliedLiterals.Name = "lstboxAppliedLiterals";
             this.lstboxAppliedLiterals.Size = new System.Drawing.Size(117, 184);
             this.lstboxAppliedLiterals.TabIndex = 11;
-            this.lstboxAppliedLiterals.SelectedIndexChanged += new System.EventHandler(this.lstboxAppliedLiterals_SelectedIndexChanged);
+            this.lstboxAppliedLiterals.SelectedIndexChanged += new System.EventHandler(this.LstboxAppliedLiterals_SelectedIndexChanged);
             // 
             // btnApply
             // 
@@ -242,7 +242,7 @@
             this.btnApply.TabIndex = 10;
             this.btnApply.Text = "Apply";
             this.btnApply.UseVisualStyleBackColor = true;
-            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
+            this.btnApply.Click += new System.EventHandler(this.BtnApply_Click);
             // 
             // btnRemoveFromUnapplied
             // 
@@ -254,7 +254,7 @@
             this.btnRemoveFromUnapplied.TabIndex = 8;
             this.btnRemoveFromUnapplied.Text = "Remove";
             this.btnRemoveFromUnapplied.UseVisualStyleBackColor = true;
-            this.btnRemoveFromUnapplied.Click += new System.EventHandler(this.btnRemoveFromUnapplied_Click);
+            this.btnRemoveFromUnapplied.Click += new System.EventHandler(this.BtnRemoveFromUnapplied_Click);
             // 
             // btnAddLiteral
             // 
@@ -265,7 +265,7 @@
             this.btnAddLiteral.TabIndex = 7;
             this.btnAddLiteral.Text = "Add Literal";
             this.btnAddLiteral.UseVisualStyleBackColor = true;
-            this.btnAddLiteral.Click += new System.EventHandler(this.btnAddLiteral_Click);
+            this.btnAddLiteral.Click += new System.EventHandler(this.BtnAddLiteral_Click);
             // 
             // lstboxUnappliedLiterals
             // 
@@ -276,7 +276,7 @@
             this.lstboxUnappliedLiterals.Name = "lstboxUnappliedLiterals";
             this.lstboxUnappliedLiterals.Size = new System.Drawing.Size(117, 184);
             this.lstboxUnappliedLiterals.TabIndex = 9;
-            this.lstboxUnappliedLiterals.SelectedIndexChanged += new System.EventHandler(this.lstboxUnappliedLiterals_SelectedIndexChanged);
+            this.lstboxUnappliedLiterals.SelectedIndexChanged += new System.EventHandler(this.LstboxUnappliedLiterals_SelectedIndexChanged);
             // 
             // lblLiterals
             // 
@@ -352,7 +352,7 @@
             this.txtCodeToSnippet.Size = new System.Drawing.Size(812, 173);
             this.txtCodeToSnippet.TabIndex = 5;
             this.txtCodeToSnippet.Text = "";
-            this.txtCodeToSnippet.Validating += new System.ComponentModel.CancelEventHandler(this.txtCodeToSnippet_Validating);
+            this.txtCodeToSnippet.Validating += new System.ComponentModel.CancelEventHandler(this.TxtCodeToSnippet_Validating);
             // 
             // btnGenerateAndSave
             // 
@@ -396,7 +396,7 @@
             this.radExpansion.TabIndex = 1;
             this.radExpansion.Text = "Expansion";
             this.radExpansion.UseVisualStyleBackColor = true;
-            this.radExpansion.Validating += new System.ComponentModel.CancelEventHandler(this.radSnippetType_Validating);
+            this.radExpansion.Validating += new System.ComponentModel.CancelEventHandler(this.RadSnippetType_Validating);
             // 
             // radSurroundsWith
             // 
@@ -409,8 +409,8 @@
             this.radSurroundsWith.TabStop = true;
             this.radSurroundsWith.Text = "SurroundsWith";
             this.radSurroundsWith.UseVisualStyleBackColor = true;
-            this.radSurroundsWith.CheckedChanged += new System.EventHandler(this.radSurroundsWith_CheckedChanged);
-            this.radSurroundsWith.Validating += new System.ComponentModel.CancelEventHandler(this.radSnippetType_Validating);
+            this.radSurroundsWith.CheckedChanged += new System.EventHandler(this.RadSurroundsWith_CheckedChanged);
+            this.radSurroundsWith.Validating += new System.ComponentModel.CancelEventHandler(this.RadSnippetType_Validating);
             // 
             // label1
             // 
@@ -432,7 +432,7 @@
             this.txtOutputDirectory.Name = "txtOutputDirectory";
             this.txtOutputDirectory.Size = new System.Drawing.Size(530, 26);
             this.txtOutputDirectory.TabIndex = 7;
-            this.txtOutputDirectory.Validating += new System.ComponentModel.CancelEventHandler(this.txtOutputDirectory_Validating);
+            this.txtOutputDirectory.Validating += new System.ComponentModel.CancelEventHandler(this.TxtOutputDirectory_Validating);
             // 
             // grpBoxPlatform
             // 
@@ -457,8 +457,8 @@
             this.radVS.TabIndex = 1;
             this.radVS.Text = "VS";
             this.radVS.UseVisualStyleBackColor = true;
-            this.radVS.CheckedChanged += new System.EventHandler(this.radVS_CheckedChanged);
-            this.radVS.Validating += new System.ComponentModel.CancelEventHandler(this.radSnippetPlatform_Validating);
+            this.radVS.CheckedChanged += new System.EventHandler(this.RadVS_CheckedChanged);
+            this.radVS.Validating += new System.ComponentModel.CancelEventHandler(this.RadSnippetPlatform_Validating);
             // 
             // radSSMS
             // 
@@ -471,8 +471,8 @@
             this.radSSMS.TabStop = true;
             this.radSSMS.Text = "SSMS";
             this.radSSMS.UseVisualStyleBackColor = true;
-            this.radSSMS.CheckedChanged += new System.EventHandler(this.radSSMS_CheckedChanged);
-            this.radSSMS.Validating += new System.ComponentModel.CancelEventHandler(this.radSnippetPlatform_Validating);
+            this.radSSMS.CheckedChanged += new System.EventHandler(this.RadSSMS_CheckedChanged);
+            this.radSSMS.Validating += new System.ComponentModel.CancelEventHandler(this.RadSnippetPlatform_Validating);
             // 
             // btnClear
             // 
@@ -483,7 +483,7 @@
             this.btnClear.TabIndex = 9;
             this.btnClear.Text = "Clear All Fields";
             this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            this.btnClear.Click += new System.EventHandler(this.BtnClear_Click);
             // 
             // btnResetDefaults
             // 
@@ -494,7 +494,7 @@
             this.btnResetDefaults.TabIndex = 0;
             this.btnResetDefaults.Text = "Reset Defaults";
             this.btnResetDefaults.UseVisualStyleBackColor = true;
-            this.btnResetDefaults.Click += new System.EventHandler(this.btnResetDefaults_Click);
+            this.btnResetDefaults.Click += new System.EventHandler(this.BtnResetDefaults_Click);
             // 
             // menuStrip1
             // 
@@ -523,7 +523,7 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(123, 30);
             this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
@@ -538,14 +538,14 @@
             this.configurationsToolStripMenuItem.Name = "configurationsToolStripMenuItem";
             this.configurationsToolStripMenuItem.Size = new System.Drawing.Size(160, 30);
             this.configurationsToolStripMenuItem.Text = "Settings";
-            this.configurationsToolStripMenuItem.Click += new System.EventHandler(this.configurationsToolStripMenuItem_Click);
+            this.configurationsToolStripMenuItem.Click += new System.EventHandler(this.ConfigurationsToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(74, 29);
             this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
             // saveFileDialog1
             // 
@@ -560,7 +560,7 @@
             this.btnOutputDirectory.TabIndex = 11;
             this.btnOutputDirectory.Text = "Pick";
             this.btnOutputDirectory.UseVisualStyleBackColor = true;
-            this.btnOutputDirectory.Click += new System.EventHandler(this.btnOutputDirectory_Click);
+            this.btnOutputDirectory.Click += new System.EventHandler(this.BtnOutputDirectory_Click);
             // 
             // errorProvider1
             // 
