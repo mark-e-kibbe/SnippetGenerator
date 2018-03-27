@@ -73,6 +73,10 @@ namespace SnippetGenerator
         /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if(config.IsFirstTimeRun)
+            {
+                MessageBox.Show("Configuration can be changed after first run by going to the menubar and clicking Settings");
+            }
             config.Author = txtDefaultAuthor.Text;
             config.SSMSOutputFilePath = txtDefaultSSMSPath.Text;
             config.VStudioOutputFilePath = txtDefaultVisualStudioPath.Text;
