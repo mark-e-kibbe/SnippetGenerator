@@ -121,7 +121,7 @@ namespace SnippetGenerator.BLLs
             string ErrorMessage = string.Empty;
             bool DidValidate = true;
 
-            DidValidate = !parentWithRadioButtons.Controls.OfType<RadioButton>().Any(rb => rb.Checked == true);
+            DidValidate = parentWithRadioButtons.Controls.OfType<RadioButton>().Any(rb => rb.Checked == true);
 
             if (!DidValidate)
             {
