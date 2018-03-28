@@ -253,6 +253,11 @@ namespace SnippetGenerator
             {
                 lblOutput.Text = $"{radVS.Text} {LblOutputDefault_Text}";
                 txtOutputDirectory.Text = new Configuration().VStudioOutputFilePath;
+                grpBoxLanguage.Visible = true;
+            }
+            else
+            {
+                grpBoxLanguage.Visible = false;
             }
         }
         #endregion

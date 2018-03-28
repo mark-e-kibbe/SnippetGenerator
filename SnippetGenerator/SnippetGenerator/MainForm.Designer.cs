@@ -78,12 +78,16 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.btnOutputDirectory = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.grpBoxLanguage = new System.Windows.Forms.GroupBox();
+            this.radVB = new System.Windows.Forms.RadioButton();
+            this.radCSharp = new System.Windows.Forms.RadioButton();
             this.pnlMetaData.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlSnippetType.SuspendLayout();
             this.grpBoxPlatform.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.grpBoxLanguage.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMetaData
@@ -438,7 +442,7 @@
             // 
             this.grpBoxPlatform.Controls.Add(this.radVS);
             this.grpBoxPlatform.Controls.Add(this.radSSMS);
-            this.grpBoxPlatform.Location = new System.Drawing.Point(50, 38);
+            this.grpBoxPlatform.Location = new System.Drawing.Point(18, 40);
             this.grpBoxPlatform.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.grpBoxPlatform.Name = "grpBoxPlatform";
             this.grpBoxPlatform.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -566,12 +570,50 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // grpBoxLanguage
+            // 
+            this.grpBoxLanguage.Controls.Add(this.radVB);
+            this.grpBoxLanguage.Controls.Add(this.radCSharp);
+            this.grpBoxLanguage.Location = new System.Drawing.Point(206, 40);
+            this.grpBoxLanguage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.grpBoxLanguage.Name = "grpBoxLanguage";
+            this.grpBoxLanguage.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.grpBoxLanguage.Size = new System.Drawing.Size(164, 65);
+            this.grpBoxLanguage.TabIndex = 2;
+            this.grpBoxLanguage.TabStop = false;
+            this.grpBoxLanguage.Text = "Language";
+            this.grpBoxLanguage.Visible = false;
+            // 
+            // radVB
+            // 
+            this.radVB.AutoSize = true;
+            this.radVB.Location = new System.Drawing.Point(96, 23);
+            this.radVB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radVB.Name = "radVB";
+            this.radVB.Size = new System.Drawing.Size(56, 24);
+            this.radVB.TabIndex = 1;
+            this.radVB.Text = "VB";
+            this.radVB.UseVisualStyleBackColor = true;
+            // 
+            // radCSharp
+            // 
+            this.radCSharp.AutoSize = true;
+            this.radCSharp.Location = new System.Drawing.Point(4, 23);
+            this.radCSharp.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radCSharp.Name = "radCSharp";
+            this.radCSharp.Size = new System.Drawing.Size(54, 24);
+            this.radCSharp.TabIndex = 0;
+            this.radCSharp.TabStop = true;
+            this.radCSharp.Text = "C#";
+            this.radCSharp.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(856, 618);
+            this.Controls.Add(this.grpBoxLanguage);
             this.Controls.Add(this.btnOutputDirectory);
             this.Controls.Add(this.btnResetDefaults);
             this.Controls.Add(this.btnClear);
@@ -599,6 +641,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.grpBoxLanguage.ResumeLayout(false);
+            this.grpBoxLanguage.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -652,6 +696,9 @@
         private System.Windows.Forms.ListBox lstboxAppliedLiterals;
         private System.Windows.Forms.Button btnUnapply;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.GroupBox grpBoxLanguage;
+        private System.Windows.Forms.RadioButton radVB;
+        private System.Windows.Forms.RadioButton radCSharp;
     }
 }
 
