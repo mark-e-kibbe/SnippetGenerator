@@ -18,9 +18,9 @@ namespace SnippetGenerator.Models
         private Snippet_BLL snippet_BLL = new Snippet_BLL();
 
         /// <summary>
-        /// The code to be turned into a code snippet
+        /// Model containing everything for the code to turn into a snippet
         /// </summary>
-        public string CodeToSnippet { get; set; }
+        public Code CodeToTurnToSnippet { get; set; }
         /// <summary>
         /// Targeted platform for code snippet - SSMS or VS
         /// </summary>

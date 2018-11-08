@@ -64,6 +64,7 @@
     <Compile Include="AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BLLs\Code_BLL.cs" />
     <Compile Include="BLLs\Configuration_BLL.cs" />
     <Compile Include="BLLs\Literal_BLL.cs" />
     <Compile Include="BLLs\Metadata_BLL.cs" />

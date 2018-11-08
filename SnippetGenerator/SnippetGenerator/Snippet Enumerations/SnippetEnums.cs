@@ -54,7 +54,7 @@ namespace SnippetGenerator.Snippet_Enumerations
         }
 
         /// <summary>
-        /// List of Snippet Programming Languages Available
+        /// List of Snippet Languages Available
         /// </summary>
         public enum SnippetLanguage
         {
@@ -63,9 +63,13 @@ namespace SnippetGenerator.Snippet_Enumerations
             /// </summary>
             csharp,
             /// <summary>
-            /// Only used when a default snippet language is not chosen or for SSMS code snippets
+            /// Only used when there is not a default snippet language or platform
             /// </summary>
             none,
+            /// <summary>
+            /// SQL for SSMS
+            /// </summary>
+            SQL,
             /// <summary>
             /// Visual Basic
             /// </summary>

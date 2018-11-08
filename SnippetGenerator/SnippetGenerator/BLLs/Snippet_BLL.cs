@@ -59,7 +59,7 @@ namespace SnippetGenerator.BLLs
             _stringBuilder.AppendLine(@"</Declarations>");
 
             //Appends the code the user would like to turn into a code snippet to the xml string being built
-            _stringBuilder.AppendLine(CodeXML(snippet.CodeToSnippet, snippet.Platform));
+            _stringBuilder.AppendLine(snippet.CodeToTurnToSnippet.GetCodeXMLStr());
 
             _stringBuilder.AppendLine(@"</Snippet>");
             _stringBuilder.AppendLine(@"</CodeSnippet>");
@@ -189,32 +189,7 @@ namespace SnippetGenerator.BLLs
             return LiteralXML;
         }
 
-        /// <summary>
-        /// Converts the code to turn into a Code Snippet to XML string
-        /// </summary>
-        /// <param name="code">Code to convert to snippet</param>
-        /// <param name="platform">Target platform for Code Snippet - SSMS or VS</param>
-        /// <returns>Generated XML string for code to snippet</returns>
-        private string CodeXML(string code, Snippet_Enumerations.SnippetEnums.PlatformEnums platform)
-        {
-            string CodeXML = string.Empty;
-
-            //determine which enum, set string to the appropriate required attribute of Language Property
-            string CodeLanguageAttribute = platform == PlatformEnums.SSMS ? "SQL" : "csharp";
-
-            StringBuilder sb = new StringBuilder();
-
-            sb.AppendLine($@"<Code Language=""{CodeLanguageAttribute}"">");
-            sb.AppendLine(@"<![CDATA[");
-
-            sb.AppendLine(code);
-
-            sb.AppendLine(@"]]>");
-            sb.AppendLine(@" </Code>");
-
-            CodeXML = sb.ToString();
-            return CodeXML;
-        }
+        
 
         /// <summary>
         /// Converts a complete xml code snippet string to a validated XML XDocument

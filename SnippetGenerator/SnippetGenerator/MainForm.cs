@@ -172,7 +172,7 @@ namespace SnippetGenerator
             snippet.Metadata.Title = txtMetadataTitle.Text;
             snippet.Metadata.SnippetType = Utilities.EnumParseToSnippetTypeEnum(pnlSnippetType);
 
-            _Snippet.CodeToSnippet = txtCodeToSnippet.Text;
+            _Snippet.CodeToTurnToSnippet.CodeToSnippet = txtCodeToSnippet.Text;
 
             snippet.Platform = Utilities.EnumParseToSnippetTypeEnum(grpBoxPlatform);
         }
